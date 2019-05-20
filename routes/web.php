@@ -34,6 +34,21 @@ Route::group([
     'middleware' => ['auth','CheckMember:Adult']
 ], function() {
     Route::get('/', 'DashboardController@index')->name('adult_index');
+    Route::get('/recipes', 'RecipesController@index')->name('recipes_index');
+    Route::get('/groceries', 'GroceriesController@index')->name('groceries_index');
+    Route::get('/rating', 'QuestController@rating')->name('quest_rating');
+    Route::get('/quests', 'QuestController@index')->name('quests_index');
+
+});
+
+Route::group([
+    'prefix' => 'backend',
+    'namespace' => 'Backend',
+    'middleware' => ['auth']
+], function() {
+    Route::get('/', 'DashboardController@index')->name('backend_index');
+    Route::get('/recipes', 'RecipesController@index')->name('backend_recipes_index');
+
 });
 
 

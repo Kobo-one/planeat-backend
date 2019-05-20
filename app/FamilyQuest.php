@@ -10,12 +10,12 @@ class FamilyQuest extends Model
         'date','family_id','ingredient_id','status'
     ];
 
-    public function Family()
+    public function family()
     {
         return $this->belongsTo('App\Family');
     }
 
-    public function Ingredient()
+    public function ingredient()
     {
         return $this->belongsTo('App\Ingredient');
     }
