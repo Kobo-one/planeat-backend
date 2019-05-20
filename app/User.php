@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,5 +43,16 @@ class User extends Authenticatable
     public function family()
     {
         return $this->hasOne('App\Family');
+    }
+
+    public function familyMembers(){
+        return $this->hasManyThrough('App\FamilyMember','App\Family');
+    }
+
+    public function currentMember(){
+        if($this->family){
+            return $this->family->members()->where('id',session('member'))->first();
+        }
+        return false;
     }
 }

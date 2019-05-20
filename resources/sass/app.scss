@@ -3,6 +3,12 @@
 
 // Variables
 @import 'variables';
+@import "components/main";
+@import "components/nav";
+@import "components/adult/dashboard";
+
+@import "core/buttons";
+@import "core/normalize";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

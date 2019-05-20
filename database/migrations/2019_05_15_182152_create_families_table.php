@@ -16,6 +16,7 @@ class CreateFamiliesTable extends Migration
         Schema::create('families', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('completed_tutorial');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

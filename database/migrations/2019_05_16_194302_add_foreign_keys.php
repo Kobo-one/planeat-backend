@@ -13,8 +13,8 @@ class AddForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('family_id')->references('id')->on('families')->onDelete('set null');
+        Schema::table('families', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
 
         Schema::table('recipes', function (Blueprint $table) {
