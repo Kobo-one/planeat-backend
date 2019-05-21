@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Adult;
 
+use App\FamilyPlanning;
 use App\FamilyQuest;
 use App\Http\Requests\StoreQuest;
 use App\Ingredient;
@@ -28,6 +29,25 @@ class QuestController extends Controller
         $quests = $quests->all();
         return view(self::PATH.'quests/index',compact('listItems','quests'));
     }
+
+    public function rating($date){
+
+        $members = Auth::user()->family->members;
+        $children = [];
+        foreach ($members as $member){
+            if($member->hasrole('Child')){
+                $children[] = $member;
+            }
+        }
+        //$quest = Auth::user()->family->quests->where('date',$date)->first();
+
+        $questRecipe = FamilyPlanning::where('family_id',Auth::user()->family->id)->where('date',$date)->has('quest')->first();
+        //$questRecipe = FamilyPlanning::where('family_quest_id',$quest->id)->first();
+
+
+        return view(self::PATH.'quests/rate',compact('children','questRecipe'));
+    }
+
 
     public function create($date,$ingredientId = null){
         if($date){

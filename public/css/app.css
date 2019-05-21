@@ -715,6 +715,10 @@ h6 + h6 {
   color: #fff;
 }
 
+.text--message {
+  color: #b7b7b7;
+}
+
 .text--primary {
   color: #AFD656;
 }
@@ -1116,6 +1120,7 @@ svg {
   padding-right: 0px;
   max-width: 420px;
   background-color: #FBFBFB;
+  min-height: 100vh !important;
 }
 
 #app:before,

@@ -48,5 +48,6 @@ class FamilyMember extends Model implements
     public function shield(){
         return $this->belongsTo('App\Equipment','shield_id');
     }
+
 }
 

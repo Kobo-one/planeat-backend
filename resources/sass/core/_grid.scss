@@ -26,7 +26,6 @@ $grid-rhythm: $rh-sml !default;
 }
 
 #app {
-
     @include container-fluid(0px);
     max-width: 420px;
     &--relative {
@@ -36,6 +35,7 @@ $grid-rhythm: $rh-sml !default;
         @include container-fluid(0px);
     }
     background-color: $color-app;
+    min-height: 100vh !important;
 
 }
 
