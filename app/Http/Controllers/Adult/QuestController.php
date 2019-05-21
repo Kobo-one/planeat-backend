@@ -22,7 +22,10 @@ class QuestController extends Controller
         }
 
         $quests = $quests->all();
- //       dd($listItems);
         return view(self::PATH.'quests/index',compact('listItems','quests'));
+    }
+
+    public function create($date){
+        return view(self::PATH.'quests/create',compact('ingredients'));
     }
 }

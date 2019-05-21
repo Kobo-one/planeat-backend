@@ -1,0 +1,20 @@
+.adultHeader{
+    background-color: $color-primary;
+    background-image: url('/../img/background.png');
+    background-position: center;
+    margin: 0;
+    color: $color-contrast;
+}
+adultHeader__options{
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.adultHeader__Back{
+    text-decoration: none;
+    color: $color-contrast !important;
+}
+
+.icon__header{
+    height: 30px;
+}

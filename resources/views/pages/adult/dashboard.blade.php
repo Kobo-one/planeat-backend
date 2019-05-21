@@ -1,7 +1,7 @@
 @extends('layouts.parent')
 
 @section('header')
-    @include('partials.adult.header',['back'=>false, 'title'=> '','rightUrl'=>route('member_index'),'icon' => Auth::user()->currentMember()->avatar->img])
+    @include('partials.adult.header',['back'=>false, 'title'=> '','rightUrl'=>route('member_index'),'icon' => Auth::user()->currentMember()->avatar->img,'search'=>false])
 @endsection
 
 @section('site-content')
@@ -15,7 +15,7 @@
 {{--            </div>--}}
 {{--        </div>--}}
         Hi {{Auth::user()->currentMember()->name}}!
-        <div class="grid grid--bp-med-2-col dashboard__items">
+        <div class="grid grid--2-col dashboard__items">
             <a href="{{route('recipes_index')}}" class="grid__item selection__item panel"><img src="dashboard__img" alt="Recipes icon"><h2>Recipes</h2><p>What’s on the menu today?</p></a>
             <a href="{{route('groceries_index')}}" class="grid__item selection__item panel"><img src="dashboard__img" alt="Groceries icon"><h2>Groceries</h2><p>Checkout your grocery list!</p></a>
             <a href="{{route('quest_rating')}}" class="grid__item selection__item panel"><img src="dashboard__img" alt="After dinner icon"><h2>After dinner</h2><p>Have your kids eaten well or not?</p></a>

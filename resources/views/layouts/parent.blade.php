@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('member-layout')
-        <div class="container">
+
             @yield('header')
 
-
+            <div class="container">
     <main class="py-4">
         @yield('site-content')
     </main>

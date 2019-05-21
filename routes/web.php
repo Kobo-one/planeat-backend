@@ -42,7 +42,7 @@ Route::group([
         Route::get('/', 'QuestController@index')->name('quests_index');
         Route::get('/detail', 'QuestController@show')->name('quest_detail');
         Route::get('/rate', 'QuestController@rating')->name('quest_rating');
-        Route::get('/create', 'QuestController@create')->name('quest_create');
+        Route::get('/create/{date}', 'QuestController@create')->name('quest_create');
         Route::get('/delete/{id}', 'QuestController@delete')->name('quest_delete');
     });
 

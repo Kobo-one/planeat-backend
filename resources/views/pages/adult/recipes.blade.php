@@ -1,7 +1,7 @@
 @extends('layouts.parent')
 
 @section('header')
-    @include('partials.adult.header',['back'=>'true', 'title'=> 'Recipes','rightUrl'=>'','icon' => ''])
+    @include('partials.adult.header',['back'=>route('adult_index'), 'title'=> 'Recipes','rightUrl'=>'','icon' => ''])
 @endsection
 
 @section('site-content')

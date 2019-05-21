@@ -125,6 +125,10 @@ h5 {
   color: $color-primary;
 }
 
+.text--contrast {
+    color: $color-contrast !important;
+}
+
 // .text--success
 @each $type, $color in $notice-colors {
   .text--#{$type} {
