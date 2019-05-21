@@ -10,17 +10,18 @@
     *{
         margin: 0;
     }
-}
-.adultHeader__options{
-    height: 50px;
-    display: flex;
-    align-items: center;
-}
-.adultHeader__Back{
-    text-decoration: none;
-    color: $color-contrast !important;
+    .header__options{
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
+    .header__Back{
+        text-decoration: none;
+        color: $color-contrast !important;
+    }
+
+    .icon__header{
+        width: 25px;
+    }
 }
 
-.icon__header{
-    height: 30px;
-}

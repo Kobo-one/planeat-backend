@@ -1,0 +1,29 @@
+.adultNavigation{
+    font-size: $font-size-xsm;
+    border-top: 1px solid $gray-10;
+    background-color: $color-contrast;
+    z-index: 1000;
+    position: sticky;
+    bottom: 0;
+    padding: 10px 0 10px ;
+    *{
+        margin: 0;
+    }
+
+    .nav__options{
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .nav__item{
+        align-self: center;
+        text-align: center;
+        width: 80%;
+    }
+
+    .nav__img{
+        width: 20px;
+    }
+
+}

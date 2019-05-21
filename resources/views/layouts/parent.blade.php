@@ -8,4 +8,6 @@
             @yield('site-content')
         </main>
     </div>
+
+    @include('partials.adult.navigation')
 @endsection
