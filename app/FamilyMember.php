@@ -49,5 +49,19 @@ class FamilyMember extends Model implements
         return $this->belongsTo('App\Equipment','shield_id');
     }
 
+    public function checkForLevelUp(){
+        $leveledup = false;
+        $currentxp = $this->xp;
+        $level = $this->level;
+        $levelupxp = nextLevel($level+1);
+        if($currentxp >= $levelupxp){
+            $this->level += 1;
+            $this->save();
+            $leveledup = true;
+            $this->checkForLevelUp();
+        }
+        return ['leveled' => $leveledup,'level'=>$this->level , 'xpneeded' => ($levelupxp-$currentxp)];
+    }
+
 }
 

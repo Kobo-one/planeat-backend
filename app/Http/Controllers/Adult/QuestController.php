@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adult;
 use App\FamilyPlanning;
 use App\FamilyQuest;
 use App\Http\Requests\StoreQuest;
+use App\Http\Requests\StoreRating;
 use App\Ingredient;
 use App\Recipe;
 use Carbon\Carbon;
@@ -39,13 +40,32 @@ class QuestController extends Controller
                 $children[] = $member;
             }
         }
-        //$quest = Auth::user()->family->quests->where('date',$date)->first();
 
+        $quest = Auth::user()->family->quests->where('date',$date)->first();
         $questRecipe = FamilyPlanning::where('family_id',Auth::user()->family->id)->where('date',$date)->has('quest')->first();
         //$questRecipe = FamilyPlanning::where('family_quest_id',$quest->id)->first();
 
 
-        return view(self::PATH.'quests/rate',compact('children','questRecipe'));
+        return view(self::PATH.'quests/rate',compact('children','questRecipe','date', 'quest'));
+    }
+
+    public function ratingStore(StoreRating $request,$date){
+//        TODO: add table to undo ratings
+        $members = Auth::user()->family->members;
+        $ratings = $request->ratings;
+        foreach ($ratings as $memberId => $rating){
+            //TODO: check if correct equation for xp
+            $xp = $rating;
+            $child = $members->where('id',$memberId)->first();
+            $child->xp+=$xp;
+            $child->save();
+            $child->checkForLevelUp();
+        }
+        $quest = Auth::user()->family->quests->where('date',$date)->first();
+        $quest->status = 'rated';
+        $quest->save();
+
+        return redirect()->route('quest_rating',$date)->with('success','The children have received their xp!');
     }
 
 

@@ -2179,6 +2179,30 @@ img {
   width: 50%;
 }
 
+.notice {
+  padding: 24px;
+}
+
+.notice--success {
+  background-color: #e0f7ea;
+  color: #2ecc71;
+}
+
+.notice--info {
+  background-color: #e1f0fa;
+  color: #3498db;
+}
+
+.notice--warning {
+  background-color: #fdf7df;
+  color: #f2ca27;
+}
+
+.notice--danger {
+  background-color: #fbe4e2;
+  color: #e74c3c;
+}
+
 .section {
   padding: 24px 0;
 }
@@ -2209,6 +2233,48 @@ img {
 
 .section--xsm {
   padding: 12px 0;
+}
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  width: 100%;
+  direction: rtl;
+  white-space: nowrap;
+}
+
+.slider .slide__item {
+  flex: 0 0 calc(100%/7);
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
+
+.slider::-webkit-scrollbar {
+  visibility: hidden;
+}
+
+.daySlider {
+  border-bottom: 1px solid #eaeaea;
+  text-align: center;
+}
+
+.daySlider .slide__item a {
+  text-decoration: none;
+  color: #000;
+}
+
+.daySlider .day {
+  width: 26px;
+  margin: auto;
+  border-radius: 100%;
+}
+
+.daySlider .selected {
+  background-color: #F29123;
+  color: #FFFFFF;
 }
 
 .flex {

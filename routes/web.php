@@ -42,9 +42,10 @@ Route::group([
         Route::get('/', 'QuestController@index')->name('quests_index');
         Route::get('/detail', 'QuestController@show')->name('quest_detail');
         Route::get('/rate/{date}', 'QuestController@rating')->name('quest_rating');
+        Route::post('/rate/{date}', 'QuestController@ratingStore')->name('quest_rating_store');
         Route::get('/create/{date}', 'QuestController@create')->name('quest_create');
         Route::get('/create/{date}/{ingredient}', 'QuestController@create')->name('quest_create_with_ingredient');
-        Route::POST('/create/{date}/{ingredient}', 'QuestController@store')->name('quest_store');
+        Route::post('/create/{date}/{ingredient}', 'QuestController@store')->name('quest_store');
         Route::get('/delete/{id}', 'QuestController@delete')->name('quest_delete');
     });
 
