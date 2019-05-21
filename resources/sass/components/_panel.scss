@@ -27,6 +27,9 @@
       vertical-align: middle;
     }
   }
+    .panel__image{
+        position: relative;
+    }
 
   // @include breakpoint(map-get($breakpoints, med), max-width) {
 
@@ -52,3 +55,9 @@
     border-radius: $border-radius-lrg;
     box-shadow: 0px 8px 10px rgba(0,0,0,0.07);
 }
+
+.panel--masonry{
+    width: 50%;
+}
+
+

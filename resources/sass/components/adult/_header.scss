@@ -1,12 +1,18 @@
 .adultHeader{
+    z-index: 1000;
+    position: sticky;
+    top: 0;
     background-color: $color-primary;
     background-image: url('/../img/background.png');
     background-position: center;
     margin: 0;
     color: $color-contrast;
+    *{
+        margin: 0;
+    }
 }
-adultHeader__options{
-    height: 60px;
+.adultHeader__options{
+    height: 50px;
     display: flex;
     align-items: center;
 }

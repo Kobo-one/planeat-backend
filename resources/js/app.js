@@ -5,9 +5,16 @@
  */
 
 require('./bootstrap');
+masonry = require('masonry-layout');
+window.$ = require("jquery");
 
 window.Vue = require('vue');
 
+var Masonry = require('masonry-layout');
+
+var masonry = new Masonry( '.masonry', {
+    itemSelector: '.masonry__item',
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

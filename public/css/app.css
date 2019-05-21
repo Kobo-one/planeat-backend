@@ -2065,6 +2065,10 @@ img {
 }
 
 .adultHeader {
+  z-index: 1000;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   background-color: #AFD656;
   background-image: url("/../img/background.png");
   background-position: center;
@@ -2072,8 +2076,12 @@ img {
   color: #FFFFFF;
 }
 
-adultHeader__options {
-  height: 60px;
+.adultHeader * {
+  margin: 0;
+}
+
+.adultHeader__options {
+  height: 50px;
   display: flex;
   align-items: center;
 }
@@ -2115,6 +2123,10 @@ adultHeader__options {
   vertical-align: middle;
 }
 
+.panel .panel__image {
+  position: relative;
+}
+
 .panel--light {
   background: #fff;
   border: 2px solid #f5f5f5;
@@ -2125,6 +2137,10 @@ adultHeader__options {
   background: #fff;
   border-radius: 5px;
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.07);
+}
+
+.panel--masonry {
+  width: 50%;
 }
 
 .section {

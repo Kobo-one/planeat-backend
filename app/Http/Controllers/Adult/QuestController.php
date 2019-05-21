@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Adult;
 
+use App\Ingredient;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,6 +27,8 @@ class QuestController extends Controller
     }
 
     public function create($date){
+        $ingredients = Ingredient::all();
+
         return view(self::PATH.'quests/create',compact('ingredients'));
     }
 }
