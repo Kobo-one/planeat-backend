@@ -36,8 +36,15 @@ Route::group([
     Route::get('/', 'DashboardController@index')->name('adult_index');
     Route::get('/recipes', 'RecipesController@index')->name('recipes_index');
     Route::get('/groceries', 'GroceriesController@index')->name('groceries_index');
-    Route::get('/rating', 'QuestController@rating')->name('quest_rating');
-    Route::get('/quests', 'QuestController@index')->name('quests_index');
+    Route::group([
+        'prefix'=>'quests'
+    ],function (){
+        Route::get('/', 'QuestController@index')->name('quests_index');
+        Route::get('/detail', 'QuestController@show')->name('quest_detail');
+        Route::get('/rate', 'QuestController@rating')->name('quest_rating');
+        Route::get('/create', 'QuestController@create')->name('quest_create');
+        Route::get('/delete/{id}', 'QuestController@delete')->name('quest_delete');
+    });
 
 });
 
