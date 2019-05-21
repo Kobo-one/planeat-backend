@@ -15,8 +15,8 @@ class Recipe extends Model
         return $this->belongsTo('App\RecipeCategory');
     }
 
-    public function Ingredients()
+    public function recipeIngredients()
     {
-        return $this->hasManyThrough('App\Ingredient','App\RecipeIngredient');
+        return $this->hasMany('App\RecipeIngredient');
     }
 }

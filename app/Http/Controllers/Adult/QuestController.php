@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Adult;
 
+use App\FamilyQuest;
+use App\Http\Requests\StoreQuest;
 use App\Ingredient;
+use App\Recipe;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,9 +29,37 @@ class QuestController extends Controller
         return view(self::PATH.'quests/index',compact('listItems','quests'));
     }
 
-    public function create($date){
-        $ingredients = Ingredient::all();
+    public function create($date,$ingredientId = null){
+        if($date){
+            if($ingredientId){
+                $ingredient = Ingredient::find($ingredientId);
+                $recipes = Recipe::whereHas('recipeIngredients', function($q) use ($ingredientId){
+                    $q->where('recipe_ingredients.ingredient_id', $ingredientId);
+                })->get();;
+                return view(self::PATH.'quests/createStep2',compact('recipes','date', 'ingredient'));
+            }
+            $ingredients = Ingredient::all();
+            return view(self::PATH.'quests/create',compact('ingredients','date'));
+        }
+    }
 
-        return view(self::PATH.'quests/create',compact('ingredients'));
+    public function store(StoreQuest $request, $date ,$ingredientId){
+        $fields=[
+            'date'=>$date,
+            'family_id' => Auth::user()->family->id,
+            'ingredient_id' => $ingredientId,
+            'status' => 'created',
+        ];
+        $quest = FamilyQuest::create($fields);
+        $questId=$quest->id;
+        $relations=[];
+        foreach($request->recipes as $recipeId){
+            $relations=[
+                'family_quest_id'=> $questId,
+                'recipe_id'=> $recipeId,
+            ];
+        }
+
+        return redirect()->route('quests_index')->with('success','Quest has been created');
     }
 }
