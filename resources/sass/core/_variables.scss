@@ -20,18 +20,10 @@ $notice-colors: (
   danger: #e74c3c
 );
 
-$status-colors: (
-  delivered: rgb(207, 207, 207),
-  processing: rgb(255, 192, 70),
-  open: rgb(140, 235, 143),
-  running: rgb(66, 154, 241),
-  answered: rgb(175, 80, 234),
-  archived: rgb(125, 125, 125),
-  denied: rgb(247, 114, 115)
-);
 
 // Base color definitions
-$color-background: #F5F7FC !default;
+$color-background: $gray-25 !default;
+$color-app: #FBFBFB !default;
 $color-text: $black !default;
 
 // Link color
@@ -75,6 +67,7 @@ $font-weight-extra-bold: 800 !default;
 $font-weight-base: $font-weight-regular !default;
 
 $line-height-base: 24px !default;
+$line-height-app: 10px !default;
 $line-height-sml: 1.2 !default;
 
 $letter-spacing-base: .15em;

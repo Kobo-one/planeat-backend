@@ -46,3 +46,9 @@
   border: 2px solid $gray-0;
   border-radius: 4px;
 }
+
+.panel--shadow {
+    background: $white;
+    border-radius: $border-radius-lrg;
+    box-shadow: 0px 8px 10px rgba(0,0,0,0.07);
+}

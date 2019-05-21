@@ -16,28 +16,36 @@
             @foreach($listItems as $item)
                 <div class="section">
                     {{$item['day']}}
-                    <div class="questList__item">Ingredient</div>
-                    @if(($item['quests']))
-                        <p>1 ingredient added</p>
-                        <div class="grid">
-                            <div class="grid__item"><img src="{{asset($item['quests']->ingredient->img)}}" alt=""></div>
-                            <div class="grid__item"><p>{{$item['quests']->ingredient->name}}</p></div>
-                            <div class="grid__item"><a href="{{route('quest_detail',$item['quests']->id)}}"><div class="icon icon__right"></div></a></div>
+                <div class="panel panel--shadow">
+                    <div class="panel__header">
+                        <div>
+                            <h2 class="panel__title">Ingredient</h2>
+                            @if(($item['quests']))
+                                <p>1 ingredient added</p>
+
+                            @else
+                                <p>No ingredient added yet</p>
+                            @endif
+                        </div>
+                        <div class="panel__actions">
+                            @if(($item['quests']))
+                                <a href="{{route('quest_delete',$item['quests']->id)}}"><img src="{{asset('img/icons/cross-icon.png')}}" alt="add quest"></a>
+                            @else
+                                <a href="{{route('quest_create')}}"><img src="{{asset('img/icons/plus-icon.png')}}" alt="add quest"></a>
+                            @endif
                         </div>
 
-                    @else
-                    <p>No ingredient added yet</p>
-                    @endif
-                    <div class="item__action">
-                        @if(($item['quests']))
-                            <a href="{{route('quest_delete',$item['quests']->id)}}"><img src="{{asset('img/icons/cross-icon.png')}}" alt="add quest"></a>
-                        @else
-                            <a href="{{route('quest_create')}}"><img src="{{asset('img/icons/plus-icon.png')}}" alt="add quest"></a>
-                        @endif
                     </div>
+                    @if(($item['quests']))
+                        <div class="grid">
+                            <div class="grid--bp-med__2"><img src="{{asset($item['quests']->ingredient->img)}}" alt=""></div>
+                            <div class="grid--bp-med__9"><p>{{$item['quests']->ingredient->name}}</p></div>
+                            <div class="grid--bp-med__1"><a href="{{route('quest_detail',$item['quests']->id)}}"><div class="icon icon__right"></div></a></div>
+                        </div>
+                    @endif
+
                 </div>
             @endforeach
-        </div>
 
     </div>
 
