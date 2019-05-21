@@ -2037,6 +2037,33 @@ svg {
   margin-top: 60px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image--responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+.image--full-width {
+  width: 100%;
+  height: auto;
+}
+
+.image--right {
+  float: right;
+  margin-left: 24px;
+  margin-bottom: 12px;
+}
+
+.image--left {
+  float: left;
+  margin-right: 24px;
+  margin-bottom: 12px;
+}
+
 .adultHeader {
   background-color: #AFD656;
   background-image: url("/../img/background.png");

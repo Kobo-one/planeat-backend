@@ -7,10 +7,10 @@
 @section('site-content')
 
     <div class="section">
-        <div class="grid">
-            <div class="grid__item"><img src="{{asset('img/icons/question-icon.png')}}" alt="questionmark"></div>
-            <div class="grid__item"><p class="text text--light">Choose an ingredient for your kids. They will choose a
-                    meal based on that ingrediënt</p></div>
+        <div class="">
+            <img class="image image--left" src="{{asset('img/icons/question-icon.png')}}" alt="questionmark"></div>
+            <p class="text text--light">Choose an ingredient for your kids. They will choose a
+                    meal based on that ingrediënt</p>
         </div>
 
         <div class="section questList">
