@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/koboon1q/demo.planeat.app/
+    - /bin/cp -R images $DEPLOYPATH

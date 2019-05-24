@@ -54,6 +54,8 @@
                                     <input type="submit">
                                 </div>
                             </form>
+                        @else
+                            <p class="text--message">You have already rated this quest.</p>
                         @endif
                     </div>
                     @else
