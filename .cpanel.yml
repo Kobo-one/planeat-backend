@@ -15,3 +15,4 @@ deployment:
     - php artisan config:clear
     - php artisan config:cache
     - php artisan up
+    - php artisan inspire
