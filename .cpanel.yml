@@ -3,7 +3,6 @@ deployment:
   tasks:
     - cp .env.live .env
     - export DEPLOYPATH=/home/koboon1q/demo.planeat.app
-    - cp -r . $DEPLOYPATH
     - rsync -rltD . $DEPLOYPATH --exclude .git
     - cd $DEPLOYPATH
     - php artisan down
