@@ -7,7 +7,7 @@
     @if($search)
         <div class="header__search">
             <form action="{{url()->current()}}" method="GET">
-                <input type="text" placeholder="Search..." name="search">
+                <input class="searchBar" type="text" placeholder="Search..." name="search">
             </form>
         </div>
     @endif

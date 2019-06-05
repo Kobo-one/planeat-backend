@@ -19,10 +19,25 @@
         text-decoration: none;
         color: $color-contrast !important;
     }
-
     .icon__header{
         width: 25px;
     }
+    .header__search{
+        padding: 10px 17px;
+        .searchBar{
+            border: none;
+            height: 30px;
+            padding-left: 28px;
+            width: 100%;
+            border-radius: $border-radius-lrg;
+
+            background: url('/../img/icons/search-icon.svg') no-repeat;
+            background-color: $white;
+            background-size: 15px 15px;
+            background-position: 7px 7px;
+        }
+    }
+
 
 
 
@@ -45,7 +60,6 @@
         display: flex;
         justify-items: center;
         align-items: center;
-
     }
 }
 

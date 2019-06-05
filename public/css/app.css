@@ -2147,6 +2147,22 @@ img {
   width: 25px;
 }
 
+.adultHeader .header__search {
+  padding: 10px 17px;
+}
+
+.adultHeader .header__search .searchBar {
+  border: none;
+  height: 30px;
+  padding-left: 28px;
+  width: 100%;
+  border-radius: 5px;
+  background: url("/../img/icons/search-icon.svg") no-repeat;
+  background-color: #fff;
+  background-size: 15px 15px;
+  background-position: 7px 7px;
+}
+
 .adultHeader .bigHeader__options {
   padding: 17px;
   height: 100px;
@@ -2256,6 +2272,7 @@ img {
 }
 
 .panel--masonry {
+  padding: 5px;
   width: 50%;
 }
 
