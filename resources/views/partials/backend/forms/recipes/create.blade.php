@@ -35,7 +35,7 @@
         </select>
     </div>
 </div>
-
+<hr>
 <div class="grid grid--2-col section spacer--xxs">
     <h3>Time</h3>
     <div class="form-group grid__item">
@@ -74,6 +74,7 @@
     </div>
 </div>
 
+<hr>
 <div class="section spacer--xxs">
     <h3>Ingredients</h3>
     <div class="selected_ingredients">
@@ -113,44 +114,72 @@
 
 </div>
 
+<hr>
+<div class="section spacer--xxs">
+    <h3>Steps</h3>
+    <div class="selected_steps">
+
+    </div>
+    <div class="grid grid--2-col section">
+        <div class="form-group">
+            <label for="step">Step Description</label>
+            <textarea name="step" id="step" cols="30" rows="5">{{ old('step')}}</textarea>
+        </div>
+
+
+        <div class="grid__item">
+            <div class="alert alert-danger collapse step-alert" role="alert">
+                There might be some fields not filled in!
+            </div>
+        </div>
+        <div class="grid__item">
+            <button class="btn btn-success add_step_button">Add this step</button>
+        </div>
+    </div>
+
+
+</div>
 
 <button type="submit" class="btn btn-success">Save</button>
 
 @push('script')
     <script>
         $(document).ready(function(){
-            var addButton = $('.add_ingredient_button'); //Add button selector
-            var wrapper = $('.selected_ingredients'); //Input field wrapper
+            var $addIngredientButton = $('.add_ingredient_button'); //Add button selector
+            var $addStepButton = $('.add_step_button'); //Add button selector
+            var $wrapperIngredient = $('.selected_ingredients'); //Input field wrapper
+            var $wrapperStep = $('.selected_steps'); //Input field wrapper
             var ingredients = 1;
+            var steps = 1;
             $('.ingredient-alert').hide();
             var $ingredient = $('select[name=ingredient]');
             var $ingredientSize = $('input[name=ingredientSize]');
             var $ingredientServingType = $('input[name=ingredientServingType]');
+            var $step = $('textarea[name=step]');
 
-            $(addButton).click(function(e){
+
+            //Ingredients
+            $($addIngredientButton).click(function(e){
                 e.preventDefault();
-
-
                 var data = [];
                 data['ingredient']= [$ingredient.val(),$ingredient.find('option:selected').text()];
                 data['ingredientSize']= $ingredientSize.val();
                 data['ingredientServingType']= $ingredientServingType.val();
                 console.log(data);
-                if(validate(data)){
-                    $(wrapper).append(ingredient(data)); //Add field html
-                    empty();
+                if(validateIngredient(data)){
+                    $($wrapperIngredient).append(ingredient(data)); //Add field html
+                    emptyIngredient();
                     ingredients++;
                     $('.ingredient-alert').hide();
                 }
             });
 
-            //Once remove button is clicked
-            $(wrapper).on('click', '.remove_ingredient_button', function(e){
+            $($wrapperIngredient).on('click', '.remove_ingredient_button', function(e){
                 e.preventDefault();
                 $(this).parentsUntil('.selected_ingredients').remove();
             });
 
-            function validate(data){
+            function validateIngredient(data){
                 if(data['ingredient'][0] && data['ingredientSize']){
                     return true;
                 }else{
@@ -159,7 +188,7 @@
                 }
             }
 
-            function empty(){
+            function emptyIngredient(){
                 $ingredient.val('empty');
                 $ingredientSize.val('');
                 $ingredientServingType.val('');
@@ -168,6 +197,7 @@
             function errorIngredient(){
                 $('.ingredient-alert').show();
             }
+
             function ingredient(data) {
                 return '<div class="card">'+
                     '<div class="card-body row">\n' +
@@ -178,6 +208,53 @@
                     '<input type = "hidden" name="ingredients['+ingredients+']" value = "'+data['ingredient'][0]+'" />\n'+
                     '<input type = "hidden" name="ingredientSizes['+ingredients+']" value = "'+data['ingredientSize']+'" />\n' +
                     '<input type = "hidden" name="ingredientServingTypes['+ingredients+']" value = "'+data['ingredientServingType']+'" />\n'+
+                    '</div>'; //New input field html
+
+            }
+
+            //Steps
+            $($addStepButton).click(function(e){
+                e.preventDefault();
+                var data = [];
+                data['step']= $step.val();
+                console.log(data);
+                if(validateStep(data)){
+                    $($wrapperStep).append(step(data)); //Add field html
+                    emptyStep();
+                    steps++;
+                    $('.step-alert').hide();
+                }
+            });
+
+            $($wrapperStep).on('click', '.remove_step_button', function(e){
+                e.preventDefault();
+                $(this).parentsUntil('.selected_steps').remove();
+            });
+
+            function validateStep(data){
+                if(data['step']){
+                    return true;
+                }else{
+                    errorStep();
+                    return false;
+                }
+            }
+
+            function emptyStep(){
+                $step.val('');
+            }
+
+            function errorStep(){
+                $('.step-alert').show();
+            }
+
+            function step(data) {
+                return '<div class="card">'+
+                    '<div class="card-body row">\n' +
+                    '<p class="card-text col-sm mb-0">'+steps+'. '+data['step']+'</p>'+
+                    '<a href="#" class="col-sm remove_step_button text--right  mb-0">Remove</a>'+
+                    ' </div>'+
+                    '<input type = "hidden" name="steps['+steps+']" value = "'+data['step']+'" />\n'+
                     '</div>'; //New input field html
 
             }

@@ -2,8 +2,6 @@
 
 @section('content')
 
-    @include('partials.errors')
-    @include('partials.success')
 
     <div class="container backend">
         <div class="table-wrapper">
@@ -16,7 +14,7 @@
                         <a href="{{route('backend.recipes.index')}}">< Back</a>
                     </div>
                     <div class="col-sm-12 section">
-                        <form action="{{route('backend.recipes.store')}}" method="POST">
+                        <form action="{{route('backend.recipes.store')}}" method="POST" enctype="multipart/form-data">
                             @include('partials.backend.forms.recipes.create')
                         </form>
                     </div>

@@ -11,6 +11,7 @@ class DashboardController extends Controller
     const PATH = 'pages/backend/';
 
     public function index(){
+        return redirect()->route('backend.recipes.index');
         return view(self::PATH.'dashboard');
     }
 }

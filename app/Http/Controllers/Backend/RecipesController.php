@@ -6,6 +6,8 @@ use App\Http\Requests\StoreRecipe;
 use App\Ingredient;
 use App\Recipe;
 use App\RecipeCategory;
+use App\RecipeIngredient;
+use App\RecipeStep;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -44,12 +46,42 @@ class RecipesController extends Controller
      */
     public function store(StoreRecipe $request)
     {
-        $data=[$request->ingredients,
-            $request->ingredientSizes,
-            $request->ingredientServingTypes];
-        dd($data);
 
-        echo 'done';
+        $path = $request->file('image')->store('recipes','public');
+
+        $data=[
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'img'=>'storage/'.$path,
+            'preparation_time'=>$request->prepTime,
+            'cooking_time_min'=>$request->cookTimeMin,
+            'cooking_time_max'=>$request->cookTimeMax,
+            'servings'=>$request->servings,
+            'serving_size'=>$request->servingType,
+            'recipe_category_id'=>$request->recipeType,
+            ];
+
+        $recipe = Recipe::create($data);
+
+        foreach ($request->steps as $key => $step){
+            RecipeStep::create([
+                'title' => $step,
+                'recipe_id' => $recipe->id,
+                'order' => $key,
+            ]);
+        }
+
+        foreach ($request->ingredients as $key => $ingredient){
+
+            RecipeIngredient::create([
+                'ingredient_id' => $ingredient,
+                'recipe_id' => $recipe->id,
+                'size' => $request->ingredientSizes[$key],
+                'serving_size' => $request->ingredientServingTypes[$key],
+            ]);
+        }
+
+       return redirect()->route('backend.recipes.index')->with('success','Your recipe has been added.');
     }
 
     /**

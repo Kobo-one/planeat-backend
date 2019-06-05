@@ -9,7 +9,7 @@ deployment:
     - composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
     - npm install
     - npm run production
-    - php artisan migrate --seed --force
+    - php artisan migrate --force
     - php artisan cache:clear
     - php artisan auth:clear-resets
     - php artisan route:clear

@@ -28,7 +28,22 @@ class StoreRecipe extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required'
+            'title' => 'required|string',
+            'description'=>'required|string',
+            'image'=>'required|image',
+            'recipeType'=>'required|integer',
+            'prepTime'=>'integer',
+            'cookTimeMin'=>'integer',
+            'cookTimeMax'=>'required|integer',
+            'servings'=>'required|integer',
+            'servingType'=>'string',
+            'steps'=>'required',
+            'steps[*]'=>'string',
+            'ingredients'=>'required',
+            'ingredientSizes'=>'required',
+            'ingredients[*]'=>'integer',
+            'ingredientSizes[*]'=>'integer',
+            'ingredientServingTypes[*]'=>'string',
         ];
     }
 }
