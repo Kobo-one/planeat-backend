@@ -23,4 +23,8 @@ class FamilyPlanning extends Model
     {
         return $this->belongsTo('App\Recipe');
     }
+
+    public function today(){
+        return $this->where('date',now()->toDateString())->get();
+    }
 }

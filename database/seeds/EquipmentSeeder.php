@@ -16,19 +16,19 @@ class EquipmentSeeder extends Seeder
             [
                 'name' => 'first weapon',
                 'type' => 'weapon',
-                'img' => '/img/icon-logo.png',
+                'img' => '/img/icon-logo.svg',
                 'unlock_level' => '0',
             ],
             [
                 'name' => 'first avatar',
                 'type' => 'avatar',
-                'img' => '/img/icon-logo.png',
+                'img' => '/img/icon-logo.svg',
                 'unlock_level' => '0',
             ],
             [
                 'name' => 'first shield',
                 'type' => 'shield',
-                'img' => '/img/icon-logo.png',
+                'img' => '/img/icon-logo.svg',
                 'unlock_level' => '0',
             ],
         ];

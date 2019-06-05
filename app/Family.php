@@ -24,4 +24,12 @@ class Family extends Model
     public function quests(){
         return $this->hasMany('App\FamilyQuest');
     }
+
+    public function plannings(){
+        return $this->hasMany('App\FamilyPlanning');
+    }
+
+    public function todaysPlannings(){
+        return $this->hasMany('App\FamilyPlanning')->where('date',now()->toDateString());
+    }
 }

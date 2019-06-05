@@ -1,0 +1,22 @@
+.dashboard{
+    margin-left: -$grid-gutter-width;
+    margin-right: -$grid-gutter-width;
+    margin-top: -1px;
+    padding: 10px;
+    background-color: $color-primary;
+    .dashboard__items{
+
+
+        margin: 5px 0;
+
+        .selection__item{
+            line-height: normal;
+            margin: 0;
+            padding: 7px ;
+            text-align: center;
+            .panel{
+                padding: 10px 10px;
+            }
+        }
+    }
+}

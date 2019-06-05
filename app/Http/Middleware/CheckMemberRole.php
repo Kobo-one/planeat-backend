@@ -38,6 +38,6 @@ class CheckMemberRole
             return redirect()->route('family_create');
 
         }
-        return redirect()->route('login');
+        return $next($request);
     }
 }

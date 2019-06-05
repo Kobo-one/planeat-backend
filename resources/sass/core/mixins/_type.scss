@@ -51,11 +51,11 @@
   }
 
   color: $link;
-  &:visited {
+  &:not(.btn):visited {
     color: $visited;
   }
-  &:hover,
-  &:focus {
+  &:not(.btn):hover,
+  &:not(.btn):focus {
     color: $hover;
   }
 }

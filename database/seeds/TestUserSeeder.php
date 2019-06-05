@@ -14,11 +14,13 @@ class TestUserSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'name' => "Kobe Christiaensen",
-            'email' => "kobe.christiaensen@hotmail.com",
-            'password' => bcrypt('root'),
-        ]);
+        $user = User::updateOrCreate([
+            'name' => "Kobe Christiaensen"],
+            [
+                'email' => "kobe.christiaensen@hotmail.com",
+                'password' => bcrypt('root'),
+            ]);
+        $user->assignRole('Super Admin');
 
         $family = Family::create([
             'completed_tutorial' => '0',
@@ -50,9 +52,6 @@ class TestUserSeeder extends Seeder
             'shield_id' => '3',
         ]);
         $member->assignRole('Child');
-
-
-
 
 
     }

@@ -14,7 +14,7 @@
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
-Route::get('/', 'HomeController@index')->name('home')->middleware('CheckMember');
+Route::get('/', 'HomeController@index')->name('home')->middleware('guest');
 
 Route::group(['prefix'=>'family','namespace'=>'Family','middleware'=>'auth'], function(){
 
@@ -54,10 +54,13 @@ Route::group([
 Route::group([
     'prefix' => 'backend',
     'namespace' => 'Backend',
-    'middleware' => ['auth']
+    'middleware' => ['auth','permission:edit recipes']
 ], function() {
     Route::get('/', 'DashboardController@index')->name('backend_index');
     Route::get('/recipes', 'RecipesController@index')->name('backend_recipes_index');
+    Route::resource('recipes', 'RecipesController', [
+        'as' => 'backend'
+    ]);
 
 });
 

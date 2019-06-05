@@ -39,6 +39,17 @@ class FamilyMember extends Model implements
         return $this->hasManyThrough('App\Ingredient', 'App\FamilyMemberAllergy');
     }
 
+    public function role(){
+        $role = '';
+
+        if($this->hasRole('Parent')){
+            $role = 'Adult';
+        }else{
+            $role = 'Child';
+        }
+        return $role;
+    }
+
     public function avatar(){
         return $this->belongsTo('App\Equipment','avatar_id');
     }

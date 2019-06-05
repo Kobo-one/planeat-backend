@@ -3,7 +3,7 @@
     position: sticky;
     top: 0;
     background-color: $color-primary;
-    background-image: url('/../img/background.png');
+    background-image: url('/../img/background.svg');
     background-position: center;
     margin: 0;
     color: $color-contrast;
@@ -22,6 +22,30 @@
 
     .icon__header{
         width: 25px;
+    }
+
+
+
+    .bigHeader__options{
+        padding: 17px;
+        height: 100px;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .bigHeader__link{
+        position: absolute;
+        bottom: 17px;
+        right: 17px;
+        height: 40px;
+        width: 40px;
+        padding: 10px;
+        background-color: white;
+        border-radius: 25px;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+
     }
 }
 

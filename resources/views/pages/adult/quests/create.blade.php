@@ -1,7 +1,7 @@
 @extends('layouts.parent')
 
 @section('header')
-    @include('partials.adult.header',['back'=>route('quests_index'), 'title'=> 'Create a quest','rightUrl'=>'','icon' => '','search'=>true])
+    @include('partials.adult.smallheader',['back'=>route('quests_index'), 'title'=> 'Create a quest','rightUrl'=>'','icon' => '','search'=>true])
 @endsection
 
 @section('site-content')

@@ -1,0 +1,49 @@
+.general{
+    text-align: center;
+    padding-top: 20vh;
+    padding-bottom: 10vh;
+    background: url("/../img/background-green.svg") center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+
+    h1{
+        font-size: $font-size-lrg;
+    }
+
+    .logo{
+        width: 40%;
+    }
+
+    .login-logo{
+        width: 25%;
+    }
+    .user-switch{
+        margin-top: -10vh;
+
+    }
+    .users{
+        height: 70vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .users::-webkit-scrollbar {
+        visibility: hidden;
+    }
+
+    .user-switcher{
+
+        cursor: pointer;
+        margin: auto;
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        img{
+            width: 70%;
+        }
+    }
+
+    .logout{
+        margin-bottom: -5vh;
+    }
+}
+

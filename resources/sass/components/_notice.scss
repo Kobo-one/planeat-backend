@@ -7,3 +7,10 @@
     }
   }
 }
+
+@each $type, $color in $notice-colors {
+    text--#{$type} {
+        color: $color;
+    }
+}
+

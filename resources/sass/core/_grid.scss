@@ -4,7 +4,7 @@
 // columns          - The total amount of columns
 // gutter           - The amount of space between two columns
 // container-*      - The total width of the container for large / medium / small
-$grid-gutter-width: $rh-sml !default;
+$grid-gutter-width: 17px !default;
 $grid-column-count: 12 !default;
 $grid-container-width: 1200px !default;
 
@@ -25,17 +25,21 @@ $grid-rhythm: $rh-sml !default;
   }
 }
 
+.mobile{
+    max-width: 420px;
+    background-color: $color-app;
+    min-height: 100vh !important;
+    margin: auto;
+}
+
 #app {
     @include container-fluid(0px);
-    max-width: 420px;
     &--relative {
         position: relative;
     }
     &--fluid {
         @include container-fluid(0px);
     }
-    background-color: $color-app;
-    min-height: 100vh !important;
 
 }
 

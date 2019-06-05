@@ -1,0 +1,22 @@
+.btn{
+    &--primary{
+        height: 40px;
+        width: 80%;
+        color: $white;
+        background-color: $color-primary;
+        border-radius: $border-radius-max;
+    }
+
+    &--secondary{
+        height: 40px;
+        width: 80%;
+        color: $white;
+        background-color: $color-secondary;
+        border-radius: $border-radius-max;
+    }
+
+
+
+}
+
+

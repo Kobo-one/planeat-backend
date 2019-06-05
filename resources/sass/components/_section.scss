@@ -28,3 +28,11 @@
     padding: $rh-xsm 0;
   }
 }
+
+.backend{
+    min-height: 100vh;
+    background-color: white;
+    .grid__item{
+        margin-top: 0;
+    }
+}
