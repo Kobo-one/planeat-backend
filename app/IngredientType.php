@@ -12,7 +12,7 @@ class IngredientType extends Model
 
     public function ingredients()
     {
-        return $this->hasMany('App\Ingredients');
+        return $this->hasMany('App\Ingredient');
     }
 
 }

@@ -42,7 +42,8 @@
             "database/factories"
         ],
         "files": [
-            "app/Helpers/LevelHelper.php"
+            "app/Helpers/LevelHelper.php",
+            "app/Helpers/BladeHelper.php"
         ]
     },
     "autoload-dev": {

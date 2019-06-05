@@ -49,6 +49,24 @@ Route::group([
         Route::get('/delete/{id}', 'QuestController@delete')->name('quest_delete');
     });
 
+    Route::group([
+        'prefix'=>'planning'
+    ],function (){
+        Route::get('/', 'PlanningController@index')->name('planning_index');
+    });
+
+    Route::group([
+        'prefix'=>'family'
+    ],function (){
+        Route::get('/', 'FamilyController@index')->name('family_index');
+    });
+
+    Route::group([
+        'prefix'=>'settings'
+    ],function (){
+        Route::get('/', 'SettingsController@index')->name('settings_index');
+    });
+
 });
 
 Route::group([
@@ -57,8 +75,10 @@ Route::group([
     'middleware' => ['auth','permission:edit recipes']
 ], function() {
     Route::get('/', 'DashboardController@index')->name('backend_index');
-    Route::get('/recipes', 'RecipesController@index')->name('backend_recipes_index');
     Route::resource('recipes', 'RecipesController', [
+        'as' => 'backend'
+    ]);
+    Route::resource('ingredients', 'IngredientController', [
         'as' => 'backend'
     ]);
 

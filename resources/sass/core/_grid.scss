@@ -26,7 +26,7 @@ $grid-rhythm: $rh-sml !default;
 }
 
 .mobile{
-    max-width: 420px;
+    max-width: $mobile-limit;
     background-color: $color-app;
     min-height: 100vh !important;
     margin: auto;

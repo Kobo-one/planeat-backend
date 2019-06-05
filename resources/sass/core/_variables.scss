@@ -16,6 +16,7 @@ $white: #fff !default;
 $color-primary: #AFD656 !default;
 $color-secondary: #F29123 !default;
 $color-contrast: #FFFFFF !default;
+$color-grey: #8A8A8F !default;
 
 $notice-colors: (
   success: #2ecc71,
@@ -35,6 +36,8 @@ $color-link: $color-primary !default;
 $color-link-hover: darken($color-link, 15%) !default;
 $color-link-visited: darken($color-link, 5%) !default;
 
+
+$mobile-limit: 420px;
 //== Typography
 //-------------
 //

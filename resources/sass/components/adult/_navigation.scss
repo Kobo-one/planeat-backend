@@ -3,8 +3,10 @@
     border-top: 1px solid $gray-10;
     background-color: $color-contrast;
     z-index: 1000;
-    position: sticky;
+    position: fixed;
     bottom: 0;
+    width: 100vw;
+    max-width: $mobile-limit;
     padding: 10px 0 10px ;
     *{
         margin: 0;
@@ -17,6 +19,13 @@
     }
 
     .nav__item{
+        a, a:visited, a:hover, a:active{
+            color: $color-grey;
+        }
+        &.active a{
+            color: $color-primary;
+        }
+
         align-self: center;
         text-align: center;
         width: 80%;

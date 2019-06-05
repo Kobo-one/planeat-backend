@@ -2173,9 +2173,10 @@ img {
   border-top: 1px solid #eaeaea;
   background-color: #FFFFFF;
   z-index: 1000;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  width: 100vw;
+  max-width: 420px;
   padding: 10px 0 10px;
 }
 
@@ -2193,6 +2194,17 @@ img {
   align-self: center;
   text-align: center;
   width: 80%;
+}
+
+.adultNavigation .nav__item a,
+.adultNavigation .nav__item a:visited,
+.adultNavigation .nav__item a:hover,
+.adultNavigation .nav__item a:active {
+  color: #8A8A8F;
+}
+
+.adultNavigation .nav__item.active a {
+  color: #AFD656;
 }
 
 .adultNavigation .nav__img {
