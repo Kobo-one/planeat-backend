@@ -77,9 +77,8 @@
 <hr>
 <div class="section spacer--xxs">
     <h3>Ingredients</h3>
-    <div class="selected_ingredients">
+    <div class="selected_ingredients"></div>
 
-    </div>
     <div class="grid grid--2-col section">
         <div class="form-group">
             <label for="ingredient">Ingredient</label>
@@ -89,6 +88,7 @@
                     <option value="{{$ingredient->id}}" @if(old('ingredient')==$ingredient->id) selected @endif>{{$ingredient->name}}</option>
                 @endforeach
             </select>
+            <small><a href="{{route('backend.ingredients.create')}}" target="_blank">Create new ingredients</a></small>
         </div>
 
         <div class="form-group grid__item">

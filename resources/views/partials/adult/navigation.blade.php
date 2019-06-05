@@ -3,9 +3,9 @@
     <div class="grid grid--4-col nav__options">
 
         <div class="grid__item">
-            <div class="nav__item {{setActive('adult')}}">
+            <div class="nav__item {{setActive('home')}}">
                 <a href="{{route('adult_index')}}">
-                    <img class="nav__img" src="{{asset('img/icons/navigation/home'.setActiveImage('adult').'.svg')}}" alt="">
+                    <img class="nav__img" src="{{asset('img/icons/navigation/home'.setActiveImage('home').'.svg')}}" alt="">
                     <p>Home</p>
                 </a>
             </div>

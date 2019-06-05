@@ -9,7 +9,8 @@
     <div class="section">
         <div class="">
             <img class="image image--left" src="{{asset('img/icons/question-icon.png')}}" alt="questionmark"></div>
-        <p class="text--message">Choose an ingredient for your kids. They will choose a meal based on that ingredient</p>
+        <p class="text--message">Choose an ingredient for your kids. They will choose a meal based on that
+            ingredient</p>
     </div>
 
     <div class="section questList">
@@ -52,8 +53,10 @@
                         @endif
                     </div>
                 </div>
-                @endforeach
             </div>
+
+        @endforeach
+
 
     </div>
 
