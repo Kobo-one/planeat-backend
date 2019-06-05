@@ -2345,6 +2345,7 @@ text--danger {
   flex-direction: row;
   overflow-x: auto;
   width: 100%;
+  min-height: 85px;
   direction: rtl;
   white-space: nowrap;
 }
@@ -2355,6 +2356,10 @@ text--danger {
   align-items: center;
   align-self: center;
   text-align: center;
+}
+
+.slider .slide__item .dayName {
+  margin-bottom: 5px;
 }
 
 .slider::-webkit-scrollbar {

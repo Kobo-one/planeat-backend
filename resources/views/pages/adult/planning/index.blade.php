@@ -25,4 +25,43 @@
 
     </div>
 
+
+    <div class="section">
+
+
+            @if($plannings)
+                @foreach($plannings as $planning)
+                <div class="panel panel--shadow">
+                    <div class="panel__header">
+                        <div>
+                            <h2 class="panel__title">{{$planning->recipe->title}}</h2>
+                        </div>
+                        <div class="panel__actions">
+                        </div>
+                    </div>
+                    <div class="panel__main">
+
+                    </div>
+                </div>
+                @endforeach
+            @endif
+
+                <div class="panel panel--shadow">
+                    <div class="panel__header mb-0">
+                        <div>
+                            <h2 class="panel__title">Add something to your planning</h2>
+                        </div>
+                        <div class="panel__actions">
+                            <a href="{{route('planning_create',$date)}}"><img src="{{asset('img/icons/plus-icon.svg')}}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="panel__main">
+
+                    </div>
+                </div>
+        <div class="section">
+
+        </div>
+    </div>
+
 @endsection

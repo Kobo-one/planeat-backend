@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Adult;
 
 use App\FamilyPlanning;
+use App\Recipe;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,8 +21,10 @@ class PlanningController extends Controller
         if(!$date){
             $date = now()->toDateString();
         }
+
+        $plannings = FamilyPlanning::where('date',$date);
         $readableDate = Carbon::parse($date)->format('jS F, Y');
-        return view(self::PATH.'index',compact('date','readableDate'));
+        return view(self::PATH.'index',compact('date','readableDate','plannings'));
     }
 
     /**
@@ -29,9 +32,14 @@ class PlanningController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($date = NULL)
     {
-        //
+        if(!$date){
+            $date = now()->toDateString();
+        }
+        $recipes = Recipe::all();
+        $readableDate = Carbon::parse($date)->format('jS F, Y');
+        return view(self::PATH.'create',compact('date','recipes','readableDate'));
     }
 
     /**

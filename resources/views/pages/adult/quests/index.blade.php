@@ -34,7 +34,7 @@
                                         src="{{asset('img/icons/cross-icon.png')}}" alt="add quest"></a>
                             @else
                                 <a href="{{route('quest_create',$item['date'])}}"><img
-                                        src="{{asset('img/icons/plus-icon.png')}}"
+                                        src="{{asset('img/icons/plus-icon.svg')}}"
                                         alt="add quest"></a>
                             @endif
                         </div>
