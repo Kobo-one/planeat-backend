@@ -6,7 +6,7 @@
 
 @section('site-content')
 
-    <div class="daySlider slider">
+    <div class="daySlider slider js-slider">
 
 {{--        TODO: add js to start slider on selected class--}}
         @for($i = 0; $i >= -14; $i--)
@@ -24,6 +24,7 @@
         @endfor
 
     </div>
+
     <div class="section">
         <div class="">
             <img class="image image--left" src="{{asset('img/icons/happiness-icon.png')}}" alt="happy icon"></div>

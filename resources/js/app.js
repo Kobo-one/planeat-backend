@@ -7,10 +7,12 @@
 require('./bootstrap');
 masonry = require('masonry-layout');
 window.$ = require("jquery");
-
+require('jquery.scrollto');
+require('./components/slider');
 
 var Masonry = require('masonry-layout');
 
 var masonry = new Masonry( '.masonry', {
     itemSelector: '.masonry__item',
 });
+

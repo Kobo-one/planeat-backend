@@ -53,6 +53,7 @@ Route::group([
         'prefix'=>'planning'
     ],function (){
         Route::get('/', 'PlanningController@index')->name('planning_index');
+        Route::get('/{date}', 'PlanningController@index')->name('planning_index_date');
     });
 
     Route::group([

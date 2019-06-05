@@ -27,6 +27,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "jquery.scrollto": "^2.1.2",
         "masonry-layout": "^4.2.2"
     }
 }
