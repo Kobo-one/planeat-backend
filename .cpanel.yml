@@ -7,6 +7,8 @@ deployment:
     - cd $DEPLOYPATH
     - php artisan down
     - composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+    - npm install
+    - npm run production
     - php artisan migrate --seed --force
     - php artisan cache:clear
     - php artisan auth:clear-resets
