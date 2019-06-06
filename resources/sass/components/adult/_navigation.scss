@@ -8,6 +8,7 @@
     width: 100vw;
     max-width: $mobile-limit;
     padding: 10px 0 10px ;
+    height: 70px;
     *{
         margin: 0;
     }
@@ -35,4 +36,9 @@
         width: 20px;
     }
 
+}
+
+
+.adultPage{
+    padding-bottom: 70px;
 }

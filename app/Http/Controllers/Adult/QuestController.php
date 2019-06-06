@@ -24,7 +24,7 @@ class QuestController extends Controller
 
         for($i = 0; $i < 7; $i++){
             $day = Carbon::now()->addDays($i);
-            $listItems[] = ['day'=>$day->englishDayOfWeek,'date'=>$day->toDateString(),'quests'=>$quests->where('date',$day->toDateString())->first()];
+            $listItems[] = ['day'=>$day->format('l, jS F Y'),'date'=>$day->toDateString(),'quests'=>$quests->where('date',$day->toDateString())->first()];
         }
 
         $quests = $quests->all();

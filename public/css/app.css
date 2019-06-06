@@ -633,8 +633,8 @@ h2 {
 
 .heading--3,
 h3 {
-  font-size: 20px;
-  font-size: 1.25rem;
+  font-size: 16px;
+  font-size: 1rem;
 }
 
 .heading--4,
@@ -2194,6 +2194,7 @@ img {
   width: 100vw;
   max-width: 420px;
   padding: 10px 0 10px;
+  height: 70px;
 }
 
 .adultNavigation * {
@@ -2227,9 +2228,13 @@ img {
   width: 20px;
 }
 
+.adultPage {
+  padding-bottom: 70px;
+}
+
 .panel {
   display: block;
-  padding: 24px;
+  padding: 12px;
 }
 
 .panel .panel__header {

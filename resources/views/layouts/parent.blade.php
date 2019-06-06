@@ -3,7 +3,7 @@
     <div class="mobile">
         @yield('header')
 
-        <div class="container">
+        <div class="container adultPage">
             @include('partials.errors')
             @include('partials.success')
             @yield('site-content')

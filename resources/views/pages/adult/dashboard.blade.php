@@ -41,21 +41,36 @@
 
     <div class="section">
         <h2>Today's Meal{{$todaysplannings->count() > 1 ? 's' : ''}}</h2>
-        @foreach($todaysplannings as $planning)
-            <div class="panel panel--image">
-                    <div class="panel__image">
-                        <img src="{{asset($planning->recipe->img)}}" alt="{{$planning->recipe->name}}">
-                    </div>
-                    <div class="container">
-                        <div class="panel__header">
+        @if($todaysplannings->count()>=1)
+            @foreach($todaysplannings as $planning)
+                <div class="panel panel--image">
+                        <div class="panel__image">
+                            <img src="{{asset($planning->recipe->img)}}" alt="{{$planning->recipe->name}}">
                         </div>
-                        <div class="panel__main">
-                            <h1 class="panel__title">{{$planning->recipe->title}}</h1>
+                        <div class="container">
+                            <div class="panel__header">
+                            </div>
+                            <div class="panel__main">
+                                <h1 class="panel__title">{{$planning->recipe->title}}</h1>
+                            </div>
                         </div>
+                </div>
+            @endforeach
+        @else
+            <div class="panel panel--shadow">
+                <div class="panel__header mb-0">
+                    <div>
+                        <h3 class="panel__title text--message">Add something to your planning</h3>
                     </div>
-            </div>
+                    <div class="panel__actions">
+                        <a href="{{route('planning_create',now()->toDateString())}}"><img src="{{asset('img/icons/plus-icon.svg')}}" alt=""></a>
+                    </div>
+                </div>
+                <div class="panel__main">
 
-        @endforeach
+                </div>
+            </div>
+        @endif
     </div>
 
 @endsection

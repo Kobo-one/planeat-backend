@@ -15,18 +15,13 @@
 
     <div class="section questList">
         @foreach($listItems as $item)
-            <div class="section">
-                {{$item['day']}}
+            <div class="spacer spacer--sml">
+                <h3 class="font-weight-bold mb-xsm">{{$item['day']}}</h3>
                 <div class="panel panel--shadow">
-                    <div class="panel__header">
+                    <div class="panel__header mb-0">
                         <div>
-                            <h2 class="panel__title">Ingredient</h2>
-                            @if(($item['quests']))
-                                <p>1 ingredient added</p>
-
-                            @else
-                                <p>No ingredient added yet</p>
-                            @endif
+                            <h3 class="panel__title">Ingredient</h3>
+                            <small class="text--message">{{$item['quests']?'1 ingredient added':'No ingredient added yet'}}</small>
                         </div>
                         <div class="panel__actions">
                             @if(($item['quests']))

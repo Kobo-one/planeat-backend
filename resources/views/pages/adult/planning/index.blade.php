@@ -49,7 +49,7 @@
                 <div class="panel panel--shadow">
                     <div class="panel__header mb-0">
                         <div>
-                            <h2 class="panel__title">Add something to your planning</h2>
+                            <h3 class="panel__title text--message">Add something to your planning</h3>
                         </div>
                         <div class="panel__actions">
                             <a href="{{route('planning_create',$date)}}"><img src="{{asset('img/icons/plus-icon.svg')}}" alt=""></a>
