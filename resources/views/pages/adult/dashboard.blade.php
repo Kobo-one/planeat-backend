@@ -6,7 +6,7 @@
 
 @section('site-content')
 
-    <div class="dashboard">
+    <div class="dashboard no-container">
         <div class="grid grid--2-col dashboard__items">
             <a href="{{route('recipes_index')}}" class="grid__item selection__item">
                 <div class="panel panel--shadow">

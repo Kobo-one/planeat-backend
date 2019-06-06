@@ -14,4 +14,8 @@ class RecipesController extends Controller
         $recipes = Recipe::all();
         return view(self::PATH.'index', compact('recipes'));
     }
+
+    public function show(Recipe $recipe){
+        return view(self::PATH.'detail', compact('recipe'));
+    }
 }

@@ -10,7 +10,7 @@
         <div class="masonry flex flex-column flex-wrap">
 
             @foreach($recipes as $recipe)
-                <a href="{{route('recipes_show',[$recipe->id])}}" class="masonry__item panel panel--masonry">
+                <a href="{{route('recipes_show',[$recipe])}}" class="masonry__item panel panel--masonry">
                     <div class="" >
                         <div class="panel__image">
                             <img src="{{asset($recipe->img)}}" alt="{{$recipe->title}}">

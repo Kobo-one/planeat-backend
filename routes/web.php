@@ -35,7 +35,7 @@ Route::group([
 ], function() {
     Route::get('/', 'DashboardController@index')->name('adult_index');
     Route::get('/recipes', 'RecipesController@index')->name('recipes_index');
-    Route::get('/recipes/{id}', 'RecipesController@show')->name('recipes_show');
+    Route::get('/recipes/{recipe}', 'RecipesController@show')->name('recipes_show');
     Route::get('/groceries', 'GroceriesController@index')->name('groceries_index');
     Route::group([
         'prefix'=>'quests'
