@@ -5,7 +5,7 @@
     <div class="recipe no-container">
         <div class="recipe__header">
             <div class="recipe__image" style="background-image: url('{{asset($recipe->img)}}')">
-                <div class="header__action"><a class="recipe__back" href="{{route('recipes_index')}}">< Back</a></div>
+                <div class="header__action"><a class="recipe__back icon--back" href="{{route('recipes_index')}}">Back</a></div>
             </div>
             <div class="recipe__title">
                 <h1 class="mb-0">{{$recipe->title}}</h1>
@@ -17,7 +17,7 @@
             <div class="tile__header">
                 <h2 class="tile__header--title">Ingredients</h2>
                 <ul>
-                    @foreach($recipe->ingredients as $ingredient)
+                    @foreach($recipe->recipeIngredients as $ingredient)
                             <li><span>{{$ingredient->size}}{{$ingredient->serving_size? (' '.($ingredient->size > 1 ? str_plural($ingredient->serving_size): $ingredient->serving_size)) : null}} {{!$ingredient->serving_size && $ingredient->size > 1 ? str_plural($ingredient->ingredient->name) : $ingredient->ingredient->name}}</span></li>
                     @endforeach
                 </ul>
