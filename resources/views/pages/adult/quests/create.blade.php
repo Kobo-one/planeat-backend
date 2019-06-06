@@ -10,20 +10,21 @@
         <div class="masonry flex flex-column flex-wrap">
 
             @foreach($ingredients as $ingredient)
-                <a href="{{route('quest_create_with_ingredient',[$date,$ingredient->id])}}">
-                    <div class="panel masonry__item panel--masonry">
+                <a href="{{route('quest_create_with_ingredient',[$date,$ingredient->id])}}" class="panel masonry__item panel--masonry">
+                    <div>
                         <div class="panel__image">
                             <img src="{{asset($ingredient->img)}}" alt="{{$ingredient->name}}">
                         </div>
-                        <div class="container">
+                        <div class="panel__overlay">
                             <div class="panel__header">
                             </div>
                             <div class="panel__main">
-                                <h1 class="panel__title">{{$ingredient->name}}</h1>
+                                <p class=mb-0">{{$ingredient->name}}</p>
                             </div>
                         </div>
                     </div>
                 </a>
+
             @endforeach
 
         </div>

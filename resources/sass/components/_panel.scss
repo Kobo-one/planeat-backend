@@ -28,7 +28,29 @@
     }
   }
     .panel__image{
-        position: relative;
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+
+    .panel__overlay{
+        font-size: $font-size-med;
+        line-height: $line-height-sml;
+        float: left;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        padding: 10px;
+        color: $white;
+        width: 100%;
+        background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 0.3)
+        );
+
     }
 
   // @include breakpoint(map-get($breakpoints, med), max-width) {
@@ -56,9 +78,17 @@
     box-shadow: 0px 8px 10px rgba(0,0,0,0.07);
 }
 
+.masonry__item{
+
+    width: 48%;
+    margin: 1%;
+}
+
 .panel--masonry{
-    padding: 5px;
-    width: 50%;
+
+    overflow: hidden;
+    padding: 0px;
+    border-radius: $border-radius-lrg;
 }
 
 

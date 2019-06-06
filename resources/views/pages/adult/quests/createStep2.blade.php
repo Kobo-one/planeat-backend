@@ -14,17 +14,18 @@
 
                 @foreach($recipes as $recipe)
                     <div class="panel masonry__item panel--masonry">
-                    <input type="checkbox" id="recipe{{$recipe->id}}" name="recipes[]" class="recipesCheckbox" value="{{$recipe->id}}" ></input>
                         <label for="recipe{{$recipe->id}}">
                             <div class="panel__image">
                                 <img src="{{asset($recipe->img)}}" alt="{{$recipe->name}}">
                             </div>
-                            <div class="container">
+                            <div class="panel__overlay">
                                 <div class="panel__header">
+                                    <input type="checkbox" id="recipe{{$recipe->id}}" name="recipes[]" class="recipesCheckbox" value="{{$recipe->id}}" ></input>
                                     {{--                TODO: add warning when allergy--}}
                                 </div>
                                 <div class="panel__main">
-                                    <h1 class="panel__title">{{$recipe->title}}</h1>
+                                    <p class="mb-0">{{$recipe->title}}</p>
+                                    <p><span class="icon icon--time">{{($recipe->cooking_time_min? $recipe->cooking_time_min+$recipe->preparation_time.'-' : null).($recipe->cooking_time_max+$recipe->preparation_time)}} min</span></p>
                                 </div>
                             </div>
                         </label>
