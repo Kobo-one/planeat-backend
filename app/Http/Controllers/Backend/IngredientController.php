@@ -47,16 +47,20 @@ class IngredientController extends Controller
             $path = $request->file('image')->store('ingredients','public');
         }
 
-
         $placeholders = ['img/placeholders/placeholder-200-400.png','img/placeholders/placeholder-200-300.png','img/placeholders/placeholder-200-200.png'];
+        $placeholder = Arr::random($placeholders);
+        $img = ($path)?'storage/'.$path: $placeholder;
 
         $data=[
             'name'=>$request->name,
-            'img'=>(($path)?'storage/'.$path: Arr::random($placeholders)),
             'ingredient_type_id'=>$request->ingredientType,
         ];
 
+
+
         $ingredient = Ingredient::create($data);
+        $ingredient->img = $img;
+        $ingredient->save;
 
         return redirect()->route('backend.ingredients.index')->with('success','Your ingredient has been added.');
     }
