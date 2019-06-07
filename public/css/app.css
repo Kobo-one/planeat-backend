@@ -2118,7 +2118,7 @@ li span {
 ol li {
   background-image: url("/../img/icons/orange-ball-icon.svg");
   background-size: 21px;
-  background-position: 0px;
+  background-position: 0px 1px;
   background-repeat: no-repeat;
   padding-left: 5px;
   margin-bottom: 12px;
