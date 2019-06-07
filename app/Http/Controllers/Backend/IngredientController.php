@@ -60,8 +60,7 @@ class IngredientController extends Controller
 
         $ingredient = Ingredient::create($data);
         $ingredient->img = $img;
-        $ingredient->save;
-
+        $ingredient->save();
         return redirect()->route('backend.ingredients.index')->with('success','Your ingredient has been added.');
     }
 
