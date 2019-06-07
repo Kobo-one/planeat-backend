@@ -14,7 +14,7 @@ class AlterIngredientTableAllImg extends Migration
     public function up()
     {
         Schema::table('ingredients', function (Blueprint $table) {
-            $table->string('img');
+            $table->string('img')->nullable();
         });
     }
 
