@@ -11,10 +11,11 @@ require('jquery.scrollto');
 require('./components/slider');
 
 var Masonry = require('masonry-layout');
-$(document).ready(function () {
+
+$(window).bind("load", function() {
     var masonry = new Masonry( '.masonry', {
         itemSelector: '.masonry__item',
     });
-})
+});
 
 
