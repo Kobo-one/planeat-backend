@@ -7,6 +7,7 @@ use App\IngredientType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class IngredientController extends Controller
 {
@@ -52,7 +53,7 @@ class IngredientController extends Controller
         $img = ($path)?'storage/'.$path: $placeholder;
 
         $data=[
-            'name'=>$request->name,
+            'name'=>Str::lower($request->name),
             'ingredient_type_id'=>$request->ingredientType,
         ];
 
