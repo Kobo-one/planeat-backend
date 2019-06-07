@@ -39,8 +39,8 @@
         </div>
     </div>
 
-    <div class="section">
-        <h2>Today's Meal{{$todaysplannings->count() > 1 ? 's' : ''}}</h2>
+    <div class="mt-sml">
+        <h2 class="mb-xsm">Today's Meal{{$todaysplannings->count() > 1 ? 's' : ''}}</h2>
         @if($todaysplannings->count()>=1)
             @foreach($todaysplannings as $planning)
                 <div class="panel panel--shadow panel--image" style="background-image: url('{{asset($planning->recipe->img)}}')">
