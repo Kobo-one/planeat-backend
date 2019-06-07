@@ -46,8 +46,28 @@ class RecipesController extends Controller
      */
     public function store(StoreRecipe $request)
     {
+        $image= $request->file('image');
+        if($image){
+            $path = $image->store('recipes','public');
+            $exif = exif_read_data($image);
+            if(!empty($exif['Orientation'])) {
+                $source = imagecreatefromjpeg( storage_path('app/public/'.$path));
+                switch($exif['Orientation']) {
+                    case 8:
+                        $image = imagerotate($source,90,0);
+                        break;
+                    case 3:
+                        $image = imagerotate($source,180,0);
+                        break;
+                    case 6:
+                        $image = imagerotate($source,-90,0);
+                        break;
+                }
+                imagejpeg($image,storage_path('app/public/'.$path));
+                imagedestroy($image);
+            }
 
-        $path = $request->file('image')->store('recipes','public');
+        }
 
         $data=[
             'title'=>$request->title,

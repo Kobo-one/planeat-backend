@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Intervention\Image\Image;
 
 class IngredientController extends Controller
 {
@@ -44,9 +45,31 @@ class IngredientController extends Controller
     public function store(Request $request)
     {
         $path = null;
-        if($request->file('image')){
-            $path = $request->file('image')->store('ingredients','public');
+        $image= $request->file('image');
+        if($image){
+            $path = $image->store('ingredients','public');
+            $exif = exif_read_data($image);
+            if(!empty($exif['Orientation'])) {
+                $source = imagecreatefromjpeg( storage_path('app/public/'.$path));
+                switch($exif['Orientation']) {
+                    case 8:
+                        $image = imagerotate($source,90,0);
+                        break;
+                    case 3:
+                        $image = imagerotate($source,180,0);
+                        break;
+                    case 6:
+                        $image = imagerotate($source,-90,0);
+                        break;
+                }
+                imagejpeg($image,storage_path('app/public/'.$path));
+                imagedestroy($image);
+            }
+
         }
+
+
+
 
         $placeholders = ['img/placeholders/placeholder-200-400.png','img/placeholders/placeholder-200-300.png','img/placeholders/placeholder-200-200.png'];
         $placeholder = Arr::random($placeholders);
