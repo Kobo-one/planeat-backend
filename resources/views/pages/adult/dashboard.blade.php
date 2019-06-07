@@ -39,17 +39,19 @@
         </div>
     </div>
 
-    <div class="mt-sml">
+    <div class="mt-sml mb-xsm">
         <h2 class="mb-xsm">Today's Meal{{$todaysplannings->count() > 1 ? 's' : ''}}</h2>
         @if($todaysplannings->count()>=1)
             @foreach($todaysplannings as $planning)
-                <div class="panel panel--shadow panel--image" style="background-image: url('{{asset($planning->recipe->img)}}')">
-                    <div class="panel__main">
-                        <div class="panel__overlay">
-                            <h1 class="mb-0">{{$planning->recipe->title}}</h1>
+                <a href="{{route('recipes_show',[$planning->recipe])}}">
+                    <div class="panel panel--shadow panel--image" style="background-image: url('{{asset($planning->recipe->img)}}')">
+                        <div class="panel__main">
+                            <div class="panel__overlay">
+                                <h1 class="mb-0">{{$planning->recipe->title}}</h1>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         @else
             <div class="panel panel--shadow">

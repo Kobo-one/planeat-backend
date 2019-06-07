@@ -1,0 +1,16 @@
+.quest{
+    .submit__bottom{
+        bottom: 90px;
+        position: absolute;
+    }
+
+    .header__button{
+        @extend .container;
+        width: 100%;
+        position: absolute;
+        text-align: right;
+        top: 0;
+        padding-top: $grid-gutter-width;
+    }
+
+}

@@ -31,29 +31,24 @@
 
             @if($plannings)
                 @foreach($plannings as $planning)
-                <div class="panel panel--shadow">
-                    <div class="panel__header">
-                        <div>
-                            <h2 class="panel__title"></h2>
-                        </div>
-                        <div class="panel__actions">
-                        </div>
-                    </div>
-                    <div class="panel__header mb-0">
-                        <div>
-                            <h3 class="panel__title">{{$planning->recipe->title}}</h3>
-                            <small class="text--message">{{$planning->recipe->recipeCategory->name}}</small>
-                        </div>
-                        <div class="panel__actions">
-                            <a href="{{route('planning_index')}}"><img
-                                        src="{{asset('img/icons/cross-icon.svg')}}" alt="add quest"></a>
-                        </div>
+                    <div class="section">
+                        <div class="panel panel--shadow">
+                            <div class="panel__header mb-0">
+                                <div>
+                                    <h3 class="panel__title">{{$planning->recipe->title}}</h3>
+                                    <small class="text--message">{{$planning->recipe->recipeCategory->name}}</small>
+                                </div>
+                                <div class="panel__actions">
+                                    <a href="{{route('planning_index')}}"><img
+                                                src="{{asset('img/icons/cross-icon.svg')}}" alt="add quest"></a>
+                                </div>
 
-                    </div>
-                    <div class="panel__main">
+                            </div>
+                            <div class="panel__main">
 
+                            </div>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             @endif
 

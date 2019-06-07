@@ -1071,6 +1071,10 @@ svg {
   overflow-x: auto;
 }
 
+.btn {
+  border: none;
+}
+
 .btn--primary {
   height: 40px;
   width: 80%;
@@ -1087,7 +1091,8 @@ svg {
   border-radius: 20px;
 }
 
-.container {
+.container,
+.quest .header__button {
   zoom: 1;
   margin-right: auto;
   margin-left: auto;
@@ -1097,12 +1102,15 @@ svg {
 }
 
 .container:before,
-.container:after {
+.quest .header__button:before,
+.container:after,
+.quest .header__button:after {
   content: "";
   display: table;
 }
 
-.container:after {
+.container:after,
+.quest .header__button:after {
   clear: both;
 }
 
@@ -2604,6 +2612,19 @@ text--danger {
   border-top: 1px rgba(151, 151, 151, 0.3) solid;
   border-bottom: 1px rgba(151, 151, 151, 0.3) solid;
   margin-bottom: 17px;
+}
+
+.quest .submit__bottom {
+  bottom: 90px;
+  position: absolute;
+}
+
+.quest .header__button {
+  width: 100%;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  padding-top: 17px;
 }
 
 .flex {
