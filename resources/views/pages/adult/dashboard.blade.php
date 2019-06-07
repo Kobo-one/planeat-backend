@@ -44,7 +44,6 @@
         @if($todaysplannings->count()>=1)
             @foreach($todaysplannings as $planning)
                 <div class="panel panel--shadow panel--image" style="background-image: url('{{asset($planning->recipe->img)}}')">
-
                     <div class="panel__main">
                         <div class="panel__overlay">
                             <h1 class="mb-0">{{$planning->recipe->title}}</h1>
