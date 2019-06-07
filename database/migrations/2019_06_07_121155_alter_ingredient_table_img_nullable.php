@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterIngredientTableAllImg extends Migration
+class AlterIngredientTableImgNullable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AlterIngredientTableAllImg extends Migration
     public function up()
     {
         Schema::table('ingredients', function (Blueprint $table) {
-            $table->string('img');
+            $table->string('img')->nullable()->change();;
         });
     }
 
