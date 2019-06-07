@@ -39499,8 +39499,10 @@ __webpack_require__(/*! ./components/slider */ "./resources/js/components/slider
 
 var Masonry = __webpack_require__(/*! masonry-layout */ "./node_modules/masonry-layout/masonry.js");
 
-var masonry = new Masonry('.masonry', {
-  itemSelector: '.masonry__item'
+document.ready(function () {
+  var masonry = new Masonry('.masonry', {
+    itemSelector: '.masonry__item'
+  });
 });
 
 /***/ }),

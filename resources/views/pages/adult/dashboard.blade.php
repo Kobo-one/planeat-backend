@@ -43,17 +43,13 @@
         <h2>Today's Meal{{$todaysplannings->count() > 1 ? 's' : ''}}</h2>
         @if($todaysplannings->count()>=1)
             @foreach($todaysplannings as $planning)
-                <div class="panel panel--image">
-                        <div class="panel__image">
-                            <img src="{{asset($planning->recipe->img)}}" alt="{{$planning->recipe->name}}">
+                <div class="panel panel--shadow panel--image" style="background-image: url('{{asset($planning->recipe->img)}}')">
+
+                    <div class="panel__main">
+                        <div class="panel__overlay">
+                            <h1 class="mb-0">{{$planning->recipe->title}}</h1>
                         </div>
-                        <div class="container">
-                            <div class="panel__header">
-                            </div>
-                            <div class="panel__main">
-                                <h1 class="panel__title">{{$planning->recipe->title}}</h1>
-                            </div>
-                        </div>
+                    </div>
                 </div>
             @endforeach
         @else

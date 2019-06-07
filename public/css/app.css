@@ -2272,6 +2272,7 @@ ol li span {
 }
 
 .panel {
+  overflow: hidden;
   display: block;
   padding: 12px;
 }
@@ -2339,9 +2340,15 @@ ol li span {
 }
 
 .panel--masonry {
-  overflow: hidden;
   padding: 0px;
   border-radius: 10px;
+}
+
+.panel--image {
+  height: 20vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
 }
 
 .notice {

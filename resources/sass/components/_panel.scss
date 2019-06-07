@@ -1,5 +1,5 @@
 .panel {
-
+    overflow: hidden;
   display: block;
   padding: $rh-xsm;
 
@@ -85,10 +85,13 @@
 }
 
 .panel--masonry{
-
-    overflow: hidden;
     padding: 0px;
     border-radius: $border-radius-lrg;
 }
 
-
+.panel--image{
+    height: 20vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
