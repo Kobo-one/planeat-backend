@@ -7,7 +7,7 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Manage <b>recipes</b></h2>
+                        <h2>Manage <b>ingredients</b></h2>
                     </div>
                     <div class="col-sm-6">
                         <a href="{{route('backend.ingredients.create')}}" class="btn btn-success"><span>Add New Ingredient</span></a>

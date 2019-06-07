@@ -6,6 +6,7 @@ use App\Ingredient;
 use App\IngredientType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Arr;
 
 class IngredientController extends Controller
 {
@@ -41,11 +42,17 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        $path = $request->file('image')->store('ingredients','public');
+        $path = null;
+        if($request->file('image')){
+            $path = $request->file('image')->store('ingredients','public');
+        }
+
+
+        $placeholders = ['img/placeholders/placeholder-200-400.png','img/placeholders/placeholder-200-300.png','img/placeholders/placeholder-200-200.png'];
 
         $data=[
             'name'=>$request->name,
-            'img'=>'storage/'.$path,
+            'img'=>(($path)?'storage/'.$path: Arr::random($placeholders)),
             'ingredient_type_id'=>$request->ingredientType,
         ];
 

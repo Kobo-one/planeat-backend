@@ -15,7 +15,7 @@
                     <span class="input-group-text">Upload</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="image" name="image" value="{{ (old('image') !== null ? old('image') : ($ingredient ? $ingredient->img : null)) }}" required>
+                    <input type="file" class="custom-file-input" id="image" name="image" value="{{ (old('image') !== null ? old('image') : ($ingredient ? $ingredient->img : null)) }}">
                     <label class="custom-file-label" for="image">Choose file</label>
                 </div>
             </div>

@@ -2548,6 +2548,7 @@ text--danger {
   height: 300px;
   background-position: center;
   background-size: cover;
+  position: relative;
 }
 
 .recipe .recipe__header .header__action {
@@ -2563,6 +2564,21 @@ text--danger {
 .recipe .recipe__header .header__action .recipe__back {
   margin: 0 17px;
   color: #fff;
+}
+
+.recipe .recipe__header .header__button {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  right: 17px;
+  bottom: -25px;
+}
+
+.recipe .recipe__header .btn--add {
+  height: 100%;
+  width: 100%;
+  background-image: url("/../img/icons/add-icon.svg");
+  background-size: cover;
 }
 
 .recipe .recipe__header .recipe__title {

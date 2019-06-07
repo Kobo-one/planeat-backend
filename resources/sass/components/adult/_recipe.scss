@@ -4,6 +4,7 @@
             height: 300px;
             background-position: center;
             background-size: cover;
+            position: relative;
         }
 
         .header__action{
@@ -21,6 +22,21 @@
                 margin: 0 17px;
                 color: $white;
             }
+        }
+
+        .header__button{
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            right: $grid-gutter-width;
+            bottom: -25px;
+        }
+
+        .btn--add{
+            height: 100%;
+            width: 100%;
+            background-image: url('/../img/icons/add-icon.svg');
+            background-size: cover;
         }
 
         .recipe__title{

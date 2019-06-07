@@ -26,7 +26,7 @@
                         <div class="panel__actions">
                             @if(($item['quests']))
                                 <a href="{{route('quest_delete',$item['quests']->id)}}"><img
-                                        src="{{asset('img/icons/cross-icon.png')}}" alt="add quest"></a>
+                                        src="{{asset('img/icons/cross-icon.svg')}}" alt="add quest"></a>
                             @else
                                 <a href="{{route('quest_create',$item['date'])}}"><img
                                         src="{{asset('img/icons/plus-icon.svg')}}"

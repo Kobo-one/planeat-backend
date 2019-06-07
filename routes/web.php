@@ -56,8 +56,8 @@ Route::group([
         Route::get('/', 'PlanningController@index')->name('planning_index');
         Route::get('/{date}', 'PlanningController@index')->name('planning_index_date');
         Route::get('/{date}/new', 'PlanningController@create')->name('planning_create');
-        Route::get('/{date}/new/{id}', 'PlanningController@show')->name('planning_show');
-        Route::post('/{date}/new/{id}', 'PlanningController@store')->name('planning_store');
+        Route::get('/{date}/new/{recipe}', 'PlanningController@show')->name('planning_show');
+        Route::post('/', 'PlanningController@store')->name('planning_store');
     });
 
     Route::group([

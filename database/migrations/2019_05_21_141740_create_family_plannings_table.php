@@ -18,7 +18,7 @@ class CreateFamilyPlanningsTable extends Migration
             $table->unsignedBigInteger('family_id')->nullable();
             $table->foreign('family_id')->references('id')->on('families')->onDelete('cascade');
             $table->unsignedBigInteger('recipe_id')->nullable();
-            $table->foreign('recipe_id')->references('id')->on('families')->onDelete('cascade');
+            $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
             $table->date('date');
             $table->time('hour');
             $table->unsignedBigInteger('family_quest_id')->nullable();

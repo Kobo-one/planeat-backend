@@ -7,6 +7,7 @@ use App\Recipe;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PlanningController extends Controller
 {
@@ -22,7 +23,7 @@ class PlanningController extends Controller
             $date = now()->toDateString();
         }
 
-        $plannings = FamilyPlanning::where('date',$date);
+        $plannings = FamilyPlanning::where('date',$date)->get();
         $readableDate = Carbon::parse($date)->format('jS F, Y');
         return view(self::PATH.'index',compact('date','readableDate','plannings'));
     }
@@ -50,7 +51,16 @@ class PlanningController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=[
+            'date' => $request->date,
+            'recipe_id' => $request->recipe,
+            'family_id' => Auth::user()->family->id,
+            'hour' => now()->timestamp,
+            ];
+
+        $planning = FamilyPlanning::create($data);
+
+        return redirect()->route('planning_index_date',$request->date)->with('success','Recipe added to your planning');
     }
 
     /**
@@ -59,9 +69,9 @@ class PlanningController extends Controller
      * @param  \App\FamilyPlanning  $familyPlanning
      * @return \Illuminate\Http\Response
      */
-    public function show($date)
+    public function show($date, Recipe $recipe)
     {
-
+        return view(self::PATH.'detail', compact('recipe','date'));
     }
 
     /**
