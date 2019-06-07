@@ -2227,7 +2227,7 @@ ol li span {
   font-size: 12px;
   border-top: 1px solid #eaeaea;
   background-color: #FFFFFF;
-  z-index: 1000;
+  z-index: 2000;
   position: fixed;
   bottom: 0;
   width: 100vw;
@@ -2315,7 +2315,7 @@ ol li span {
   position: absolute;
   left: 0;
   bottom: 0;
-  z-index: 1000;
+  z-index: 100;
   padding: 10px;
   color: #fff;
   width: 100%;

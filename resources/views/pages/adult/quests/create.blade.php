@@ -19,7 +19,7 @@
                             <div class="panel__header">
                             </div>
                             <div class="panel__main">
-                                <p class=mb-0">{{$ingredient->name}}</p>
+                                <p class="mb-0 text--capitalize">{{$ingredient->name}}</p>
                             </div>
                         </div>
                     </div>
