@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Adult;
 
 use App\GroceryItems;
 use App\GroceryList;
+use App\Http\Requests\StoreGroceryItem;
 use App\Http\Requests\StoreGroceryList;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -34,10 +35,43 @@ class GroceriesController extends Controller
 
 
     public function show(GroceryList $groceryList){
-        $groceryItems = GroceryItems::where('grocery_list_id',$groceryList->id)->get();
 
-        return view(self::PATH.'detail', compact('groceryItems'));
+        if ($groceryList->family != Auth::user()->family) {
+            abort(403, 'Access denied');
+        }
+
+        $groceryItems = $groceryList->items;
+
+        return view(self::PATH.'detail', compact('groceryList','groceryItems'));
+    }
+
+    public function addItem(StoreGroceryItem $request){
+        $familyId= Auth::user()->family->id;
+        $groceryList = GroceryList::find($request->grocery_list);
+
+        if ($groceryList->family != Auth::user()->family) {
+            abort(403, 'Access denied');
+        }
+        $data = [
+            'grocery_list_id' => $request->grocery_list,
+            'name' => $request->name,
+            'size' => $request->size,
+        ];
+        $groceryItems = GroceryItems::create($data);
+
+        return redirect()->route('groceries_detail', $groceryList)->with('success','Your item has been added!');
     }
 
 
+    public function done(GroceryList $groceryList, GroceryItems $groceryItem){
+        $groceryItem->completed = true;
+        $groceryItem->save();
+        return redirect()->route('groceries_detail', $groceryList);
+    }
+
+    public function undone(GroceryList $groceryList, GroceryItems $groceryItem){
+        $groceryItem->completed = false;
+        $groceryItem->save();
+        return redirect()->route('groceries_detail', $groceryList);
+    }
 }

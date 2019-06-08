@@ -54,8 +54,11 @@ Route::group([
         'prefix'=>'groceries'
     ],function (){
         Route::get('/', 'GroceriesController@index')->name('groceries_index');
-        Route::get('/{groceriesList}', 'GroceriesController@index')->name('groceries_detail');
+        Route::get('/{groceryList}', 'GroceriesController@show')->name('groceries_detail');
         Route::post('/', 'GroceriesController@create')->name('groceries_list_store');
+        Route::post('/item', 'GroceriesController@addItem')->name('groceries_item_store');
+        Route::get('/{groceryList}/done/{groceryItem}', 'GroceriesController@done')->name('groceries_item_done');
+        Route::get('/{groceryList}/undone/{groceryItem}', 'GroceriesController@undone')->name('groceries_item_undone');
     });
 
 

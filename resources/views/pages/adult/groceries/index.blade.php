@@ -1,7 +1,7 @@
 @extends('layouts.parent')
 
 @section('header')
-    @include('partials.adult.smallheader',['back'=>url()->previous(), 'title'=> 'Groceries','rightUrl'=>'#','icon' => 'img/icons/basic-plus-icon.svg','search'=>false])
+    @include('partials.adult.smallheader',['back'=>route('adult_index'), 'title'=> 'Groceries','rightUrl'=>'#','icon' => 'img/icons/basic-plus-icon.svg','search'=>false])
 @endsection
 
 @section('site-content')
@@ -56,7 +56,7 @@
         <form action="{{route('groceries_list_store')}}" method="post">
             @csrf
             <label for="name">Title</label><br>
-            <input id="name" class="field field--text mb-lrg" type="text" name="name" placeholder="List name">
+            <input id="name" class="field field--text mb-lrg" type="text" name="name" placeholder="List name" required>
             <input class="btn btn--primary mb-xsm" type="submit">
 
             <input class="btn btn--secondary js-toggle-popup" type="reset">

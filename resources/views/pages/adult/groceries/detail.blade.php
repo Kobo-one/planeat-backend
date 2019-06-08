@@ -1,26 +1,32 @@
 @extends('layouts.parent')
 
 @section('header')
-    @include('partials.adult.smallheader',['back'=>url()->previous(), 'title'=> 'Groceries','rightUrl'=>'#','icon' => 'img/icons/basic-plus-icon.svg','search'=>false])
+    @include('partials.adult.smallheader',['back'=>route('groceries_index'), 'title'=> 'Groceries','rightUrl'=>'#','icon' => 'img/icons/basic-plus-icon.svg','search'=>false])
 @endsection
 
 @section('site-content')
 
-
     <div class="section no-container grocery">
-        @if($groceryLists->count() > 0)
-            @foreach($groceryLists as $groceryList)
-                <a href="{{route('groceries_detail',$groceryList)}}">
-                    <div class="grocery__list container">
-                        <div class="grocery__icon float-left mr-med">
-                            <img src="{{asset('img/icons/grocery-icon.svg')}}" alt="grocery icon">
-                        </div>
-                        <div class="grocery__header">
-                            <h2 class="mb-0">{{$groceryList->name}}</h2>
-                            <p class="text--message">{{$groceryList->items->count()}} item{{$groceryList->items->count() ==1? '':'s'}}</p>
-                        </div>
-                        <div class="recipe__next">
-                            <img src="{{asset('img/icons/next-icon.svg')}}" alt="next icon">
+
+    <div class="grocery__list grocery__list--header container mb-xsm">
+        <div class="grocery__icon float-left mr-med">
+            <img src="{{asset('img/icons/grocery-icon.svg')}}" alt="grocery icon">
+        </div>
+        <div class="grocery__header">
+            <h2 class="mb-0">{{$groceryList->name}}</h2>
+            <p class="text--message">{{$groceryList->items->count()}} item{{$groceryList->items->count() ==1? '':'s'}}</p>
+        </div>
+    </div>
+        @if($groceryItems->count() > 0)
+
+
+            @foreach($groceryItems as $groceryItem)
+                <a href="{{route(($groceryItem->completed ?'groceries_item_undone':'groceries_item_done'),[$groceryList,$groceryItem])}}">
+                    <div class="grocery__list container {{$groceryItem->completed ? 'done': ''}}">
+                        <div class="grocery__list__header">
+                            <div class=""><h2 class="mb-0">{{$groceryItem->name}}</h2></div>
+                            <div class="text--right"><p class="">{{$groceryItem->size}}</p></div>
+                            <div class="text--right"><input class="" type="checkbox" {{$groceryItem->completed ? 'checked': ''}}></div>
                         </div>
                     </div>
                 </a>
@@ -31,7 +37,7 @@
                     <div class="panel panel--shadow">
                         <div class="panel__header mb-0">
                             <div>
-                                <p class="text--message">No lists found, add a new one here</p>
+                                <p class="text--message">No items found, add a new one here</p>
                             </div>
                             <div class="panel__actions">
                                 <img src="{{asset('img/icons/plus-icon.svg')}}" alt="">
@@ -52,11 +58,18 @@
 
 @section('popup')
     <div class="panel--shopping">
-        <h2 class="popup__title">Create a shoppinglist</h2>
-        <form action="{{route('groceries_list_store')}}" method="post">
+        <h2 class="popup__title">Add an item</h2>
+        <form action="{{route('groceries_item_store')}}" method="post">
             @csrf
-            <label for="name">Title</label><br>
-            <input id="name" class="field field--text mb-lrg" type="text" name="name" placeholder="List name">
+            <div class="field__group">
+                <label for="name">Ingredient</label><br>
+                <input id="name" class="field field--text mb-xsm" type="text" name="name" placeholder="Flour" required>
+            </div>
+            <div class="field__group">
+            <label for="size">Size</label><br>
+            <input id="size" class="field field--int mb-lrg" type="text" name="size" placeholder="500 gram">
+            </div>
+            <input type="hidden" name="grocery_list" value="{{$groceryList->id}}">
             <input class="btn btn--primary mb-xsm" type="submit">
 
             <input class="btn btn--secondary js-toggle-popup" type="reset">
