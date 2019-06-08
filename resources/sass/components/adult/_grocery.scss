@@ -1,0 +1,14 @@
+.grocery{
+    .grocery__list{
+        position: relative;
+        background-color: $white;
+        border-bottom: 1px solid $gray-0;
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+        .recipe__next{
+            position: absolute;
+            right: $grid-gutter-width;
+            top: 20px;
+        }
+    }
+}

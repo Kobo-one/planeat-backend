@@ -29,10 +29,10 @@ $notice-colors: (
 // Base color definitions
 $color-background: $gray-25 !default;
 $color-app: #FBFBFB !default;
-$color-text: $gray-75 !default;
+$color-text: #424242 !default;
 
 // Link color
-$color-link: $color-primary !default;
+$color-link: $color-text !default;
 $color-link-hover: darken($color-link, 15%) !default;
 $color-link-visited: darken($color-link, 5%) !default;
 

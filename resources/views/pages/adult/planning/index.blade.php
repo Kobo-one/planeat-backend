@@ -29,7 +29,7 @@
     <div class="section">
 
 
-            @if($plannings)
+            @if($plannings || $quests)
                 @foreach($plannings as $planning)
 
                 <div class="spacer spacer--sml">
@@ -56,6 +56,26 @@
                 </div>
 
                 @endforeach
+
+                    @foreach($quests as $quest)
+
+                        <div class="spacer spacer--sml">
+                            <div class="panel panel--shadow">
+
+                                <div class="panel__header mb-0">
+                                    <div>
+                                        <h3 class="panel__title text--capitalize">{{$quest->ingredient->name}} quest</h3>
+                                        <small class="text--message">Your kids are choosing a recipe for this quest.</small>
+                                    </div>
+                                </div>
+
+                                <div class="panel__main">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    @endforeach
             @endif
 
                 <div class="spacer spacer--sml panel panel--shadow">

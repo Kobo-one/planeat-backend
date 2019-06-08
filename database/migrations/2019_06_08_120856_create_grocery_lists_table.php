@@ -15,6 +15,9 @@ class CreateGroceryListsTable extends Migration
     {
         Schema::create('grocery_lists', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->unsignedBigInteger('family_id')->nullable();
+            $table->foreign('family_id')->references('id')->on('families')->onDelete('cascade');
             $table->timestamps();
         });
     }

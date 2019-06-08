@@ -15,6 +15,13 @@ class CreateGroceryItemsTable extends Migration
     {
         Schema::create('grocery_items', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('grocery_list_id')->nullable();
+            $table->foreign('grocery_list_id')->references('id')->on('grocery_lists')->onDelete('cascade');
+            $table->unsignedBigInteger('ingredient_id')->nullable();
+            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
+            $table->unsignedInteger('size')->nullable(); // 1
+            $table->string('serving_size')->nullable(); //(liter, gram, /, …)
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
     }

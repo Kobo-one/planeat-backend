@@ -40,7 +40,7 @@
 
 
             </div>
-            <input class="submit__bottom btn btn--primary" type="submit">
+            <input class="submit__bottom btn btn--primary" type="submit" value="Create quest">
 
         </form>
     </div>

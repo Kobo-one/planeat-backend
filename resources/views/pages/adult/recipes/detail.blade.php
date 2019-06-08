@@ -24,7 +24,7 @@
             <input type="hidden" name="recipe" value="{{$recipe->id}}">
             <input class="field field--date mb-sml" type="date" name="date" value="{{now()->toDateString()}}">
 
-            <input class="btn btn--primary" type="submit">
+            <input class="btn btn--primary" type="submit" value="Add to planning">
         </form>
 
 

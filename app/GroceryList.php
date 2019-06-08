@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class GroceryList extends Model
 {
     protected $fillable = [
-        '',
+        'name','family_id'
     ];
 
-    public function FamilyQuest()
+    public function family()
     {
-        return $this->belongsTo('App\FamilyQuest');
+        return $this->belongsTo('App\Family');
     }
 
-    public function Recipe()
+    public function items()
     {
-        return $this->belongsTo('App\Recipe');
+        return $this->hasMany('App\GroceryItems');
     }
 }

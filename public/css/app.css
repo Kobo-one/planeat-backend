@@ -1010,7 +1010,7 @@ body {
   font-size: 16px;
   font-size: 1rem;
   background-color: #b7b7b7;
-  color: #494949;
+  color: #424242;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 24px;
@@ -1032,16 +1032,16 @@ textarea {
 
 a {
   transition: color 150ms ease-in-out, background 150ms ease-in-out, border 150ms ease-in-out;
-  color: #AFD656;
+  color: #424242;
 }
 
 a:not(.btn):visited {
-  color: #a5d141;
+  color: #353535;
 }
 
 a:not(.btn):hover,
 a:not(.btn):focus {
-  color: #8ab42c;
+  color: #1c1c1c;
 }
 
 a:hover,
@@ -2147,18 +2147,16 @@ ol li {
 }
 
 ol li span {
-  color: #494949;
+  color: #424242;
 }
 
 .field {
   border-radius: 10px;
-  border: 1px solid #b7b7b7;
+  border: 1px solid #eaeaea;
   width: 80%;
   height: 40px;
-}
-
-.field--date {
   padding: 0 10px;
+  margin-bottom: 10px;
 }
 
 .dashboard {
@@ -2660,6 +2658,20 @@ text--danger {
 .quest .header__button input:checked ~ .btn--select {
   height: 30px;
   width: 30px;
+}
+
+.grocery .grocery__list {
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #f5f5f5;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.grocery .grocery__list .recipe__next {
+  position: absolute;
+  right: 17px;
+  top: 20px;
 }
 
 .popup {

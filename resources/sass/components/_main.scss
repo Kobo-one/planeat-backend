@@ -38,10 +38,12 @@ ol li {
 
 .field{
     border-radius: $border-radius-lrg;
-    border: 1px solid $gray-25;
+    border: 1px solid $gray-10;
     width: 80%;
     height: 40px;
+    padding: 0 10px;
+    margin-bottom: 10px;
     &--date{
-        padding: 0 10px;
+
     }
 }
