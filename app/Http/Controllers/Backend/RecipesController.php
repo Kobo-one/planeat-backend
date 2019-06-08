@@ -50,7 +50,7 @@ class RecipesController extends Controller
         if($image){
             $path = $image->store('recipes','public');
             $exif = exif_read_data($image);
-            if(!empty($exif['Orientation'] && $exif['Orientation'] != 1)) {
+            if(!empty($exif['Orientation']) && $exif['Orientation'] != 1) {
                 $source = imagecreatefromstring(file_get_contents(storage_path('app/public/'.$path)));
                 $path = 'recipes/'.pathinfo($path, PATHINFO_FILENAME).'.jpeg';
 
