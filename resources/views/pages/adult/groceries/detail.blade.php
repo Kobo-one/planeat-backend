@@ -26,7 +26,7 @@
                         <div class="grocery__list__header">
                             <div class=""><h2 class="mb-0">{{$groceryItem->name}}</h2></div>
                             <div class="text--right"><p class="">{{$groceryItem->size}}</p></div>
-                            <div class="text--right"><input class="" type="checkbox" {{$groceryItem->completed ? 'checked': ''}}></div>
+                            <div class="text--right"><div class="{{$groceryItem->completed? 'btn--option-selected' : 'btn--option'}}"></div></div>
                         </div>
                     </div>
                 </a>

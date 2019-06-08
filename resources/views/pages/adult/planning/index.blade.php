@@ -100,12 +100,23 @@
 
 
 @section('popup')
-    <div class="panel--shopping">
+    <div class="panel--shopping grocery container">
         <h2 class="popup__title">Choose a shoppinglist</h2>
-        <form action="{{route('groceries_store')}}" method="post">
+        <form action="{{route('groceries_planning_store')}}" method="post">
             @csrf
-
-            <input class="btn btn--primary" type="submit">
+            @foreach($lists as $list)
+                <label for="list{{$list->id}}" class="panel panel--shadow ">
+                    <div class="panel__header mb-0">
+                            <div class="grocery__icon--sml"><img src="{{asset('img/icons/grocery-icon.svg')}}" alt="grocery-icon"></div>
+                            <input type="radio" class="hidden" id="list{{$list->id}}" name="list" value="{{$list->id}}" class="listRadio">
+                            <div><h2>{{$list->name}}</h2></div>
+                            <div class="panel__actions">
+                                <div class="btn--radio"></div>
+                            </div>
+                    </div>
+                </label>
+            @endforeach
+            <input class="btn btn--secondary" type="submit" value="Add ingredients to this list">
         </form>
     </div>
 @endsection

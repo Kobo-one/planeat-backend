@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Adult;
 
 use App\FamilyPlanning;
 use App\FamilyQuest;
+use App\GroceryList;
 use App\Http\Requests\StorePlanning;
 use App\Recipe;
 use Carbon\Carbon;
@@ -28,7 +29,9 @@ class PlanningController extends Controller
         $plannings = FamilyPlanning::where('family_id',$familyId)->where('date',$date)->get();
         $quests = FamilyQuest::where('family_id',$familyId)->where('date',$date)->where('status','created')->get();
         $readableDate = Carbon::parse($date)->format('jS F, Y');
-        return view(self::PATH.'index',compact('date','readableDate','plannings','quests'));
+
+        $lists = GroceryList::where('family_id',$familyId)->get();
+        return view(self::PATH.'index',compact('date','readableDate','plannings','quests','lists'));
     }
 
     /**

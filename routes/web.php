@@ -57,6 +57,7 @@ Route::group([
         Route::get('/{groceryList}', 'GroceriesController@show')->name('groceries_detail');
         Route::post('/', 'GroceriesController@create')->name('groceries_list_store');
         Route::post('/item', 'GroceriesController@addItem')->name('groceries_item_store');
+        Route::post('/planning', 'GroceriesController@addPlanning')->name('groceries_planning_store');
         Route::get('/{groceryList}/done/{groceryItem}', 'GroceriesController@done')->name('groceries_item_done');
         Route::get('/{groceryList}/undone/{groceryItem}', 'GroceriesController@undone')->name('groceries_item_undone');
     });

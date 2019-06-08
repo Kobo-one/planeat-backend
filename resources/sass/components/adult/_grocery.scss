@@ -27,6 +27,18 @@
 
     .done{
         background-color: $gray-0;
+        border-top: 1px solid $gray-10;
     }
+
+    .grocery__icon--sml{
+        width: 35px;
+    }
+
+     .panel__header input:checked ~ .header__action .btn--radio{
+         @extend .btn--option-selected;
+         height: 30px;
+         background-color: red;
+     }
+
 }
 

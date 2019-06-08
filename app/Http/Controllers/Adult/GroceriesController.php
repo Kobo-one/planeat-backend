@@ -40,7 +40,7 @@ class GroceriesController extends Controller
             abort(403, 'Access denied');
         }
 
-        $groceryItems = $groceryList->items;
+        $groceryItems = $groceryList->items->sortBy('updated_at')->sortBy('completed');
 
         return view(self::PATH.'detail', compact('groceryList','groceryItems'));
     }

@@ -1107,6 +1107,27 @@ svg {
   background-size: cover;
 }
 
+.btn--option {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  background-image: url("/../img/icons/grey-circle-icon.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.btn--option-selected,
+.grocery .panel__header input:checked ~ .header__action .btn--radio {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  background-image: url("/../img/icons/checkmark-icon.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
 .container {
   zoom: 1;
   margin-right: auto;
@@ -2688,6 +2709,16 @@ text--danger {
 
 .grocery .done {
   background-color: #f5f5f5;
+  border-top: 1px solid #eaeaea;
+}
+
+.grocery .grocery__icon--sml {
+  width: 35px;
+}
+
+.grocery .panel__header input:checked ~ .header__action .btn--radio {
+  height: 30px;
+  background-color: red;
 }
 
 .popup {

@@ -28,7 +28,24 @@
         background-image: url('/../img/icons/selected-icon.svg');
         background-size: cover;
     }
-
+    &--option{
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        background-image: url('/../img/icons/grey-circle-icon.svg');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center;
+    }
+    &--option-selected{
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        background-image: url('/../img/icons/checkmark-icon.svg');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center;
+    }
 }
 
 

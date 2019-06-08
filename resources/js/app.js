@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require('bootstrap')
 masonry = require('masonry-layout');
 window.$ = require("jquery");
 require('jquery.scrollto');
