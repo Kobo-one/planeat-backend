@@ -2,15 +2,34 @@
     .submit__bottom{
         bottom: 90px;
         position: absolute;
+        max-width: $mobile-limit - (2* $grid-gutter-width);
     }
 
     .header__button{
-        @extend .container;
+        padding: 10px;
         width: 100%;
         position: absolute;
-        text-align: right;
         top: 0;
-        padding-top: $grid-gutter-width;
+        direction: rtl;
+
+        .btn--select{
+            @extend .btn--selectable;
+            height: 30px;
+            width: 30px;
+        }
+
+        input:checked ~ .btn--select{
+            @extend .btn--selected;
+            height: 30px;
+            width: 30px;
+        }
+
+
     }
+
+
+
+}
+.date__popup{
 
 }

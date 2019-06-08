@@ -16,8 +16,21 @@
         border-radius: $border-radius-max;
     }
 
-
+    &--selectable{
+        height: 100%;
+        width: 100%;
+        background-image: url('/../img/icons/add-grey-icon.svg');
+        background-size: cover;
+    }
+    &--selected{
+        height: 100%;
+        width: 100%;
+        background-image: url('/../img/icons/selected-icon.svg');
+        background-size: cover;
+    }
 
 }
+
+
 
 

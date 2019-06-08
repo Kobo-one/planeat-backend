@@ -31,28 +31,34 @@
 
             @if($plannings)
                 @foreach($plannings as $planning)
-                    <div class="section">
+
+                <div class="spacer spacer--sml">
+                    <a href="{{route('recipes_show',$planning->recipe)}}">
                         <div class="panel panel--shadow">
+
                             <div class="panel__header mb-0">
+
                                 <div>
                                     <h3 class="panel__title">{{$planning->recipe->title}}</h3>
-                                    <small class="text--message">{{$planning->recipe->recipeCategory->name}}</small>
-                                </div>
-                                <div class="panel__actions">
-                                    <a href="{{route('planning_index')}}"><img
-                                                src="{{asset('img/icons/cross-icon.svg')}}" alt="add quest"></a>
+                                    <small class="text--message">{{$planning->recipe->recipeCategory ? $planning->recipe->recipeCategory->name : null}}</small>
                                 </div>
 
+                                <div class="panel__actions">
+                                    <div class="js-toggle-popup"><img src="{{asset('img/icons/shopping-icon.svg')}}" alt="add to shopping"></div>
+                                </div>
                             </div>
+
                             <div class="panel__main">
 
                             </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
+
                 @endforeach
             @endif
 
-                <div class="panel panel--shadow">
+                <div class="spacer spacer--sml panel panel--shadow">
                     <div class="panel__header mb-0">
                         <div>
                             <h3 class="panel__title text--message">Add something to your planning</h3>
@@ -70,4 +76,16 @@
         </div>
     </div>
 
+@endsection
+
+
+@section('popup')
+    <div class="panel--shopping">
+        <h2 class="popup__title">Choose a shoppinglist</h2>
+        <form action="{{route('groceries_store')}}" method="post">
+            @csrf
+
+            <input class="btn btn--primary" type="submit">
+        </form>
+    </div>
 @endsection

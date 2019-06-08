@@ -1010,7 +1010,7 @@ body {
   font-size: 16px;
   font-size: 1rem;
   background-color: #b7b7b7;
-  color: #000;
+  color: #494949;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 24px;
@@ -1091,8 +1091,23 @@ svg {
   border-radius: 20px;
 }
 
-.container,
-.quest .header__button {
+.btn--selectable,
+.quest .header__button .btn--select {
+  height: 100%;
+  width: 100%;
+  background-image: url("/../img/icons/add-grey-icon.svg");
+  background-size: cover;
+}
+
+.btn--selected,
+.quest .header__button input:checked ~ .btn--select {
+  height: 100%;
+  width: 100%;
+  background-image: url("/../img/icons/selected-icon.svg");
+  background-size: cover;
+}
+
+.container {
   zoom: 1;
   margin-right: auto;
   margin-left: auto;
@@ -1102,15 +1117,12 @@ svg {
 }
 
 .container:before,
-.quest .header__button:before,
-.container:after,
-.quest .header__button:after {
+.container:after {
   content: "";
   display: table;
 }
 
-.container:after,
-.quest .header__button:after {
+.container:after {
   clear: both;
 }
 
@@ -1136,7 +1148,8 @@ svg {
   clear: both;
 }
 
-.no-container {
+.no-container,
+.notice {
   margin-left: -17px;
   margin-right: -17px;
 }
@@ -2134,7 +2147,18 @@ ol li {
 }
 
 ol li span {
-  color: #000;
+  color: #494949;
+}
+
+.field {
+  border-radius: 10px;
+  border: 1px solid #b7b7b7;
+  width: 80%;
+  height: 40px;
+}
+
+.field--date {
+  padding: 0 10px;
 }
 
 .dashboard {
@@ -2617,14 +2641,48 @@ text--danger {
 .quest .submit__bottom {
   bottom: 90px;
   position: absolute;
+  max-width: 386px;
 }
 
 .quest .header__button {
+  padding: 10px;
   width: 100%;
   position: absolute;
-  text-align: right;
   top: 0;
-  padding-top: 17px;
+  direction: rtl;
+}
+
+.quest .header__button .btn--select {
+  height: 30px;
+  width: 30px;
+}
+
+.quest .header__button input:checked ~ .btn--select {
+  height: 30px;
+  width: 30px;
+}
+
+.popup {
+  display: none;
+  width: 420px;
+  position: fixed;
+  bottom: 0px;
+  background: url("/../img/background-green.svg") center no-repeat;
+  background-color: #fff;
+  background-size: cover;
+  padding-top: 25px;
+  padding-bottom: 110px;
+  border-radius: 20px;
+  box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.07);
+  text-align: center;
+}
+
+.popup .popup__title {
+  color: #AFD656;
+}
+
+.popup .popup--date {
+  margin-bottom: 50px;
 }
 
 .flex {

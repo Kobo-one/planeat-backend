@@ -9,5 +9,8 @@
             @yield('site-content')
         </div>
         @include('partials.adult.navigation')
+        <div class="popup">
+            @yield('popup')
+        </div>
     </div>
 @endsection

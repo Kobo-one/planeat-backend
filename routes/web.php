@@ -36,7 +36,7 @@ Route::group([
     Route::get('/', 'DashboardController@index')->name('adult_index');
     Route::get('/recipes', 'RecipesController@index')->name('recipes_index');
     Route::get('/recipes/{recipe}', 'RecipesController@show')->name('recipes_show');
-    Route::get('/groceries', 'GroceriesController@index')->name('groceries_index');
+
     Route::group([
         'prefix'=>'quests'
     ],function (){
@@ -49,6 +49,14 @@ Route::group([
         Route::post('/create/{date}/{ingredient}', 'QuestController@store')->name('quest_store');
         Route::get('/delete/{id}', 'QuestController@delete')->name('quest_delete');
     });
+
+    Route::group([
+        'prefix'=>'groceries'
+    ],function (){
+        Route::get('/', 'GroceriesController@index')->name('groceries_index');
+        Route::post('/', 'GroceriesController@store')->name('groceries_store');
+    });
+
 
     Route::group([
         'prefix'=>'planning'

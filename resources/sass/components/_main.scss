@@ -34,3 +34,14 @@ ol li {
         color: $color-text;
     }
 }
+
+
+.field{
+    border-radius: $border-radius-lrg;
+    border: 1px solid $gray-25;
+    width: 80%;
+    height: 40px;
+    &--date{
+        padding: 0 10px;
+    }
+}

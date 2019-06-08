@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Adult;
 
 use App\FamilyPlanning;
+use App\Http\Requests\StorePlanning;
 use App\Recipe;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -49,13 +50,12 @@ class PlanningController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePlanning $request)
     {
         $data=[
             'date' => $request->date,
             'recipe_id' => $request->recipe,
             'family_id' => Auth::user()->family->id,
-            'hour' => now()->timestamp,
             ];
 
         $planning = FamilyPlanning::create($data);

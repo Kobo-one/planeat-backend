@@ -2,7 +2,7 @@
 
 @section('header__action')
 
-    <a class="recipe__back icon--back" href="{{route('planning_create',$date)}}">Back</a>
+    <a class="recipe__back icon--back" href="{{url()->previous()}}">Back</a>
 
 @endsection
 

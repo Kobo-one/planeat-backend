@@ -7,6 +7,8 @@
 @section('site-content')
 
     <div class="quest section">
+        <p class="text--message mb-xsm">Select max. 5 recipes with {{$ingredient->name}} your kids can choose from.</p>
+
         <form action="{{route('quest_store',[$date,$ingredient->id])}}" method="POST">
 
             {{ csrf_field() }}
@@ -20,10 +22,9 @@
                             </div>
                             <div class="panel__header--overlay">
                                 <div class="header__button">
-                                    <div class="btn--select">
-                                        <input type="checkbox" id="recipe{{$recipe->id}}" name="recipes[]" class="recipesCheckbox" value="{{$recipe->id}}" ></input>
-                                        {{--                TODO: add warning when allergy--}}
-                                    </div>
+                                    <input class="hidden" type="checkbox" id="recipe{{$recipe->id}}" name="recipes[]" class="recipesCheckbox" value="{{$recipe->id}}"></input>
+                                    <div class="btn--select"></div>
+                                    {{--                TODO: add warning when allergy--}}
                                 </div>
                             </div>
                             <div class="panel__overlay">

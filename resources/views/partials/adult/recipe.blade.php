@@ -40,5 +40,10 @@
             </div>
         </div>
 
+
     </div>
+@endsection
+
+@section('popup')
+    @yield('recipe_footer')
 @endsection

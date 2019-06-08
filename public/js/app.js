@@ -39503,6 +39503,10 @@ $(window).bind("load", function () {
   var masonry = new Masonry('.masonry', {
     itemSelector: '.masonry__item'
   });
+  $('.js-toggle-popup').click(function (e) {
+    e.preventDefault();
+    $('.popup').slideToggle();
+  });
 });
 
 /***/ }),

@@ -1,0 +1,22 @@
+.popup{
+    display: none;
+    width: $mobile-limit;
+    position: fixed;
+    bottom: 0px;
+    background: url("/../img/background-green.svg") center no-repeat;
+    background-color: $white;
+    background-size: cover;
+    padding-top: 25px;
+    padding-bottom: 110px;
+    border-radius: $border-radius-max;
+    box-shadow: 0px -8px 10px rgba(0,0,0,0.07);
+    text-align: center;
+
+    .popup__title{
+        color: $color-primary;
+    }
+
+    .popup--date{
+        margin-bottom: 50px;
+    }
+}

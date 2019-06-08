@@ -1,4 +1,5 @@
 .notice {
+    @extend .no-container;
   padding: $rh-sml;
   @each $type, $color in $notice-colors {
     &--#{$type} {
