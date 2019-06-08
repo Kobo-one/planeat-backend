@@ -32,8 +32,8 @@ class StoreRecipe extends FormRequest
             'description'=>'required|string',
             'image'=>'required|image',
             'recipeType'=>'required|integer',
-            'prepTime'=>'integer',
-            'cookTimeMin'=>'integer',
+            'prepTime'=>'nullable|integer',
+            'cookTimeMin'=>'nullable|integer',
             'cookTimeMax'=>'required|integer',
             'servings'=>'required|integer',
             'servingType'=>'string',
@@ -43,7 +43,7 @@ class StoreRecipe extends FormRequest
             'ingredientSizes'=>'required',
             'ingredients[*]'=>'integer',
             'ingredientSizes[*]'=>'integer',
-            'ingredientServingTypes[*]'=>'string',
+            'ingredientServingTypes[*]'=>'nullable|string',
         ];
     }
 }
