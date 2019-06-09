@@ -11,7 +11,7 @@ class RecipesController extends Controller
     const PATH = 'pages/adult/recipes/';
 
     public function index(){
-        $recipes = Recipe::all();
+        $recipes = Recipe::all()->shuffle();
         return view(self::PATH.'index', compact('recipes'));
     }
 
