@@ -34,10 +34,17 @@
         width: 35px;
     }
 
-     .panel__header input:checked ~ .header__action .btn--radio{
+    .grocery__planning{
+        display: grid;
+        width: 100%;
+        grid-template-columns:2fr 8fr 1fr;
+        align-items: center;
+    }
+
+     .grocery__planning input:checked ~ .btn--radio{
          @extend .btn--option-selected;
-         height: 30px;
-         background-color: red;
+         height: 100%;
+         width: 100%;
      }
 
 }

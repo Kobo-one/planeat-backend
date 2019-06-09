@@ -6,6 +6,7 @@ use App\GroceryItems;
 use App\GroceryList;
 use App\Http\Requests\StoreGroceryItem;
 use App\Http\Requests\StoreGroceryList;
+use App\Http\Requests\StoreGroceryPlanning;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,23 @@ class GroceriesController extends Controller
     }
 
     public function addItem(StoreGroceryItem $request){
+        $familyId= Auth::user()->family->id;
+        $groceryList = GroceryList::find($request->grocery_list);
+
+        if ($groceryList->family != Auth::user()->family) {
+            abort(403, 'Access denied');
+        }
+        $data = [
+            'grocery_list_id' => $request->grocery_list,
+            'name' => $request->name,
+            'size' => $request->size,
+        ];
+        $groceryItems = GroceryItems::create($data);
+
+        return redirect()->route('groceries_detail', $groceryList)->with('success','Your item has been added!');
+    }
+
+    public function addPlanning(StoreGroceryPlanning $request){
         $familyId= Auth::user()->family->id;
         $groceryList = GroceryList::find($request->grocery_list);
 

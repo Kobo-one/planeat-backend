@@ -102,21 +102,40 @@
 @section('popup')
     <div class="panel--shopping grocery container">
         <h2 class="popup__title">Choose a shoppinglist</h2>
+        @if($lists->count()>=1)
         <form action="{{route('groceries_planning_store')}}" method="post">
             @csrf
             @foreach($lists as $list)
                 <label for="list{{$list->id}}" class="panel panel--shadow ">
-                    <div class="panel__header mb-0">
+                    <div class="grocery__planning mb-0">
                             <div class="grocery__icon--sml"><img src="{{asset('img/icons/grocery-icon.svg')}}" alt="grocery-icon"></div>
-                            <input type="radio" class="hidden" id="list{{$list->id}}" name="list" value="{{$list->id}}" class="listRadio">
-                            <div><h2>{{$list->name}}</h2></div>
-                            <div class="panel__actions">
-                                <div class="btn--radio"></div>
-                            </div>
+                            <input type="radio" class="hidden" id="list{{$list->id}}" name="list" value="{{$list->id}}" class="listRadio" required>
+                            <div class=""><h2 class="text--left">{{$list->name}}</h2></div>
+                            <div class="btn--radio"></div>
                     </div>
                 </label>
             @endforeach
-            <input class="btn btn--secondary" type="submit" value="Add ingredients to this list">
+            <input class="btn btn--secondary mt-sml" type="submit" value="Add ingredients to this list">
         </form>
+        @else
+            <div class="container">
+                <a href="{{route('groceries_index')}}" >
+                    <div class="panel panel--shadow">
+                        <div class="panel__header mb-0">
+                            <div>
+                                <p class="text--message">No lists found, add one here first</p>
+                            </div>
+                            <div class="panel__actions">
+                                <img src="{{asset('img/icons/plus-icon.svg')}}" alt="">
+                            </div>
+                        </div>
+                        <div class="panel__main">
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
     </div>
 @endsection

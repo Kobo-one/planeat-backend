@@ -54,7 +54,6 @@ class RecipesController extends Controller
                 $source = imagecreatefromstring(file_get_contents(storage_path('app/public/'.$path)));
                 $path = 'recipes/'.pathinfo($path, PATHINFO_FILENAME).'.jpeg';
 
-                dd($exif['Orientation']);
                 switch($exif['Orientation']) {
                     case 8:
                         $image = imagerotate($source,90,0);
