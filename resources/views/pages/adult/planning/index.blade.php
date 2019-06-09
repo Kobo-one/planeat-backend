@@ -44,7 +44,12 @@
                                 </div>
 
                                 <div class="panel__actions">
-                                    <div class="js-toggle-popup"><img src="{{asset('img/icons/shopping-icon.svg')}}" alt="add to shopping"></div>
+                                    @if($planning->shopping_added)
+                                        <div class=""><img src="{{asset('img/icons/shopping-grey-icon.svg')}}" alt="already added to shopping list"></div>
+                                    @else
+                                        <div class="js-toggle-planning-list" data-planning="{{$planning->id}}"><img src="{{asset('img/icons/shopping-icon.svg')}}" alt="add to shopping list"></div>
+                                    @endif
+
                                 </div>
                             </div>
 
@@ -107,6 +112,7 @@
             @csrf
             @foreach($lists as $list)
                 <label for="list{{$list->id}}" class="panel panel--shadow ">
+                    <input type="hidden" name="planning" value="">
                     <div class="grocery__planning mb-0">
                             <div class="grocery__icon--sml"><img src="{{asset('img/icons/grocery-icon.svg')}}" alt="grocery-icon"></div>
                             <input type="radio" class="hidden" id="list{{$list->id}}" name="list" value="{{$list->id}}" class="listRadio" required>

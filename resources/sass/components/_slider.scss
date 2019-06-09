@@ -42,7 +42,8 @@
     }
 
     .selected{
-        background-color: $color-secondary;
+        background: url('/../img/icons/orange-ball-icon.svg') no-repeat center ;
+        background-size: contain;
         color: $color-contrast;
     }
 }

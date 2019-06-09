@@ -24,6 +24,7 @@ Route::group(['prefix'=>'family','namespace'=>'Family','middleware'=>'auth'], fu
         Route::get('/create','MemberController@create')->name('member_create');
         Route::post('/create','MemberController@showCreateForm')->name('member_store');
         Route::post('/login','MemberController@login')->name('member_login');
+        Route::get('/logout', 'MemberController@logout')->name('member_logout');
     });
 });
 
@@ -34,6 +35,7 @@ Route::group([
     'middleware' => ['auth','CheckMember:Adult']
 ], function() {
     Route::get('/', 'DashboardController@index')->name('adult_index');
+
     Route::get('/recipes', 'RecipesController@index')->name('recipes_index');
     Route::get('/recipes/{recipe}', 'RecipesController@show')->name('recipes_show');
 
@@ -77,12 +79,18 @@ Route::group([
         'prefix'=>'family'
     ],function (){
         Route::get('/', 'FamilyController@index')->name('family_index');
+        Route::get('/{member}', 'FamilyController@show')->name('family_detail');
     });
 
     Route::group([
         'prefix'=>'settings'
     ],function (){
         Route::get('/', 'SettingsController@index')->name('settings_index');
+        Route::get('/notifications', 'SettingsController@notification')->name('settings_notifications');
+        Route::get('/family', 'SettingsController@family')->name('settings_family');
+        Route::get('/profile', 'SettingsController@profile')->name('settings_profile');
+        Route::get('/terms', 'SettingsController@terms')->name('settings_terms');
+        Route::get('/privacy', 'SettingsController@privacy')->name('settings_privacy');
     });
 
 });

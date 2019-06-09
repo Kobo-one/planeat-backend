@@ -6,13 +6,13 @@
 
 @section('site-content')
 
-    <div class="section no-container grocery">
+    <div class="section no-container grocery list">
 
-    <div class="grocery__list grocery__list--header container mb-xsm">
-        <div class="grocery__icon float-left mr-med">
+    <div class="list__item list_item--header container mb-xsm">
+        <div class="list__icon">
             <img src="{{asset('img/icons/grocery-icon.svg')}}" alt="grocery icon">
         </div>
-        <div class="grocery__header">
+        <div class="list__text">
             <h2 class="mb-0">{{$groceryList->name}}</h2>
             <p class="text--message">{{$groceryList->items->count()}} item{{$groceryList->items->count() ==1? '':'s'}}</p>
         </div>
@@ -22,12 +22,10 @@
 
             @foreach($groceryItems as $groceryItem)
                 <a href="{{route(($groceryItem->completed ?'groceries_item_undone':'groceries_item_done'),[$groceryList,$groceryItem])}}">
-                    <div class="grocery__list container {{$groceryItem->completed ? 'done': ''}}">
-                        <div class="grocery__list__header">
-                            <div class=""><h2 class="mb-0">{{$groceryItem->name}}</h2></div>
-                            <div class="text--right"><p class="">{{$groceryItem->size}}</p></div>
-                            <div class="text--right"><div class="{{$groceryItem->completed? 'btn--option-selected' : 'btn--option'}}"></div></div>
-                        </div>
+                    <div class="list__item container {{$groceryItem->completed ? 'done': ''}}">
+                        <div class="list__icon"><h2 class="mb-0">{{$groceryItem->name}}</h2></div>
+                        <div class="list__text text--right"><p class="">{{$groceryItem->size}}</p></div>
+                        <div class="list__next"><div class="{{$groceryItem->completed? 'btn--option-selected' : 'btn--option'}}"></div></div>
                     </div>
                 </a>
             @endforeach

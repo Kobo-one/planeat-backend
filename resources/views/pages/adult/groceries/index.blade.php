@@ -7,19 +7,19 @@
 @section('site-content')
 
 
-    <div class="section no-container grocery">
+    <div class="section no-container grocery list">
         @if($groceryLists->count() > 0)
             @foreach($groceryLists as $groceryList)
                 <a href="{{route('groceries_detail',$groceryList)}}">
-                    <div class="grocery__list container">
-                        <div class="grocery__icon float-left mr-med">
+                    <div class="list__item">
+                        <div class="list__icon">
                             <img src="{{asset('img/icons/grocery-icon.svg')}}" alt="grocery icon">
                         </div>
-                        <div class="grocery__header">
+                        <div class="list__text">
                             <h2 class="mb-0">{{$groceryList->name}}</h2>
                             <p class="text--message">{{$groceryList->items->count()}} item{{$groceryList->items->count() ==1? '':'s'}}</p>
                         </div>
-                        <div class="recipe__next">
+                        <div class="list__next">
                             <img src="{{asset('img/icons/next-icon.svg')}}" alt="next icon">
                         </div>
                     </div>

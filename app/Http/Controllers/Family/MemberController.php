@@ -11,13 +11,18 @@ class MemberController extends Controller
 {
     public function index()
     {
-        $members = Auth::user()->familyMembers;
+        $members = Auth::user()->family->members;
         //dd($members);
         return view('pages.family.switch_member',compact('members'));
     }
 
     public function login(Request $request){
         session(['member'=> $request->memberId]);
+        return redirect()->route('home');
+    }
+
+    public function logout(){
+        session(['member'=> null]);
         return redirect()->route('home');
     }
 

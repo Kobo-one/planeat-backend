@@ -6,6 +6,88 @@
 
 @section('site-content')
 
-    <div class="">Recipes</div>
+    <div class="section text-center">
+        <img src="{{asset('img/family.svg')}}" alt="">
+    </div>
+    <div class="section no-container list settings">
+
+            <a href="{{route('settings_notifications')}}">
+                <div class="list__item">
+                    <div class="list__icon text-center">
+                        <img src="{{asset('img/icons/notification-icon.svg')}}" alt="notification icon">
+                    </div>
+                    <div class="list__text">
+                        <h3 class="mb-0">Notifications</h3>
+                    </div>
+                    <div class="list__next">
+                        <img src="{{asset('img/icons/next-icon.svg')}}" alt="next icon">
+                    </div>
+                </div>
+            </a>
+
+            <a href="{{route('settings_family')}}">
+                <div class="list__item">
+                    <div class="list__icon text-center">
+                        <img src="{{asset('img/icons/family-icon.svg')}}" alt="family icon">
+                    </div>
+                    <div class="list__text">
+                        <h3 class="mb-0">Manage family</h3>
+                    </div>
+                    <div class="list__next">
+                        <img src="{{asset('img/icons/next-icon.svg')}}" alt="next icon">
+                    </div>
+                </div>
+            </a>
+
+            <a href="{{route('settings_profile')}}">
+                <div class="list__item">
+                    <div class="list__icon text-center">
+                        <img src="{{asset('img/icons/girl-icon.svg')}}" alt="profile icon">
+                    </div>
+                    <div class="list__text">
+                        <h3 class="mb-0">Profile</h3>
+                    </div>
+                    <div class="list__next">
+                        <img src="{{asset('img/icons/next-icon.svg')}}" alt="next icon">
+                    </div>
+                </div>
+            </a>
+
+    </div>
+
+    <div class="section no-container list settings">
+
+        <a href="{{route('settings_terms')}}">
+            <div class="list__item">
+                <div class="list__icon text-center">
+                </div>
+                <div class="list__text">
+                    <h3 class="mb-0">Terms of use</h3>
+                </div>
+                <div class="list__next">
+                    <img src="{{asset('img/icons/next-icon.svg')}}" alt="next icon">
+                </div>
+            </div>
+        </a>
+
+        <a href="{{route('settings_privacy')}}">
+            <div class="list__item">
+                <div class="list__icon text-center">
+                </div>
+                <div class="list__text">
+                    <h3 class="mb-0">Privacy policy</h3>
+                </div>
+                <div class="list__next">
+                    <img src="{{asset('img/icons/next-icon.svg')}}" alt="next icon">
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="logout mb-xsm">
+        <a href="{{route('member_logout')}}" class="btn text--danger flex flex-align-items-center justify-content-center"><img class="mr-xsm" src="{{asset('img/icons/logout.svg')}}" alt="logout"><span>Change profile</span></a>
+    </div>
+
 
 @endsection

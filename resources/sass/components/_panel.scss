@@ -1,40 +1,42 @@
 .panel {
     overflow: hidden;
-  display: block;
-  padding: $rh-xsm;
+    display: block;
+    padding: $rh-xsm;
 
-  .panel__header {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    margin-bottom: $rh-sml;
-  }
-
-  .panel__title {
-    margin: 0;
-  }
-
-  .panel__actions {
-    margin-top: $rh-xxs;
-    margin-bottom: $rh-xxs;
-    margin-left: auto;
-    flex: 0 1 auto;
-  }
-
-  .panel__main {
-
-    th, td {
-      vertical-align: middle;
+    .panel__header {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        margin-bottom: $rh-sml;
     }
-  }
-    .panel__image{
+
+    .panel__title {
+        margin: 0;
+    }
+
+    .panel__actions {
+        margin-top: $rh-xxs;
+        margin-bottom: $rh-xxs;
+        margin-left: auto;
+        flex: 0 1 auto;
+    }
+
+    .panel__main {
+
+        th, td {
+            vertical-align: middle;
+        }
+    }
+
+    .panel__image {
         width: 100%;
-        img{
+
+        img {
             width: 100%;
         }
     }
 
-    .panel__overlay{
+    .panel__overlay {
         font-size: $font-size-med;
         line-height: $line-height-sml;
         float: left;
@@ -53,43 +55,43 @@
 
     }
 
-  // @include breakpoint(map-get($breakpoints, med), max-width) {
+    // @include breakpoint(map-get($breakpoints, med), max-width) {
 
-  //   .panel__header {
-  //     flex-flow: row wrap;
-  //   }
+    //   .panel__header {
+    //     flex-flow: row wrap;
+    //   }
 
-  //   .panel__actions {
-  //     flex: 1 1 100%;
-  //     margin-top: $rh-xxs;
-  //   }
-  // }
+    //   .panel__actions {
+    //     flex: 1 1 100%;
+    //     margin-top: $rh-xxs;
+    //   }
+    // }
 }
 
 .panel--light {
-  background: $white;
-  border: 2px solid $gray-0;
-  border-radius: 4px;
+    background: $white;
+    border: 2px solid $gray-0;
+    border-radius: 4px;
 }
 
 .panel--shadow {
     background: $white;
     border-radius: $border-radius-lrg;
-    box-shadow: 0px 8px 10px rgba(0,0,0,0.07);
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.07);
 }
 
-.masonry__item{
+.masonry__item {
 
     width: 48%;
     margin: 1%;
 }
 
-.panel--masonry{
+.panel--masonry {
     padding: 0px;
     border-radius: $border-radius-lrg;
 }
 
-.panel--image{
+.panel--image {
     height: 20vh;
     position: relative;
     background-size: cover;

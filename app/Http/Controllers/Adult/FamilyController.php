@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adult;
 use App\Family;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FamilyController extends Controller
 {
@@ -16,7 +17,8 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        return view(self::PATH.'index');
+        $members = Auth::user()->family->members;
+        return view(self::PATH.'index', compact('members'));
     }
 
     /**

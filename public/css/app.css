@@ -1128,7 +1128,8 @@ svg {
   background-position: center;
 }
 
-.container {
+.container,
+.list .list__item {
   zoom: 1;
   margin-right: auto;
   margin-left: auto;
@@ -1138,12 +1139,15 @@ svg {
 }
 
 .container:before,
-.container:after {
+.list .list__item:before,
+.container:after,
+.list .list__item:after {
   content: "";
   display: table;
 }
 
-.container:after {
+.container:after,
+.list .list__item:after {
   clear: both;
 }
 
@@ -2526,7 +2530,8 @@ text--danger {
 }
 
 .daySlider .selected {
-  background-color: #F29123;
+  background: url("/../img/icons/orange-ball-icon.svg") no-repeat center;
+  background-size: contain;
   color: #FFFFFF;
 }
 
@@ -2681,37 +2686,6 @@ text--danger {
   width: 30px;
 }
 
-.grocery .grocery__list {
-  display: flex;
-  position: relative;
-  background-color: #fff;
-  border-bottom: 1px solid #f5f5f5;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.grocery .grocery__list--header {
-  border-top: 1px solid #f5f5f5;
-}
-
-.grocery .grocery__list .recipe__next {
-  position: absolute;
-  right: 17px;
-  top: 20px;
-}
-
-.grocery .grocery__list .grocery__list__header {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 8fr 2fr 1fr;
-  align-content: center;
-}
-
-.grocery .done {
-  background-color: #f5f5f5;
-  border-top: 1px solid #eaeaea;
-}
-
 .grocery .grocery__icon--sml {
   width: 35px;
 }
@@ -2730,7 +2704,7 @@ text--danger {
 
 .popup {
   display: none;
-  width: 420px;
+  max-width: 420px;
   position: fixed;
   bottom: 0px;
   background: url("/../img/background-green.svg") center no-repeat;
@@ -2750,6 +2724,55 @@ text--danger {
 
 .popup .popup--date {
   margin-bottom: 50px;
+}
+
+.list .list__item {
+  display: grid;
+  grid-template-columns: 2fr 9fr 1fr;
+  width: 100%;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #f5f5f5;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.list .list__item--header {
+  border-top: 1px solid #f5f5f5;
+}
+
+.list .list__item .list__icon {
+  grid-column-start: 1;
+}
+
+.list .list__item .list__next {
+  display: flex;
+  height: 100%;
+  width: 15px;
+  justify-self: end;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.list .list__item .grocery__list__header {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 8fr 2fr 1fr;
+  align-content: center;
+}
+
+.list .done {
+  background-color: #f5f5f5;
+  border-top: 1px solid #eaeaea;
+}
+
+.family .user__icon {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
 }
 
 .flex {

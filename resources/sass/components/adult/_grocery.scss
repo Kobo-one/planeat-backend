@@ -1,34 +1,4 @@
 .grocery{
-    .grocery__list{
-        display: flex;
-        position: relative;
-        background-color: $white;
-        border-bottom: 1px solid $gray-0;
-        padding-top: 10px ;
-        padding-bottom: 10px ;
-
-        &--header{
-            border-top: 1px solid $gray-0;
-        }
-        .recipe__next{
-            position: absolute;
-            right: $grid-gutter-width;
-            top: 20px;
-        }
-
-        .grocery__list__header{
-            display: grid;
-            width: 100%;
-            grid-template-columns:8fr 2fr 1fr;
-            align-content: center;
-
-        }
-    }
-
-    .done{
-        background-color: $gray-0;
-        border-top: 1px solid $gray-10;
-    }
 
     .grocery__icon--sml{
         width: 35px;

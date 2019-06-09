@@ -24,7 +24,8 @@ class StoreGroceryPlanning extends FormRequest
     public function rules()
     {
         return [
-            'list' => 'required|integer'
+            'list' => 'required|integer',
+            'planning' => 'required|integer'
         ];
     }
 }

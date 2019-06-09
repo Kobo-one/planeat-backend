@@ -20403,6 +20403,11 @@ $(window).bind("load", function () {
     e.preventDefault();
     $('.popup').slideToggle();
   });
+  $('.js-toggle-planning-list').click(function (e) {
+    e.preventDefault();
+    $('.popup').slideToggle();
+    $('input[name="planning"]').val($(this).data('planning'));
+  });
 });
 
 /***/ }),

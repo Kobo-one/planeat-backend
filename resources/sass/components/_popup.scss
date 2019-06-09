@@ -1,6 +1,6 @@
 .popup{
     display: none;
-    width: $mobile-limit;
+    max-width: $mobile-limit;
     position: fixed;
     bottom: 0px;
     background: url("/../img/background-green.svg") center no-repeat;

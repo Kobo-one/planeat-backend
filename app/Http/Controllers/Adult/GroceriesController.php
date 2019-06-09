@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Adult;
 
+use App\FamilyPlanning;
 use App\GroceryItems;
 use App\GroceryList;
 use App\Http\Requests\StoreGroceryItem;
@@ -65,19 +66,27 @@ class GroceriesController extends Controller
 
     public function addPlanning(StoreGroceryPlanning $request){
         $familyId= Auth::user()->family->id;
-        $groceryList = GroceryList::find($request->grocery_list);
-
+        $groceryList = GroceryList::find($request->list);
+        $planning = FamilyPlanning::find($request->planning);
         if ($groceryList->family != Auth::user()->family) {
             abort(403, 'Access denied');
         }
-        $data = [
-            'grocery_list_id' => $request->grocery_list,
-            'name' => $request->name,
-            'size' => $request->size,
-        ];
-        $groceryItems = GroceryItems::create($data);
 
-        return redirect()->route('groceries_detail', $groceryList)->with('success','Your item has been added!');
+        foreach ($planning->recipe->recipeIngredients as $recipeIngredient){
+            $name = ((!$recipeIngredient->serving_size && $recipeIngredient->size > 1 )? str_plural($recipeIngredient->ingredient->name) : $recipeIngredient->ingredient->name);
+            $size = $recipeIngredient->size.(($recipeIngredient->serving_size) ? (' '.(($recipeIngredient->size > 1 )? str_plural($recipeIngredient->serving_size): $recipeIngredient->serving_size)) : null);
+            $data = [
+                'grocery_list_id' => $request->list,
+                'name' => $recipeIngredient->ingredient->name,
+                'size' => ($size == 1 ? null : $size),
+            ];
+            GroceryItems::create($data);
+        }
+
+        $planning->shopping_added = true;
+        $planning->save();
+
+        return redirect()->route('groceries_detail', $groceryList)->with('success','Your items have been added!');
     }
 
 
