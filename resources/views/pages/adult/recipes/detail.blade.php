@@ -18,11 +18,11 @@
 @section('recipe_footer')
     <div class="popup--date">
 
-        <h2 class="popup__title">Choose a date</h2>
+        <h2 class="popup__title"><label for="date">Choose a date</label></h2>
         <form action="{{route('planning_store')}}" method="post">
             @csrf
             <input type="hidden" name="recipe" value="{{$recipe->id}}">
-            <input class="field field--date mb-sml" type="date" name="date" value="{{now()->toDateString()}}">
+            <input class="field field--date mb-sml" id="date" type="date" name="date" value="{{now()->toDateString()}}">
 
             <input class="btn btn--primary" type="submit" value="Add to planning">
         </form>

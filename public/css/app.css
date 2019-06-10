@@ -2176,12 +2176,21 @@ ol li span {
 }
 
 .field {
-  border-radius: 10px;
-  border: 1px solid #eaeaea;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eaeaea;
   width: 80%;
   height: 40px;
   padding: 0 10px;
   margin-bottom: 10px;
+}
+
+.field--label {
+  color: #AFD656;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 .dashboard {

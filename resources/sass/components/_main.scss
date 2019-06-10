@@ -37,13 +37,23 @@ ol li {
 
 
 .field{
-    border-radius: $border-radius-lrg;
-    border: 1px solid $gray-10;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $gray-10;
     width: 80%;
     height: 40px;
     padding: 0 10px;
     margin-bottom: 10px;
     &--date{
-
     }
+    &--label{
+        color: $color-primary;
+    }
+
+
 }
+
+.width-100{
+    width: 100%;
+}
+
