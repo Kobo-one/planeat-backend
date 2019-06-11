@@ -31,7 +31,7 @@
 @endsection
 
 @section('subNavigation')
-    <div class="nav__item {{childNav('hero')}}">
+    <div class="nav__item {{childNav('subhero')}}">
         <a href="{{route('child_hero_index')}}">
             <div class="panel panel--shadow user-switcher nav__image">
                 <img src="{{asset('img/icons/heroes-icon.svg')}}" alt="heroes icon">

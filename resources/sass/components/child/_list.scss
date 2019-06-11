@@ -5,10 +5,12 @@
         grid-template-columns: 2fr 6fr ;
         width: 100%;
         @extend .container;
+        padding-left: 0;
         align-items: center;
         background-color: $white;
 
         .list__icon{
+            text-align: center;
             img{
                 height: 40px;
             }
@@ -27,7 +29,7 @@
 
     .list__item{
         margin-top: 0;
-        padding: 2px 10px ;
+        padding: 2px 10px;
         .list__icon{
             img{
                 height: 30px;

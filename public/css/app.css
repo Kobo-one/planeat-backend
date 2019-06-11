@@ -2541,11 +2541,13 @@ ol li span {
   display: grid;
   grid-template-columns: 2fr 6fr;
   width: 100%;
+  padding-left: 0;
   align-items: center;
   background-color: #fff;
 }
 
 .childList .list__item .list__icon {
+  text-align: center;
   grid-column-start: 1;
 }
 

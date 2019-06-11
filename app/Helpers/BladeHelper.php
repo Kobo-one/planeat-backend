@@ -29,5 +29,9 @@ function childNav($path){
             return '';
         }
     }
-    return Request::is('child/'.$path . '*') ? 'selected' :  '';
+    if ($path == 'subhero'){
+        return Request::is('*/hero') ? 'selected' :  '';
+    }
+
+    return Request::is('*/'.$path . '*') ? 'selected' :  '';
 }
