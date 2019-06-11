@@ -1,0 +1,22 @@
+.hero{
+    .hero__details{
+        img{
+            height:20vh;
+        }
+        h2{
+            margin: 5px;
+        }
+        margin-bottom: $rh-sml;
+    }
+    .active{
+        color: $color-secondary;
+    }
+    .unlocked{
+        color: $color-primary;
+    }
+    .locked{
+        color: $gray-25;
+    }
+
+
+}

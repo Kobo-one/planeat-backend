@@ -1,4 +1,4 @@
-<nav class="childNavigation mt-sml">
+<nav class="childNavigation">
 
 
     <div class="nav__item {{childNav('home')}}">

@@ -64,7 +64,7 @@ class FamilyMember extends Model implements
         $leveledup = false;
         $currentxp = $this->xp;
         $level = $this->level;
-        $levelupxp = nextLevel($level+1);
+        $levelupxp = nextLevel($level);
         if($currentxp >= $levelupxp){
             $this->level += 1;
             $this->save();
@@ -72,6 +72,15 @@ class FamilyMember extends Model implements
             $this->checkForLevelUp();
         }
         return ['leveled' => $leveledup,'level'=>$this->level , 'xpneeded' => ($levelupxp-$currentxp)];
+    }
+
+    public function progress(){
+        $this->checkForLevelUp();
+        $nextLevelXP = nextLevel($this->level);
+        $currentLevelXP = nextLevel(($this->level - 1));
+        $newXP = $this->xp - $currentLevelXP;
+        $toGetXP = $nextLevelXP - $currentLevelXP;
+        return ($newXP/$toGetXP)*100;
     }
 
 }

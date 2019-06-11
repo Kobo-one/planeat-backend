@@ -3,45 +3,58 @@
 
 @section('site-content')
 
-    <div class="home no-container">
+    <div class="hero">
 
-        <div class="game__grid ml-lrg">
-            @foreach($children as $child )
-                <div class="character  ml-lrg">
-                    <img src="{{asset($child->avatar->img)}}" alt="{{$child->name}}'s avatar">
+        @include('partials.child.hero')
+
+        <div class="childList">
+            @foreach($equipments as $equipment)
+                <div class="list__item panel panel--shadow panel--left">
+                    <div class="list__icon"><img src="{{asset($equipment->img)}}" alt="{{$equipment->name}}"></div>
+                    <div class="list__text">
+                        @if($equipment == $equipped)
+                            <span class="active">Active</span>
+                        @elseif($equipment->unlock_level <= $child->level)
+                            <span class="unlocked">Unlocked</span>
+                        @else
+                            <span class="locked">Reach level {{$equipment->unlock_level}} to unlock</span>
+                        @endif
+                    </div>
                 </div>
             @endforeach
         </div>
+
+
 
     </div>
 
 @endsection
 
 @section('subNavigation')
-    <div class="nav__item {{childNav('home')}}">
-        <a href="{{route('child_index')}}">
+    <div class="nav__item {{childNav('hero')}}">
+        <a href="{{route('child_hero_index')}}">
             <div class="panel panel--shadow user-switcher nav__image">
-                <img src="{{asset('img/icons/map-icon.svg')}}" alt="map icon">
+                <img src="{{asset('img/icons/heroes-icon.svg')}}" alt="heroes icon">
             </div>
-            <p>Map</p>
+            <p>Heroes</p>
         </a>
     </div>
 
-    <div class="nav__item {{childNav('quests')}}">
-        <a href="{{route('child_quests_index')}}">
+    <div class="nav__item {{childNav('weapons')}}">
+        <a href="{{route('child_hero_weapons')}}">
             <div class="panel panel--shadow user-switcher nav__image">
-                <img src="{{asset('img/icons/quest-icon.svg')}}" alt="quest icon">
+                <img src="{{asset('img/icons/sword-icon.svg')}}" alt="weapon icon">
             </div>
-            <p>Quests</p>
+            <p>Weapons</p>
         </a>
     </div>
 
-    <div class="nav__item {{childNav('goals')}}">
-        <a href="{{route('child_goals_index')}}">
+    <div class="nav__item {{childNav('shields')}}">
+        <a href="{{route('child_hero_shields')}}">
             <div class="panel panel--shadow user-switcher nav__image">
-                <img src="{{asset('img/icons/medal-icon.svg')}}" alt="goals icon">
+                <img src="{{asset('img/icons/shield-icon.svg')}}" alt="shield icon">
             </div>
-            <p>Goals</p>
+            <p>Shields</p>
         </a>
     </div>
 

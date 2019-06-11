@@ -1,0 +1,45 @@
+.childList{
+    .list__item{
+        margin-top: 11px;
+        display: grid;
+        grid-template-columns: 2fr 6fr ;
+        width: 100%;
+        @extend .container;
+        align-items: center;
+        background-color: $white;
+
+        .list__icon{
+            img{
+                height: 40px;
+            }
+            grid-column-start: 1;
+        }
+
+    }
+
+}
+.list--players{
+    color: $color-text;
+    position: absolute;
+    top: $rh-sml;
+    right: 0;
+    font-size: $font-size-sml;
+
+    .list__item{
+        margin-top: 0;
+        padding: 2px 10px ;
+        .list__icon{
+            img{
+                height: 30px;
+            }
+        }
+    }
+    .list__text{
+        line-height: $line-height-sml;
+        *{
+            margin: 0;
+        }
+        align-items: center;
+        justify-content: center;
+    }
+}

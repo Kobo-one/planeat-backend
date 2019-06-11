@@ -5,7 +5,7 @@
     <div class="mobile">
         @yield('header')
 
-        <div class="container childPage">
+        <div class="childPage">
             @include('partials.errors')
             @include('partials.success')
             @yield('site-content')

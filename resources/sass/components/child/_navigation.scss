@@ -2,7 +2,7 @@
     width: 80px;
     z-index: 2000;
     position: fixed;
-    top: 0;
+    top: $rh-sml;
     padding: 0 10px;
     display: grid;
     grid-column: 1;
@@ -10,14 +10,14 @@
 
     .selected{
         .nav__image {
-            box-shadow: 0px 0px 2px 3px rgba(242,145,35,1);
+            box-shadow: 0px 0px 2px 3px $color-secondary;
         }
     }
 
     .nav__item{
 
         p{
-            color: $white;
+            color: $color-contrast;
             margin: 0;
             font-size: $font-size-sml;
             line-height: $line-height-sml;

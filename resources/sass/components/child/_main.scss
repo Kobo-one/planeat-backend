@@ -1,0 +1,15 @@
+.childPage{
+    background-color: $color-primary;
+    background-image: url('/../img/background.svg');
+    background-position: center;
+    padding-top: $rh-sml;
+    padding-left: 80px;
+    min-height: 100vh;
+    color: $color-contrast;
+}
+
+
+.no-childContainer{
+    margin-top: -$rh-sml;
+    margin-left: -80px;
+}

@@ -119,5 +119,11 @@ Route::group([
     Route::get('/', 'DashboardController@index')->name('child_index');
     Route::get('/quests', 'QuestController@index')->name('child_quests_index');
     Route::get('/goals', 'GoalsController@index')->name('child_goals_index');
-    Route::get('/hero', 'HeroController@index')->name('child_hero_index');
+    Route::group([
+        'prefix' => 'hero',
+    ], function() {
+        Route::get('/', 'HeroController@index')->name('child_hero_index');
+        Route::get('/weapons', 'HeroController@weapons')->name('child_hero_weapons');
+        Route::get('/shields', 'HeroController@shields')->name('child_hero_shields');
+    });
 });
