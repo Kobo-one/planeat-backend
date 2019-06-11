@@ -25,11 +25,12 @@
     position: absolute;
     top: $rh-sml;
     right: 0;
-    font-size: $font-size-sml;
+    font-size: $font-size-xsm;
 
     .list__item{
         margin-top: 0;
-        padding: 2px 10px;
+        margin-bottom: 10px;
+        padding: 3px 10px;
         .list__icon{
             img{
                 height: 30px;
@@ -37,7 +38,7 @@
         }
     }
     .list__text{
-        line-height: $line-height-sml;
+        line-height: $line-height-xsm;
         *{
             margin: 0;
         }

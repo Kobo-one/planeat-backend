@@ -9,18 +9,20 @@
 
         <div class="childList">
             @foreach($equipments as $equipment)
-                <div class="list__item panel panel--shadow panel--left">
-                    <div class="list__icon"><img src="{{asset($equipment->img)}}" alt="{{$equipment->name}}"></div>
-                    <div class="list__text">
-                        @if($equipment == $equipped)
-                            <span class="active">Active</span>
-                        @elseif($equipment->unlock_level <= $child->level)
-                            <span class="unlocked">Unlocked</span>
-                        @else
-                            <span class="locked">Reach level {{$equipment->unlock_level}} to unlock</span>
-                        @endif
+                <a {!! ($equipment->unlock_level <= $child->level)? 'href="'.route('child_equipment_store',$equipment).'"' : 'disabled'!!} >
+                    <div class="list__item panel panel--shadow panel--left">
+                        <div class="list__icon"><img src="{{asset($equipment->img)}}" alt="{{$equipment->name}}"></div>
+                        <div class="list__text">
+                            @if($equipment == $equipped)
+                                <span class="active">Active</span>
+                            @elseif($equipment->unlock_level <= $child->level)
+                                <span class="unlocked">Unlocked</span>
+                            @else
+                                <span class="locked">Reach level {{$equipment->unlock_level}} to unlock</span>
+                            @endif
+                        </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
 

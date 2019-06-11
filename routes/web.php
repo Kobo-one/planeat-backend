@@ -125,5 +125,6 @@ Route::group([
         Route::get('/', 'HeroController@index')->name('child_hero_index');
         Route::get('/weapons', 'HeroController@weapons')->name('child_hero_weapons');
         Route::get('/shields', 'HeroController@shields')->name('child_hero_shields');
+        Route::get('/equipment/{equipment}', 'HeroController@store')->name('child_equipment_store');
     });
 });

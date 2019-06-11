@@ -1,6 +1,11 @@
 .progressBar{
-
+    height: 7px;
+    width: 100%;
+    background-color: $gray-25;
+    border-radius:4px;
     &__progress{
-
+        height: 100%;
+        background-color: $color-primary;
+        border-radius:4px;
     }
 }

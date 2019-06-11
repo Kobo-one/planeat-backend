@@ -14,7 +14,7 @@ class DashboardController extends Controller
     public function index(){
         $children = Auth::user()->family->members()->whereHas('roles', function ($query) {
             $query->where('name', 'Child');
-        })->get();
+        })->orderByDesc('xp')->get();
         return view(self::PATH.'dashboard',compact('children'));
     }
 }
