@@ -2574,6 +2574,7 @@ ol li span {
 }
 
 .list--players .list__text {
+  padding-left: 3px;
   line-height: 1;
   align-items: center;
   justify-content: center;
