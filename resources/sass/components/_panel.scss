@@ -97,3 +97,9 @@
     background-size: cover;
     background-position: center;
 }
+
+.panel--left{
+
+    border-top-left-radius: $border-radius-max;
+    border-bottom-left-radius: $border-radius-max;
+}

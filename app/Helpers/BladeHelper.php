@@ -19,3 +19,15 @@ function setActiveImage($path)
     return '';
 
 }
+
+function childNav($path){
+    if($path == 'home'){
+        if(!Request::is('*quests*') && !Request::is('*goals*') && !Request::is('*hero*')){
+            return 'selected';
+        }
+        else{
+            return '';
+        }
+    }
+    return Request::is('child/'.$path . '*') ? 'selected' :  '';
+}

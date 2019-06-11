@@ -1,0 +1,10 @@
+.home{
+    height: 100vh;
+    width: 100vw;
+    max-width: $mobile-limit;
+    background-color: #1faebd;
+    background-image: url('/../img/map.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

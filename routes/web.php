@@ -117,4 +117,7 @@ Route::group([
     'middleware' => ['auth','CheckMember:Child']
 ], function() {
     Route::get('/', 'DashboardController@index')->name('child_index');
+    Route::get('/quests', 'QuestController@index')->name('child_quests_index');
+    Route::get('/goals', 'GoalsController@index')->name('child_goals_index');
+    Route::get('/hero', 'HeroController@index')->name('child_hero_index');
 });
