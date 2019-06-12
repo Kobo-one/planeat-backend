@@ -29,6 +29,31 @@
 
     </div>
 
+    <nav class="childNavigation childNavigation--bottom">
+
+
+        <div class="nav__item">
+            <a href="{{route('child_dinner_index')}}">
+                <div class="panel panel--shadow user-switcher nav__image">
+                    <img src="{{asset('img/icons/dashboard/dinner.svg')}}" alt="dinner icon">
+                </div>
+                <p>Menu</p>
+            </a>
+        </div>
+
+        <div class="nav__item">
+            <a href="{{route('member_logout')}}">
+                <div class="panel panel--shadow user-switcher nav__image">
+                    <img src="{{asset('img/icons/logout-icon.svg')}}" alt="logout icon">
+                </div>
+            </a>
+        </div>
+
+
+
+    </nav>
+
+
 </div>
 
 @endsection

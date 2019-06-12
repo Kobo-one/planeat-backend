@@ -3,13 +3,44 @@
     background-image: url('/../img/background.svg');
     background-position: center;
     padding-top: $rh-sml;
-    padding-left: 80px;
+    padding-left: 100px;
     min-height: 100vh;
     color: $color-contrast;
+
+    .submit__bottom{
+        bottom: 50px;
+    }
 }
 
 
 .no-childContainer{
     margin-top: -$rh-sml;
-    margin-left: -80px;
+    margin-left: -100px;
+}
+
+.childContainer--full{
+    margin-left: -100px;
+    @extend .container;
+}
+
+
+.page__title{
+    display: grid;
+    grid-template-columns: 2fr 7fr;
+    align-items: center;
+    margin-bottom: $rh-xsm;
+    .title--image{
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        width: 70px;
+        border-radius: $border-radius-max + 20px;
+    }
+    .title--text{
+        *{
+            margin: 0;
+        }
+    }
 }

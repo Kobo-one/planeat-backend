@@ -9,7 +9,7 @@
     <div class="quest section">
         <p class="text--message mb-xsm">Select max. 5 recipes with {{$ingredient->name}} your kids can choose from.</p>
 
-        <form action="{{route('quest_store',[$date,$ingredient->id])}}" method="POST">
+        <form class="form--bottomSubmit" action="{{route('quest_store',[$date,$ingredient->id])}}" method="POST">
 
             {{ csrf_field() }}
             <div class="masonry flex flex-column flex-wrap">

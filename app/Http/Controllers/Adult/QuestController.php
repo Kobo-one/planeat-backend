@@ -7,6 +7,8 @@ use App\FamilyQuest;
 use App\Http\Requests\StoreQuest;
 use App\Http\Requests\StoreRating;
 use App\Ingredient;
+use App\MemberQuest;
+use App\QuestRecipe;
 use App\Recipe;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -42,11 +44,8 @@ class QuestController extends Controller
         }
 
         $quest = Auth::user()->family->quests->where('date',$date)->first();
-        $questRecipe = FamilyPlanning::where('family_id',Auth::user()->family->id)->where('date',$date)->has('quest')->first();
-        //$questRecipe = FamilyPlanning::where('family_quest_id',$quest->id)->first();
 
-
-        return view(self::PATH.'quests/rate',compact('children','questRecipe','date', 'quest'));
+        return view(self::PATH.'quests/rate',compact('children','date', 'quest'));
     }
 
     public function ratingStore(StoreRating $request,$date){
@@ -78,7 +77,7 @@ class QuestController extends Controller
                 })->get();;
                 return view(self::PATH.'quests/createStep2',compact('recipes','date', 'ingredient'));
             }
-            $ingredients = Ingredient::all();
+            $ingredients = Ingredient::has('recipes')->get();
             return view(self::PATH.'quests/create',compact('ingredients','date'));
         }
     }
@@ -92,13 +91,23 @@ class QuestController extends Controller
         ];
         $quest = FamilyQuest::create($fields);
         $questId=$quest->id;
+        $children = Auth::user()->family->children;
+        foreach ($children as $child){
+            $memberQuest = MemberQuest::create([
+                'family_member_id'=>$child->id,
+                'family_quest_id'=>$questId,
+            ]);
+            dump($memberQuest);
+        }
+
         $relations=[];
         foreach($request->recipes as $recipeId){
-            $relations=[
+            $relations[]=[
                 'family_quest_id'=> $questId,
                 'recipe_id'=> $recipeId,
             ];
         }
+        QuestRecipe::insert($relations);
 
         return redirect()->route('quests_index')->with('success','Quest has been created');
     }

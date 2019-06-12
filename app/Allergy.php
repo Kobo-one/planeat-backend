@@ -12,7 +12,7 @@ class Allergy extends Model
 
     public function ingredients()
     {
-        return $this->hasManyThrough('App\Ingredient','App\AllergyIngredient');
+        return $this->belongsToMany('App\Ingredient','allergy_ingredients');
     }
 
 }

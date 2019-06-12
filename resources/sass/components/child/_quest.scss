@@ -1,0 +1,13 @@
+.quest{
+    .btn--select{
+        @extend .btn--selectable;
+        height: 30px;
+        width: 30px;
+    }
+
+    input:checked ~ .btn--select {
+        @extend .btn--selected;
+        height: 30px;
+        width: 30px;
+    }
+}

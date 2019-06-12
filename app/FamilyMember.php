@@ -36,7 +36,11 @@ class FamilyMember extends Model implements
 
     public function allergies()
     {
-        return $this->hasManyThrough('App\Ingredient', 'App\FamilyMemberAllergy');
+        return $this->belongsToMany('App\Ingredient', 'member_allergies');
+    }
+
+    public function quests(){
+        return $this->hasMany('App\MemberQuest');
     }
 
     public function role(){

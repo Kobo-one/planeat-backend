@@ -117,8 +117,15 @@ Route::group([
     'middleware' => ['auth','CheckMember:Child']
 ], function() {
     Route::get('/', 'DashboardController@index')->name('child_index');
-    Route::get('/quests', 'QuestController@index')->name('child_quests_index');
-    Route::get('/goals', 'GoalsController@index')->name('child_goals_index');
+    Route::get('/dinner', 'DinnerController@index')->name('child_dinner_index');
+    Route::group([
+        'prefix' => 'quests',
+    ], function() {
+        Route::get('/', 'QuestController@index')->name('child_quests_index');
+        Route::get('/{memberquest}', 'QuestController@show')->name('child_quests_show');
+        Route::post('/', 'QuestController@store')->name('child_quests_store');
+    });
+    Route::get('/goals', 'GoalController@index')->name('child_goals_index');
     Route::group([
         'prefix' => 'hero',
     ], function() {

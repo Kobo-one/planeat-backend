@@ -28,7 +28,7 @@
         </div>
 
         <div class="logout">
-            <a href="{{route('logout')}}" class="btn text--danger flex flex-align-items-center justify-content-center"><img class="mr-xsm" src="{{asset('img/icons/logout.svg')}}" alt="logout"><span>Logout</span></a>
+            <a href="{{route('logout')}}" class="btn text--danger flex flex-align-items-center justify-content-center"><img class="mr-xsm" src="{{asset('img/icons/logout-icon.svg')}}" alt="logout"><span>Logout</span></a>
         </div>
 
     </div>

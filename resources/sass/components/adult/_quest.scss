@@ -1,8 +1,14 @@
 .quest{
+    .form--bottomSubmit{
+        position: relative;
+        margin-bottom: 40px;
+    }
     .submit__bottom{
-        bottom: 90px;
-        position: absolute;
+        bottom: 85px;
+        position: fixed;
+        width: 90%;
         max-width: $mobile-limit - (2* $grid-gutter-width);
+        z-index: 2000;
     }
 
     .header__button{

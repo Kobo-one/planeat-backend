@@ -10,12 +10,12 @@ class QuestRecipe extends Model
         'family_quest_id','recipe_id'
     ];
 
-    public function FamilyQuest()
+    public function familyQuest()
     {
         return $this->belongsTo('App\FamilyQuest');
     }
 
-    public function Recipe()
+    public function recipe()
     {
         return $this->belongsTo('App\Recipe');
     }

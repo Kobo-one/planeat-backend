@@ -16,6 +16,12 @@
             }
             grid-column-start: 1;
         }
+        .list__text{
+            line-height: $line-height-xsm;
+            p{
+                margin: 0px;
+            }
+        }
 
     }
 

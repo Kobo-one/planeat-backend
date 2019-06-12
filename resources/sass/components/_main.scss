@@ -54,6 +54,52 @@ ol li {
 }
 
 .width-100{
+    max-width: $mobile-limit;
     width: 100%;
 }
 
+
+input[type='range'] {
+    overflow: hidden;
+    width: 90%;
+    -webkit-appearance: none;
+    background-color: $gray-10;
+    border-radius: 5px;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    -webkit-appearance: none;
+    color: $gray-10;
+    margin-top: -1px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    cursor: ew-resize;
+    background: $white;
+    border: 1px solid $gray-10;
+    box-shadow: -300px 0 0 300px $color-primary;
+}
+
+/** FF*/
+input[type="range"]::-moz-range-progress {
+    background-color: $color-primary;
+}
+input[type="range"]::-moz-range-track {
+    background-color: $gray-10;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+    background-color: $color-primary;
+}
+input[type="range"]::-ms-fill-upper {
+    background-color: $gray-10;
+}
+
+.rating-faces{
+    display: flex;
+    justify-content: space-between;
+}

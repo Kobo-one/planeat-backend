@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Family extends Model
 {
@@ -19,6 +20,12 @@ class Family extends Model
     public function members()
     {
         return $this->hasMany('App\FamilyMember');
+    }
+    public function children()
+    {
+        return $this->members()->whereHas('roles', function ($query) {
+            $query->where('name', 'Child');
+        });
     }
 
     public function quests(){

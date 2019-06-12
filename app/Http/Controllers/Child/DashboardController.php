@@ -12,9 +12,7 @@ class DashboardController extends Controller
     const PATH = 'pages/child/';
 
     public function index(){
-        $children = Auth::user()->family->members()->whereHas('roles', function ($query) {
-            $query->where('name', 'Child');
-        })->orderByDesc('xp')->get();
+        $children = Auth::user()->family->children()->orderByDesc('xp')->get();
         return view(self::PATH.'dashboard',compact('children'));
     }
 }

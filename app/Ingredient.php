@@ -12,7 +12,7 @@ class Ingredient extends Model
 
     public function recipes()
     {
-        return $this->hasManyThrough('App\Recipe','App\RecipeIngredient');
+        return $this->belongsToMany('App\Recipe','recipe_ingredients');
     }
 
     public function IngredientType()

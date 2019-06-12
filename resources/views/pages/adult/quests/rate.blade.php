@@ -34,28 +34,37 @@
         <div class="questRatings">
 
                 <div class="panel panel--shadow">
-                    @if($questRecipe)
+                    @if($quest)
                     <div class="panel__header">
                         <div>
-                            <h2 class="panel__title">{{$questRecipe->recipe->title}}</h2>
+                            <h2 class="panel__title">{{$quest->selectedRecipe->title}}</h2>
                         </div>
                         <div class="panel__actions">
                         </div>
                     </div>
                     <div class="panel__main">
-                        @if($quest->status != 'rated')
+                        @if($quest->status == 'selected')
                             <form action="{{route('quest_rating_store',$date)}}" method="POST">
                                 {{csrf_field()}}
                             @foreach($children as $child)
-                                <p>{{$child->name}}</p>
-                                <input type="range" min="1" max="10" value="5" name="ratings[{{$child->id}}]">
+                                <p class="mb-0">{{$child->name}}</p>
+                                <div class="width-100 text--center mb-xsm">
+                                    <input class="rangeSelector" type="range" min="0" max="10" value="5" name="ratings[{{$child->id}}]">
+                                    <div class="rating-faces">
+                                        <img src="{{asset('img/icons/sad-icon.svg')}}" alt="sad face">
+                                        <img src="{{asset('img/icons/neutral-icon.svg')}}" alt="neutral face">
+                                        <img src="{{asset('img/icons/happy-icon.svg')}}" alt="happy face">
+                                    </div>
+                                </div>
                             @endforeach
                                 <br>
-                                <div class="section">
-                                    <input type="submit">
+                                <div class="width-100 text--center mb-sml">
+                                    <input class="btn btn--primary" type="submit">
                                 </div>
                             </form>
-                        @else
+                        @elseif($quest->status == 'created')
+                            <p class="text--message">The kids are still choosing a recipe.</p>
+                        @elseif($quest->status == 'rated')
                             <p class="text--message">You have already rated this quest.</p>
                         @endif
                     </div>
