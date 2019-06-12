@@ -2,7 +2,7 @@
 @section('site-content')
     <div class="childContainer--full quest">
 
-        @include('partials.child.header')
+        @include('partials.child.header',['back'=>route('child_quests_index')])
 
         <div class="page__title">
             <div class="panel panel--shadow title--image">
@@ -46,7 +46,7 @@
 
             </div>
 
-            <input class="submit__bottom btn btn--secondary" type="submit" value="Create quest">
+            <input class="submit__bottom btn btn--secondary" type="submit" value="Send my selection">
         </form>
 
 

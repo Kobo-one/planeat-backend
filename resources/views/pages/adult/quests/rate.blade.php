@@ -59,7 +59,7 @@
                             @endforeach
                                 <br>
                                 <div class="width-100 text--center mb-sml">
-                                    <input class="btn btn--primary" type="submit">
+                                    <input class="btn btn--primary" type="submit" value="Submit">
                                 </div>
                             </form>
                         @elseif($quest->status == 'created')

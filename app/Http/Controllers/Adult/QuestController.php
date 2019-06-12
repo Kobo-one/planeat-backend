@@ -97,7 +97,6 @@ class QuestController extends Controller
                 'family_member_id'=>$child->id,
                 'family_quest_id'=>$questId,
             ]);
-            dump($memberQuest);
         }
 
         $relations=[];

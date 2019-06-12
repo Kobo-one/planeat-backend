@@ -2,7 +2,7 @@
 @section('site-content')
     <div class="childContainer--full quest">
 
-        @include('partials.child.header')
+        @include('partials.child.header',['back'=>route('child_quests_index')])
 
         <div class="page__title">
             <div class="panel panel--shadow title--image">
@@ -27,7 +27,7 @@
             <div class="hero__details text--center mt-med">
                 <img class="mb-xsm" src="{{asset(Auth::user()->currentMember()->avatar->img)}}" alt="Your avatar">
                 <p>
-                    What a good choice! I love this dish. And remember that if you eat this dish you can make me stronger and we can defeat the monster soon!
+                    What a good choice! I love this dish. </p> <p> Remember that if you eat this dish you can make me stronger and we can defeat the monster soon!
                 </p>
                 
             </div>

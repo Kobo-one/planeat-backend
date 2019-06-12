@@ -28,6 +28,7 @@
     display: grid;
     grid-template-columns: 2fr 7fr;
     align-items: center;
+    margin-top: $rh-xsm;
     margin-bottom: $rh-xsm;
     .title--image{
         padding: 0;
@@ -42,5 +43,49 @@
         *{
             margin: 0;
         }
+    }
+}
+
+
+.loaderBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    .loader{
+        height: 62px;
+        width: 60px;
+        background: url('/../img/loader.svg') center no-repeat;
+        background-size: contain;
+        animation: rotating 1s steps(8, end) infinite;
+    }
+
+}
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
