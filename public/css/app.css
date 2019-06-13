@@ -841,6 +841,9 @@ svg {
 }
 
 .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
 }
 .btn--primary {
@@ -2200,6 +2203,7 @@ input[type=range]::-ms-fill-upper {
 }
 
 .childList {
+  position: relative;
   overflow-y: scroll;
 }
 .childList::-webkit-scrollbar {
@@ -2228,6 +2232,12 @@ input[type=range]::-ms-fill-upper {
 }
 .childList .list__item .list__text p {
   margin: 0px;
+}
+.childList .list__item .list__button {
+  margin: 24px auto 0;
+  width: 30%;
+  grid-column: span 2;
+  border-radius: 3px;
 }
 
 .list--players {

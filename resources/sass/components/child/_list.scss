@@ -1,4 +1,5 @@
 .childList{
+    position: relative;
     overflow-y: scroll;
     &::-webkit-scrollbar {
         width: 0 !important;
@@ -27,6 +28,13 @@
             p{
                 margin: 0px;
             }
+        }
+
+        .list__button{
+            margin: $rh-sml auto 0;
+            width: 30%;
+            grid-column: span 2;
+            border-radius: $border-radius-med;
         }
 
     }

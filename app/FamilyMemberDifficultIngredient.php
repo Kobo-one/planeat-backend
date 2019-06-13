@@ -10,13 +10,23 @@ class FamilyMemberDifficultIngredient extends Model
         'ingredient_id','times_tried','family_member_id'
     ];
 
-    public function FamilyMember()
+    public function familyMember()
     {
         return $this->belongsTo('App\FamilyMember');
     }
 
-    public function Ingredient()
+    public function ingredient()
     {
-        return $this->belongsTo('App\Ingredient');
+        return $this->belongsTo('App\Ingredient','ingredient_id');
+    }
+
+    public function progress(){
+        $timesTried = $this->times_tried;
+        $level = $this->level;
+        $todo = pow (3,$level);
+        return $timesTried / $todo * 100;
+    }
+    public function checkForXP(){
+        $timesTried = $this->times_tried;
     }
 }

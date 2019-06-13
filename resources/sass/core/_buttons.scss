@@ -1,4 +1,7 @@
 .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border:none;
     &--primary{
         height: 40px;

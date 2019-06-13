@@ -125,7 +125,12 @@ Route::group([
         Route::get('/{memberquest}', 'QuestController@show')->name('child_quests_show');
         Route::post('/', 'QuestController@store')->name('child_quests_store');
     });
-    Route::get('/goals', 'GoalController@index')->name('child_goals_index');
+    Route::group([
+        'prefix' => 'goals',
+    ], function() {
+        Route::get('/', 'GoalController@index')->name('child_goals_index');
+        Route::get('/collect/{difficultIngredient}', 'GoalController@collect')->name('child_goals_collect');
+    });
     Route::group([
         'prefix' => 'hero',
     ], function() {
