@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class FamilyPlanning extends Model
 {
     protected $fillable = [
-        'date','family_id','recipe_id','hour'
+        'date','family_id','recipe_id','hour','family_quest_id'
     ];
 
     public function quest()

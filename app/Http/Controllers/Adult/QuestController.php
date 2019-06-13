@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Adult;
 
+use App\FamilyMemberDifficultIngredient;
 use App\FamilyPlanning;
 use App\FamilyQuest;
 use App\Http\Requests\StoreQuest;
@@ -52,15 +53,25 @@ class QuestController extends Controller
 //        TODO: add table to undo ratings
         $members = Auth::user()->family->members;
         $ratings = $request->ratings;
+        $quest = Auth::user()->family->quests->where('date',$date)->first();
         foreach ($ratings as $memberId => $rating){
             //TODO: check if correct equation for xp
-            $xp = $rating;
+            $xp = $rating + 5 ;
             $child = $members->where('id',$memberId)->first();
             $child->xp+=$xp;
             $child->save();
             $child->checkForLevelUp();
+            if($quest->ingredient_id){
+                $difficultIngredient = FamilyMemberDifficultIngredient::firstOrNew([
+                    'family_member_id'=>$memberId,
+                    'ingredient_id'=>$quest->ingredient_id,
+                ]);
+                $difficultIngredient->times_tried++;
+                $difficultIngredient->save();
+            }
+
         }
-        $quest = Auth::user()->family->quests->where('date',$date)->first();
+
         $quest->status = 'rated';
         $quest->save();
 

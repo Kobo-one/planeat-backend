@@ -28,6 +28,7 @@ class GoalController extends Controller
         if($progress >= 100){
             $child->xp += $possibleXP;
             $child->save();
+            $child->checkForLevelUp();
             $difficultIngredient->level++;
             $difficultIngredient->save();
         }

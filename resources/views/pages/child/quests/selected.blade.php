@@ -24,8 +24,17 @@
                 </div>
             </div>
 
-            <div class="hero__details text--center mt-med">
-                <img class="mb-xsm" src="{{asset(Auth::user()->currentMember()->avatar->img)}}" alt="Your avatar">
+            <div class="hero__details text--center mt-xsm">
+                <div class="hero--equipment">
+                    @php($child = Auth::user()->currentMember())
+                    <img class="hero--avatar" src="{{asset($child->avatar->imgBig)}}" alt="Your avatar">
+                    @if($child->weapon)
+                        <img src="{{asset($child->weapon->img)}}" alt="{{$child->weapon->name}}" class="hero--weapon">
+                    @endif
+                    @if($child->shield)
+                        <img src="{{asset($child->shield->img)}}" alt="{{$child->shield->name}}" class="hero--shield">
+                    @endif
+                </div>
                 <p>
                     What a good choice! I love this dish. </p> <p> Remember that if you eat this dish you can make me stronger and we can defeat the monster soon!
                 </p>

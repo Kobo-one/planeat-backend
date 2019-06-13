@@ -63,5 +63,12 @@ class FamilyQuest extends Model
 
         $this->status = 'selected';
         $this->save();
+        $familyplanning = FamilyPlanning::create([
+            'family_id'=>$this->family_id,
+            'recipe_id'=>$questRecipe->recipe->id,
+            'date'=>$this->date,
+            'family_quest_id'=>$this->id,
+            ]);
+        dump($familyplanning);
     }
 }
