@@ -18,7 +18,7 @@ class TestAccSeeder extends Seeder
         $user = User::updateOrCreate([
             'name' => "Test"],
             [
-                'email' => "test@planeat.app",
+                'email' => "test@planeat.com",
                 'password' => bcrypt('test'),
             ]);
 
