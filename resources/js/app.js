@@ -27,6 +27,7 @@ $(window).bind("load", function() {
         $('.popup').slideToggle();
         $('input[name="planning"]').val($(this).data('planning'));
     });
+
 });
 
 
