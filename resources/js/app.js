@@ -4,8 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('bootstrap')
-masonry = require('masonry-layout');
+import "circular-std";
+require('bootstrap');
 window.$ = require("jquery");
 require('jquery.scrollto');
 require('./components/slider');

@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "autoprefixer": "^9.6.0",
+        "circular-std": "^1.0.0",
         "jquery.scrollto": "^2.1.2",
         "masonry-layout": "^4.2.2"
     }
