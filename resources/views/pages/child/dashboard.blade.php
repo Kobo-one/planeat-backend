@@ -5,10 +5,16 @@
 
 <div class="home no-childContainer">
 
-    <div class="game__grid ml-lrg">
+    <div class="game__grid hero ml-lrg">
         @foreach($children as $child )
-            <div class="character  ml-lrg">
-                <img src="{{asset($child->avatar->img)}}" alt="{{$child->name}}'s avatar">
+            <div class="hero--equipment">
+                <img class="hero--avatar" src="{{asset($child->avatar->imgBig)}}" alt="Your avatar">
+                @if($child->weapon)
+                    <img src="{{asset($child->weapon->img)}}" alt="{{$child->weapon->name}}" class="hero--weapon">
+                @endif
+                @if($child->shield)
+                    <img src="{{asset($child->shield->img)}}" alt="{{$child->shield->name}}" class="hero--shield">
+                @endif
             </div>
         @endforeach
     </div>

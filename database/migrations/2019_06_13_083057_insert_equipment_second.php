@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class InsertEquipment extends Migration
+class InsertEquipmentSecond extends Migration
 {
     /**
      * Run the migrations.
@@ -14,27 +14,42 @@ class InsertEquipment extends Migration
      */
     public function up()
     {
-        $data=[
-            ['name' => 'broccoli',
+        $avatars=[
+            ['name' => 'tomato',
                 'type' => 'avatar',
-                'img' => 'img/avatars/broccoli.svg',
+                'img' => 'img/avatars/tomato.svg',
+                'imgBig' => 'img/avatars/big/tomato.svg',
                 'unlock_level' => '0'
             ],
             ['name' => 'radish',
                 'type' => 'avatar',
                 'img' => 'img/avatars/radish.svg',
+                'imgBig' => 'img/avatars/big/radish.svg',
                 'unlock_level' => '1'
             ],
             ['name' => 'corn',
                 'type' => 'avatar',
                 'img' => 'img/avatars/corn.svg',
+                'imgBig' => 'img/avatars/big/corn.svg',
                 'unlock_level' => '2'
             ],
-            ['name' => 'artichoke',
+            ['name' => 'bell-pepper',
                 'type' => 'avatar',
-                'img' => 'img/avatars/artichoke.svg',
+                'img' => 'img/avatars/bell-pepper.svg',
+                'imgBig' => 'img/avatars/big/bell-pepper.svg',
                 'unlock_level' => '3'
             ],
+            ['name' => 'red-cabbage',
+                'type' => 'avatar',
+                'img' => 'img/avatars/red-cabbage.svg',
+                'imgBig' => 'img/avatars/big/red-cabbage.svg',
+                'unlock_level' => '4'
+            ],
+        ];
+        Equipment::insert($avatars);
+
+
+        $weapons = [
 
             ['name' => 'sword1',
                 'type' => 'weapon',
@@ -56,6 +71,10 @@ class InsertEquipment extends Migration
                 'img' => 'img/weapons/sword3.svg',
                 'unlock_level' => '3'
             ],
+        ];
+        Equipment::insert($weapons);
+
+        $shields=[
 
             ['name' => 'shield1',
                 'type' => 'shield',
@@ -68,15 +87,18 @@ class InsertEquipment extends Migration
                 'unlock_level' => '1'
             ],
 
+        ];
+        Equipment::insert($shields);
+
+        $other=[
             //other
             ['name' => 'logo',
                 'type' => 'other',
                 'img' => 'img/avatars/logo.svg',
                 'unlock_level' => '0'
             ],
-
         ];
-        Equipment::insert($data);
+        Equipment::insert($other);
     }
 
     /**

@@ -7,7 +7,7 @@
 
         @include('partials.child.hero')
 
-        <div class="childList">
+        <div class="childList hero-items">
             @foreach($equipments as $equipment)
                 <a {!! ($equipment->unlock_level <= $child->level)? 'href="'.route('child_equipment_store',$equipment).'"' : 'disabled'!!} >
                     <div class="list__item panel panel--shadow panel--left">

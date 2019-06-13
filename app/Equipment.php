@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Equipment extends Model
 {
     protected $fillable = [
-        'name', 'type', 'img','unlock_level'
+        'name', 'type', 'img','imgBig','unlock_level'
     ];
 
 }
