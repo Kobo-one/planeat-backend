@@ -18,6 +18,6 @@ class DinnerController extends Controller
         $date = now()->toDateString();
         $familyId = Auth::user()->family->id;
         $planning = FamilyPlanning::where('family_id',$familyId)->where('date',$date)->whereNotNull('family_quest_id')->first();
-        return view(self::PATH.'index',compact('planning','child'));
+        return view(self::PATH.'index',compact('planning'));
     }
 }
