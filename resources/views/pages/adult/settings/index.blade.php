@@ -6,9 +6,6 @@
 
 @section('site-content')
 
-    <div class="section text-center">
-        <img src="{{asset('img/family.svg')}}" alt="">
-    </div>
     <div class="section no-container list settings">
 
             <a href="{{route('settings_notifications')}}">
@@ -86,7 +83,7 @@
     </div>
 
     <div class="logout mb-xsm">
-        <a href="{{route('member_logout')}}" class="btn text--danger flex flex-align-items-center justify-content-center"><img class="mr-xsm" src="{{asset('img/icons/logout.svg')}}" alt="logout"><span>Change profile</span></a>
+        <a href="{{route('member_logout')}}" class="btn text--danger flex flex-align-items-center justify-content-center"><img class="mr-xsm" src="{{asset('img/icons/logout-icon.svg')}}" alt="logout"><span>Change profile</span></a>
     </div>
 
 

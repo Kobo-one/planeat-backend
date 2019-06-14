@@ -2112,13 +2112,16 @@ input[type=range]::-ms-fill-upper {
   padding-bottom: 20vh;
 }
 .home .game__grid {
+  margin: auto;
+  width: 32svh;
   display: grid;
-  grid-template-rows: repeat(6, 14vh);
+  grid-template-rows: repeat(6, 13.5vh);
   grid-template-columns: 1fr;
 }
 .home .game__grid .hero--equipment {
-  height: 14vh;
-  width: 14vh;
+  height: 13vh;
+  width: 13vh;
+  margin: 0;
 }
 .home .game__grid .grid-start--6 {
   grid-row-start: 1;
