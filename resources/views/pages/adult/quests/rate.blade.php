@@ -27,7 +27,7 @@
 
     <div class="section">
         <div class="">
-            <img class="image image--left" src="{{asset('img/icons/happiness-icon.png')}}" alt="happy icon"></div>
+            <img class="image image--left" src="{{asset('img/faces.svg')}}" alt="happy icon"></div>
             <p class="text--message">Did your kids eat well? Did they try? Or did they eat nothing?</p>
         </div>
 
