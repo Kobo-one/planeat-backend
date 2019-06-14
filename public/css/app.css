@@ -428,7 +428,7 @@ textarea {
   margin-bottom: 18px;
   color: inherit;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.1;
   text-transform: none;
 }
@@ -2310,7 +2310,7 @@ input[type=range]::-ms-fill-upper {
   height: 300px;
 }
 
-.progressBar {
+.progressBar, .bar--thick {
   height: 7px;
   width: 100%;
   background-color: #b7b7b7;
@@ -2319,7 +2319,12 @@ input[type=range]::-ms-fill-upper {
 .progressBar__progress {
   height: 100%;
   background-color: #AFD656;
-  border-radius: 4px;
+  border-radius: 20px;
+}
+
+.bar--thick {
+  height: 12px;
+  border-radius: 6px;
 }
 
 .panel {
@@ -2658,7 +2663,8 @@ text--danger {
   background-color: #f5f5f5;
   border-top: 1px solid #eaeaea;
 }
-.list .settings--icon {
+
+.settings--icon {
   height: 20px;
 }
 

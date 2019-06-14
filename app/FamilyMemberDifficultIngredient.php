@@ -26,7 +26,4 @@ class FamilyMemberDifficultIngredient extends Model
         $todo = pow (3,$level);
         return $timesTried / $todo * 100;
     }
-    public function checkForXP(){
-        $timesTried = $this->times_tried;
-    }
 }

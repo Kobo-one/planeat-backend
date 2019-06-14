@@ -83,6 +83,7 @@ Route::group([
         Route::get('/{child}/quests', 'FamilyMemberController@quests')->name('familyMember_quest');
         Route::get('/{child}/ratings', 'FamilyMemberController@ratings')->name('familyMember_rating');
         Route::get('/{child}/difficulties', 'FamilyMemberController@difficulties')->name('familyMember_difficultIngredients');
+        Route::delete('/{child}/difficulties/remove/{difficultIngredient}', 'FamilyMemberController@difficultyRemove')->name('familyMember_difficultIngredient_remove');
     });
 
     Route::group([

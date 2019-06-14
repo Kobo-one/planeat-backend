@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Adult;
 
 use App\FamilyMember;
+use App\FamilyMemberDifficultIngredient;
 use App\MemberQuest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,8 @@ class FamilyMemberController extends Controller
 
     public function quests(FamilyMember $child)
     {
-        return view(self::PATH.'quests', compact('child'));
+        $difficultIngredients =$child->difficultIngredients;
+        return view(self::PATH.'quests', compact('child','difficultIngredients'));
     }
 
     public function ratings(FamilyMember $child)
@@ -35,7 +37,17 @@ class FamilyMemberController extends Controller
 
     public function difficulties(FamilyMember $child)
     {
-        return view(self::PATH.'difficulties', compact('child'));
+        $difficultIngredients =$child->difficultIngredients;
+        return view(self::PATH.'difficulties', compact('child','difficultIngredients'));
+    }
+
+    public function difficultyRemove(FamilyMember $child, FamilyMemberDifficultIngredient $difficultIngredient)
+    {
+        if($difficultIngredient->familyMember != $child){
+            abort(403, 'Access denied');
+        }
+        $difficultIngredient->delete();
+        return redirect()->route('familyMember_difficultIngredients',$child);
     }
 
     /**
