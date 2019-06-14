@@ -14,7 +14,6 @@ class GoalController extends Controller
     public function index(){
         $child = Auth::user()->currentMember();
         $difficultIngredients = $child->difficultIngredients->sortByDesc('updated_at');
-
         return view(self::PATH.'index',compact('difficultIngredients','child'));
     }
 
@@ -32,8 +31,8 @@ class GoalController extends Controller
             $difficultIngredient->level++;
             $difficultIngredient->save();
         }
-        $resonse = 'Nice! Here is '.$possibleXP.' EXP!';
-        return redirect()->route('child_goals_index')->with('success',$resonse);
+        $response = 'Nice! Here is '.$possibleXP.' EXP!';
+        return redirect()->route('child_goals_index')->with('success',$response);
     }
 
 }

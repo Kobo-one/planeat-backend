@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         @if($difficultIngredient->progress() >= 100)
-                            <a href="{{route('child_goals_collect',$difficultIngredient)}}" class="list__button btn btn--secondary">Collect</a>
+                            <a href="{{route('child_goals_collect',$difficultIngredient)}}" class="list__button btn btn--secondary center">Collect</a>
                         @endif
                     </div>
             @endforeach

@@ -11,8 +11,8 @@
         display: grid;
         grid-template-columns: 2fr 6fr ;
         width: 100%;
-        @extend .container;
-        padding-left: 0;
+        padding-left: 0px;
+        padding-right: 0px;
         align-items: center;
         background-color: $white;
 
@@ -25,6 +25,7 @@
         }
         .list__text{
             line-height: $line-height-xsm;
+            padding-right: $grid-gutter-width;
             p{
                 margin: 0px;
             }
@@ -56,6 +57,7 @@
         }
     }
     .list__text{
+        padding: 0 !important;
         padding-left: 3px;
         line-height: $line-height-xsm;
         *{

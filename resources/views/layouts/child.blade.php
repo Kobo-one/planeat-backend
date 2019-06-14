@@ -5,8 +5,8 @@
         @yield('header')
 
         <div class="childPage">
-            @include('partials.errors')
-            @include('partials.success')
+            @include('partials.child.errors')
+            @include('partials.child.success')
             @yield('site-content')
         </div>
         @includeWhen(!isset($navigation),'partials.child.navigation')

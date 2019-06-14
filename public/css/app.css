@@ -535,7 +535,7 @@ h1 + h1, h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6, h2 + h1, h2 + h2, h2 + h3,
 }
 
 .text--success {
-  color: #2ecc71;
+  color: #AFD656;
 }
 
 .text--info {
@@ -841,9 +841,6 @@ svg {
 }
 
 .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: none;
 }
 .btn--primary {
@@ -891,7 +888,7 @@ svg {
   background-position: center;
 }
 
-.container, .list .list__item, .childList .list__item, .childContainer--full {
+.container, .list .list__item, .childContainer--full {
   zoom: 1;
   margin-right: auto;
   margin-left: auto;
@@ -899,11 +896,11 @@ svg {
   padding-right: 17px;
   max-width: 1200px;
 }
-.container:before, .list .list__item:before, .childList .list__item:before, .childContainer--full:before, .container:after, .list .list__item:after, .childList .list__item:after, .childContainer--full:after {
+.container:before, .list .list__item:before, .childContainer--full:before, .container:after, .list .list__item:after, .childContainer--full:after {
   content: "";
   display: table;
 }
-.container:after, .list .list__item:after, .childList .list__item:after, .childContainer--full:after {
+.container:after, .list .list__item:after, .childContainer--full:after {
   clear: both;
 }
 .container--relative {
@@ -1801,6 +1798,12 @@ input[type=range]::-ms-fill-upper {
   justify-content: space-between;
 }
 
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .dashboard {
   margin-top: -1px;
   padding: 10px;
@@ -2216,7 +2219,8 @@ input[type=range]::-ms-fill-upper {
   display: grid;
   grid-template-columns: 2fr 6fr;
   width: 100%;
-  padding-left: 0;
+  padding-left: 0px;
+  padding-right: 0px;
   align-items: center;
   background-color: #fff;
 }
@@ -2229,6 +2233,7 @@ input[type=range]::-ms-fill-upper {
 }
 .childList .list__item .list__text {
   line-height: 1;
+  padding-right: 17px;
 }
 .childList .list__item .list__text p {
   margin: 0px;
@@ -2254,6 +2259,7 @@ input[type=range]::-ms-fill-upper {
   height: 30px;
 }
 .list--players .list__text {
+  padding: 0 !important;
   padding-left: 3px;
   line-height: 1;
   align-items: center;
@@ -2365,8 +2371,8 @@ input[type=range]::-ms-fill-upper {
   padding: 24px;
 }
 .notice--success {
-  background-color: #e0f7ea;
-  color: #2ecc71;
+  background-color: #f3f9e6;
+  color: #AFD656;
 }
 .notice--info {
   background-color: #e1f0fa;
@@ -2381,8 +2387,30 @@ input[type=range]::-ms-fill-upper {
   color: #D0021B;
 }
 
+.childNotice {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  padding: 24px;
+}
+.childNotice--success {
+  background-color: #f3f9e6;
+  color: #AFD656;
+}
+.childNotice--info {
+  background-color: #e1f0fa;
+  color: #3498db;
+}
+.childNotice--warning {
+  background-color: #fdf7df;
+  color: #f2ca27;
+}
+.childNotice--danger {
+  background-color: #f8d9dd;
+  color: #D0021B;
+}
+
 text--success {
-  color: #2ecc71;
+  color: #AFD656;
 }
 
 text--info {

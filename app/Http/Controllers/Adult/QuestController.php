@@ -61,6 +61,9 @@ class QuestController extends Controller
             $child->xp+=$xp;
             $child->save();
             $child->checkForLevelUp();
+            $memberQuest=MemberQuest::where('family_quest_id',$quest->id)->where('family_member_id',$memberId)->first();
+            $memberQuest->xp_gained = $xp;
+            $memberQuest->save();
             if($quest->ingredient_id){
                 $difficultIngredient = FamilyMemberDifficultIngredient::firstOrNew([
                     'family_member_id'=>$memberId,

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MemberQuest extends Model
 {
     protected $fillable = [
-        'family_member_id','family_quest_id','quest_recipe_id'
+        'family_member_id','family_quest_id','quest_recipe_id','xp_gained',
     ];
 
 

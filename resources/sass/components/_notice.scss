@@ -9,6 +9,19 @@
   }
 }
 
+.childNotice {
+    border-bottom-left-radius: $border-radius-max;
+    border-top-left-radius: $border-radius-max;
+    padding: $rh-sml;
+    @each $type, $color in $notice-colors {
+        &--#{$type} {
+            background-color: mix($color, white, 15%);
+            color: $color;
+        }
+    }
+}
+
+
 @each $type, $color in $notice-colors {
     text--#{$type} {
         color: $color;

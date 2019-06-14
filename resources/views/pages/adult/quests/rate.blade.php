@@ -42,6 +42,13 @@
                             @else
                                 <h2 class="panel__title">{{$quest->ingredient->name}}</h2>
                             @endif
+                            @if($quest->status == 'selected')
+                                    <p class="text--message">Rate how well they tried this meal.</p>
+                                @elseif($quest->status == 'created')
+                                    <p class="text--message">The kids are still choosing a recipe.</p>
+                                @elseif($quest->status == 'rated')
+                                    <p class="text--message mb-0">You have already rated this quest.</p>
+                                @endif
                         </div>
                         <div class="panel__actions">
                         </div>
@@ -67,9 +74,15 @@
                                 </div>
                             </form>
                         @elseif($quest->status == 'created')
-                            <p class="text--message">The kids are still choosing a recipe.</p>
+
                         @elseif($quest->status == 'rated')
-                            <p class="text--message">You have already rated this quest.</p>
+                            @foreach($quest->questMembers->sortByDesc('xp_gained') as $questMember)
+                                <div>
+                                    <p class="text--success">{{$questMember->child->name}} gained {{$questMember->xp_gained}} EXP.</p>
+                                </div>
+
+                            @endforeach
+
                         @endif
                     </div>
                     @else
