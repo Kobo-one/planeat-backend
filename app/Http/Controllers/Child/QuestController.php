@@ -21,15 +21,17 @@ class QuestController extends Controller
 
 
     public function show(MemberQuest $memberquest){
-        $navigation = false;
         if ($memberquest->quest->status == 'created'){
             if($memberquest->quest_recipe_id){
                 return view(self::PATH.'waiting',compact('memberquest'));
             }
             return view(self::PATH.'select',compact('memberquest'));
         }else if($memberquest->quest->status == 'selected'){
-            $recipe = $memberquest->quest->selectedRecipe;
+            $recipe = $memberquest->quest->selectedRecipe()->recipe->first();
             return view(self::PATH.'selected',compact('memberquest','recipe'));
+        }else if($memberquest->quest->status == 'rated'){
+            $recipe = $memberquest->quest->selectedRecipe()->recipe->first();
+            return view(self::PATH.'rated',compact('memberquest','recipe'));
         }
 
     }
