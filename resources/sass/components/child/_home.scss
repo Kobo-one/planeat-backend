@@ -1,3 +1,5 @@
+$rows: (6, 5, 4, 3, 2, 1) !default;
+
 .home{
     position: relative;
     height: 100vh;
@@ -8,4 +10,30 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    padding-bottom: 20vh;
+
+    .game__grid{
+        display: grid;
+        grid-template-rows:repeat(6, 14vh);
+        grid-template-columns: 1fr;
+
+        .hero--equipment{
+            height: 14vh;
+            width: 14vh;
+        }
+        .grid-start {
+            @each $row in $rows {
+                &--#{$row} {
+                    grid-row-start:  nth($rows, $row);
+                }
+            }
+        }
+
+
+
+    }
+    .front{
+        z-index: 2000;
+    }
 }
+

@@ -21,18 +21,18 @@
             height: 100%;
         }
         .hero--weapon{
-            height: 6vh;
+            height: 20%;
             transform: scaleX(-1);
             position: absolute;
-            left: 19vh;
-            top: 19vh;
+            left: 63%;
+            top: 63%;
         }
 
         .hero--shield{
-            height: 6vh;
+            height: 20%;
             position: absolute;
-            left: 6vh;
-            top: 21vh;
+            left: 20%;
+            top: 70%;
         }
     }
 

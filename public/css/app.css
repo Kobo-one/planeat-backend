@@ -2109,6 +2109,37 @@ input[type=range]::-ms-fill-upper {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  padding-bottom: 20vh;
+}
+.home .game__grid {
+  display: grid;
+  grid-template-rows: repeat(6, 14vh);
+  grid-template-columns: 1fr;
+}
+.home .game__grid .hero--equipment {
+  height: 14vh;
+  width: 14vh;
+}
+.home .game__grid .grid-start--6 {
+  grid-row-start: 1;
+}
+.home .game__grid .grid-start--5 {
+  grid-row-start: 2;
+}
+.home .game__grid .grid-start--4 {
+  grid-row-start: 3;
+}
+.home .game__grid .grid-start--3 {
+  grid-row-start: 4;
+}
+.home .game__grid .grid-start--2 {
+  grid-row-start: 5;
+}
+.home .game__grid .grid-start--1 {
+  grid-row-start: 6;
+}
+.home .front {
+  z-index: 2000;
 }
 
 .childNavigation {
@@ -2182,17 +2213,17 @@ input[type=range]::-ms-fill-upper {
   height: 100%;
 }
 .hero .hero--equipment .hero--weapon {
-  height: 6vh;
+  height: 20%;
   transform: scaleX(-1);
   position: absolute;
-  left: 19vh;
-  top: 19vh;
+  left: 63%;
+  top: 63%;
 }
 .hero .hero--equipment .hero--shield {
-  height: 6vh;
+  height: 20%;
   position: absolute;
-  left: 6vh;
-  top: 21vh;
+  left: 20%;
+  top: 70%;
 }
 .hero .active {
   color: #F29123;
@@ -2242,6 +2273,9 @@ input[type=range]::-ms-fill-upper {
   width: 30%;
   grid-column: span 2;
   border-radius: 3px;
+}
+.childList .selected {
+  box-shadow: 3px 5px 5px #F29123;
 }
 
 .list--players {

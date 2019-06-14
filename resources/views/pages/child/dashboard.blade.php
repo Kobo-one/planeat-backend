@@ -5,9 +5,10 @@
 
 <div class="home no-childContainer">
 
-    <div class="game__grid hero ml-lrg">
+    <div class="game__grid hero">
+        @php($user = Auth::user()->currentMember())
         @foreach($children as $child )
-            <div class="hero--equipment">
+            <div class="hero--equipment {{$child == $user? 'front' : ''}} grid-start--{{$child->level}}">
                 <img class="hero--avatar" src="{{asset($child->avatar->imgBig)}}" alt="Your avatar">
                 @if($child->weapon)
                     <img src="{{asset($child->weapon->img)}}" alt="{{$child->weapon->name}}" class="hero--weapon">
@@ -15,17 +16,20 @@
                 @if($child->shield)
                     <img src="{{asset($child->shield->img)}}" alt="{{$child->shield->name}}" class="hero--shield">
                 @endif
+                <br>
+                <span class="small">{{$child->name}}</span>
             </div>
         @endforeach
     </div>
 
     <div class="childList list--players">
+
         @foreach($children as $child )
-            <div class="list__item panel--left">
+            <div class="list__item panel--left {{ $child->id == $user->id? 'selected' : ''}}">
                 <div class="list__icon"><img src="{{asset($child->avatar->img)}}" alt="{{$child->name}}'s avatar"></div>
                 <div class="list__text">
                     <p>{{$child->name}}</p>
-                    <small class="text--message">{{$child->xp}} EXP.</small>
+                    <small class="text--message">Lvl {{$child->level}} ({{$child->xp}} EXP.)</small>
                     <div class="progressBar">
                         <div class="progressBar__progress" style="width: {{$child->progress()}}%"></div>
                     </div>
