@@ -14,7 +14,7 @@
             <a href="{{route('settings_notifications')}}">
                 <div class="list__item">
                     <div class="list__icon text-center">
-                        <img src="{{asset('img/icons/notification-icon.svg')}}" alt="notification icon">
+                        <img class="settings--icon"  src="{{asset('img/icons/notification-icon.svg')}}" alt="notification icon">
                     </div>
                     <div class="list__text">
                         <h3 class="mb-0">Notifications</h3>
@@ -28,7 +28,7 @@
             <a href="{{route('settings_family')}}">
                 <div class="list__item">
                     <div class="list__icon text-center">
-                        <img src="{{asset('img/icons/family-icon.svg')}}" alt="family icon">
+                        <img class="settings--icon" src="{{asset('img/icons/family-icon.svg')}}" alt="family icon">
                     </div>
                     <div class="list__text">
                         <h3 class="mb-0">Manage family</h3>
@@ -42,7 +42,7 @@
             <a href="{{route('settings_profile')}}">
                 <div class="list__item">
                     <div class="list__icon text-center">
-                        <img src="{{asset('img/icons/girl-icon.svg')}}" alt="profile icon">
+                        <img class="settings--icon" src="{{asset('img/icons/girl-icon.svg')}}" alt="profile icon">
                     </div>
                     <div class="list__text">
                         <h3 class="mb-0">Profile</h3>

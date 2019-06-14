@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Adult;
 
-use App\Family;
+use App\FamilyMember;
+use App\MemberQuest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class FamilyController extends Controller
+class FamilyMemberController extends Controller
 {
     const PATH = 'pages/adult/family/';
     /**
@@ -17,8 +18,24 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        $members = Auth::user()->family->members;
+        $members = Auth::user()->family->children;
         return view(self::PATH.'index', compact('members'));
+    }
+
+    public function quests(FamilyMember $child)
+    {
+        return view(self::PATH.'quests', compact('child'));
+    }
+
+    public function ratings(FamilyMember $child)
+    {
+        $memberQuests = MemberQuest::where('family_member_id',$child->id)->whereNotNull('xp_gained')->get();
+        return view(self::PATH.'ratings', compact('child','memberQuests'));
+    }
+
+    public function difficulties(FamilyMember $child)
+    {
+        return view(self::PATH.'difficulties', compact('child'));
     }
 
     /**
@@ -45,21 +62,21 @@ class FamilyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Family  $family
+     * @param  \App\FamilyMember  $familyMember
      * @return \Illuminate\Http\Response
      */
-    public function show(Family $family)
+    public function show(FamilyMember $child)
     {
-        //
+        return view(self::PATH.'detail', compact('child'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Family  $family
+     * @param  \App\FamilyMember  $familyMember
      * @return \Illuminate\Http\Response
      */
-    public function edit(Family $family)
+    public function edit(FamilyMember $familyMember)
     {
         //
     }
@@ -68,10 +85,10 @@ class FamilyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Family  $family
+     * @param  \App\FamilyMember  $familyMember
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Family $family)
+    public function update(Request $request, FamilyMember $familyMember)
     {
         //
     }
@@ -79,10 +96,10 @@ class FamilyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Family  $family
+     * @param  \App\FamilyMember  $familyMember
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Family $family)
+    public function destroy(FamilyMember $familyMember)
     {
         //
     }

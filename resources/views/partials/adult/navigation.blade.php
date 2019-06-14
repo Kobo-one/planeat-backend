@@ -22,7 +22,7 @@
             <div class="nav__item {{setActive('adult/family')}}">
                 <a href="{{route('family_index')}}">
                     <img class="nav__img" src="{{asset('img/icons/navigation/family'.setActiveImage('adult/family').'.svg')}}" alt="">
-                    <p>Family</p>
+                    <p>Kids</p>
                 </a>
             </div>
         </div>

@@ -78,8 +78,11 @@ Route::group([
     Route::group([
         'prefix'=>'family'
     ],function (){
-        Route::get('/', 'FamilyController@index')->name('family_index');
-        Route::get('/{member}', 'FamilyController@show')->name('family_detail');
+        Route::get('/', 'FamilyMemberController@index')->name('family_index');
+        Route::get('/{child}', 'FamilyMemberController@show')->name('family_detail');
+        Route::get('/{child}/quests', 'FamilyMemberController@quests')->name('familyMember_quest');
+        Route::get('/{child}/ratings', 'FamilyMemberController@ratings')->name('familyMember_rating');
+        Route::get('/{child}/difficulties', 'FamilyMemberController@difficulties')->name('familyMember_difficultIngredients');
     });
 
     Route::group([
