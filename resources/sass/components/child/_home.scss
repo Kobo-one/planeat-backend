@@ -14,7 +14,7 @@ $rows: (6, 5, 4, 3, 2, 1) !default;
 
     .game__grid{
         margin: auto;
-        width: 32svh;
+        width: 29vh;
         display: grid;
         grid-template-rows:repeat(6, 13.5vh);
         grid-template-columns: 1fr;
@@ -23,6 +23,7 @@ $rows: (6, 5, 4, 3, 2, 1) !default;
             height: 13vh;
             width: 13vh;
             margin: 0;
+            margin-left: -6.5vh;
         }
         .grid-start {
             @each $row in $rows {

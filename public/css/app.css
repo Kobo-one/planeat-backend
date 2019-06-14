@@ -2113,7 +2113,7 @@ input[type=range]::-ms-fill-upper {
 }
 .home .game__grid {
   margin: auto;
-  width: 32svh;
+  width: 29vh;
   display: grid;
   grid-template-rows: repeat(6, 13.5vh);
   grid-template-columns: 1fr;
@@ -2122,6 +2122,7 @@ input[type=range]::-ms-fill-upper {
   height: 13vh;
   width: 13vh;
   margin: 0;
+  margin-left: -6.5vh;
 }
 .home .game__grid .grid-start--6 {
   grid-row-start: 1;

@@ -8,7 +8,7 @@
     <div class="game__grid hero">
         @php($user = Auth::user()->currentMember())
         @foreach($children as $child )
-            <div class="hero--equipment {{$child == $user? 'front' : ''}} grid-start--{{$child->level}}">
+            <div class="hero--equipment {{$child == $user? 'front' : ''}} grid-start--{{$child->level}}" style=" left: {{abs(array_sum([$child->progress(),((($child->level % 2) == 0 )? 0 : -100)]))}}%">
                 <img class="hero--avatar" src="{{asset($child->avatar->imgBig)}}" alt="Your avatar">
                 @if($child->weapon)
                     <img src="{{asset($child->weapon->img)}}" alt="{{$child->weapon->name}}" class="hero--weapon">
