@@ -2,7 +2,7 @@
 @section('site-content')
     <div class="childContainer--full quest">
 
-        @include('partials.child.header',['back'=>route('child_quests_index')])
+        @include('partials.child.header')
 
         <div class="page__title">
             <div class="panel panel--shadow title--image p-3">

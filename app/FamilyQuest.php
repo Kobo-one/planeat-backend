@@ -33,7 +33,7 @@ class FamilyQuest extends Model
     }
 
     public function selectedRecipe(){
-        return $this->questRecipes->where('selected',true)->first()->recipe();
+        return $this->questRecipes->where('selected',true)->first();
     }
 
     public function checkVotes(){

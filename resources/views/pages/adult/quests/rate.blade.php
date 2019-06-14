@@ -37,7 +37,11 @@
                     @if($quest)
                     <div class="panel__header">
                         <div>
-                            <h2 class="panel__title">{{$quest->selectedRecipe->title}}</h2>
+                            @if($quest->selectedRecipe())
+                                <h2 class="panel__title">{{$quest->selectedRecipe()->recipe->title}}</h2>
+                            @else
+                                <h2 class="panel__title">{{$quest->ingredient->name}}</h2>
+                            @endif
                         </div>
                         <div class="panel__actions">
                         </div>
