@@ -41,7 +41,7 @@
         <div class="nav__item">
             <a href="{{route('child_dinner_index')}}">
                 <div class="panel panel--shadow user-switcher nav__image">
-                    <img src="{{asset('img/icons/dashboard/dinner.svg')}}" alt="dinner icon">
+                    <img src="{{asset('img/icons/menu-icon.svg')}}" alt="dinner icon">
                 </div>
                 <p>Menu</p>
             </a>

@@ -6,7 +6,7 @@
 
         <div class="page__title">
             <div class="panel panel--shadow title--image">
-                <img src="{{asset($memberquest->quest->ingredient->img)}}" alt="{{$memberquest->quest->ingredient->name}}">
+                <img src="{{asset($memberquest->quest->ingredient->icon)}}" alt="{{$memberquest->quest->ingredient->name}}">
             </div>
             <div class="title--text">
                 <h1 class="text--uppercase">{{$memberquest->quest->ingredient->name}} Quest</h1>

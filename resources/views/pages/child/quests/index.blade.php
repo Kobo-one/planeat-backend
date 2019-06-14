@@ -11,7 +11,7 @@
             @foreach($memberquests as $memberquest)
                 <a href="{{route('child_quests_show',$memberquest)}}">
                     <div class="list__item panel panel--shadow panel--left">
-                        <div class="list__icon"><img src="{{asset($memberquest->quest->ingredient->img)}}" alt="{{$memberquest->quest->ingredient->name}}"></div>
+                        <div class="list__icon"><img src="{{asset($memberquest->quest->ingredient->icon)}}" alt="{{$memberquest->quest->ingredient->name}}"></div>
                         <div class="list__text">
                             <p>{{$memberquest->quest->ingredient->name}}</p>
 

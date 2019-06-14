@@ -11,7 +11,7 @@
         <div class="childList">
             @foreach($difficultIngredients as $difficultIngredient)
                     <div class="list__item panel panel--shadow panel--left">
-                        <div class="list__icon "><img src="{{asset($difficultIngredient->ingredient->img)}}" alt="{{$difficultIngredient->ingredient->name}}"></div>
+                        <div class="list__icon "><img src="{{asset($difficultIngredient->ingredient->icon)}}" alt="{{$difficultIngredient->ingredient->name}}"></div>
                         <div class="list__text text--message ">
                             <p class="">Complete the {{ strtolower($difficultIngredient->ingredient->name)}} quest {{pow(3,$difficultIngredient->level)}} times</p>
                             <div class="progressBar mt-1">
