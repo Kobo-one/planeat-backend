@@ -42,7 +42,7 @@
                                     <div class="rounded--img" style="background-image: url('{{asset($planning->recipe->img)}}')"></div>
                                 <div class="ml-xsm">
                                     <h3 class="panel__title">{{$planning->recipe->title}}</h3>
-                                    <small class="text--message">{{$planning->recipe->recipeCategory ? $planning->recipe->recipeCategory->name : null}}</small>
+                                    <small class="text--message">{{$planning->family_quest_id ? 'Quest' : $planning->recipe->recipeCategory ? $planning->recipe->recipeCategory->name : null}}</small>
                                 </div>
 
                                 <div class="panel__actions">

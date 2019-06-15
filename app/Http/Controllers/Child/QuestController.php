@@ -14,7 +14,7 @@ class QuestController extends Controller
 
     public function index(){
         $child = Auth::user()->currentMember();
-        $memberquests = $child->quests->sortBy('date');
+        $memberquests = $child->quests->sortByDesc('updated_at');
 
         return view(self::PATH.'index',compact('memberquests'));
     }
@@ -27,7 +27,7 @@ class QuestController extends Controller
             }
             return view(self::PATH.'select',compact('memberquest'));
         }else if($memberquest->quest->status == 'selected'){
-            $recipe = $memberquest->quest->selectedRecipe()->recipe->first();
+            $recipe = $memberquest->quest->selectedRecipe()->recipe;
             return view(self::PATH.'selected',compact('memberquest','recipe'));
         }else if($memberquest->quest->status == 'rated'){
             $recipe = $memberquest->quest->selectedRecipe()->recipe->first();

@@ -69,6 +69,5 @@ class FamilyQuest extends Model
             'date'=>$this->date,
             'family_quest_id'=>$this->id,
             ]);
-        dump($familyplanning);
     }
 }

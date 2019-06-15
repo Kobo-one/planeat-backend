@@ -2,7 +2,6 @@
 
 
 @section('site-content')
-
     <div class="">
         <h1 class="text--uppercase">Quests</h1>
         <p>Your quests for this week</p>
