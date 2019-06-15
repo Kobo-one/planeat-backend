@@ -40,7 +40,7 @@ class FamilyMemberController extends Controller
     public function difficulties(FamilyMember $child)
     {
         $difficultIngredients =$child->difficultIngredients;
-        $ingredients = Ingredient::whereNotIn('id',$difficultIngredients->pluck('ingredient_id'))->get();
+        $ingredients = Ingredient::whereNotIn('id',$difficultIngredients->pluck('ingredient_id'))->orderBy('name')->get();
         return view(self::PATH.'difficulties', compact('child','difficultIngredients','ingredients'));
     }
 
