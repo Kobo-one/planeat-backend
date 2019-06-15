@@ -116,3 +116,16 @@ input[type="range"]::-ms-fill-upper {
     max-width: $mobile-limit;
 }
 
+.rounded--img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: $border-radius-max;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

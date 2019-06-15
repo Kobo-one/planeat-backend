@@ -36,14 +36,18 @@
                     </div>
                     <div class="panel__main">
                         @if(($item['quests']))
-                            <div class="grid">
-                                <div class="grid__2"><img src="{{asset($item['quests']->ingredient->img)}}"
-                                                          alt=""></div>
-                                <div class="grid__9"><p>{{$item['quests']->ingredient->name}}</p></div>
-                                <div class="grid__1"><a href="{{route('quest_detail',$item['quests']->id)}}">
-                                        <div class="icon icon__right"></div>
-                                    </a></div>
-                            </div>
+                            <a class="list" href="{{route('quest_detail',$item['quests']->id)}}">
+
+                                <div class="list__item list__item--inside">
+                                    <div class="list__icon rounded--img" style="background-image: url('{{asset($item['quests']->ingredient->img)}}')"></div>
+                                    <div class="list__text">
+                                        <h3 class="mb-0">{{$item['quests']->ingredient->name}}</h3>
+                                    </div>
+                                    <div class="list__next">
+                                        <img src="{{asset('img/icons/next-icon.svg')}}" alt="next icon">
+                                    </div>
+                                </div>
+                            </a>
                         @endif
                     </div>
                 </div>

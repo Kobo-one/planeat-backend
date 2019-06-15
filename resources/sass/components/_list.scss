@@ -34,6 +34,12 @@
         }
     }
 
+    .list__item--inside{
+        padding: 0;
+        border: none;
+
+    }
+
     .done{
         background-color: $gray-0;
         border-top: 1px solid $gray-10;
