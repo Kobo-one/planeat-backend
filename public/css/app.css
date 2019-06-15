@@ -2681,6 +2681,9 @@ text--danger {
   align-items: center;
   justify-content: flex-end;
 }
+.list .list__item .list__longText {
+  grid-column: 1/span 2;
+}
 .list .list__item .grocery__list__header {
   display: grid;
   width: 100%;

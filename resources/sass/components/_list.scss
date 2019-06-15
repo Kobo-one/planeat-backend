@@ -25,6 +25,10 @@
             justify-content: flex-end;
         }
 
+        .list__longText{
+            grid-column:1 / span 2;
+        }
+
         .grocery__list__header{
             display: grid;
             width: 100%;

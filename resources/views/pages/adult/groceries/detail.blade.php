@@ -23,8 +23,7 @@
             @foreach($groceryItems as $groceryItem)
                 <a href="{{route(($groceryItem->completed ?'groceries_item_undone':'groceries_item_done'),[$groceryList,$groceryItem])}}">
                     <div class="list__item container {{$groceryItem->completed ? 'done': ''}}">
-                        <div class="list__icon"><h2 class="mb-0">{{$groceryItem->name}}</h2></div>
-                        <div class="list__text text--right"><p class="">{{$groceryItem->size}}</p></div>
+                        <div class="list__longText"><span class="text--message">{{$groceryItem->size}}</span> <span class="mb-0">{{$groceryItem->name}}</span></div>
                         <div class="list__next"><div class="{{$groceryItem->completed? 'btn--option-selected' : 'btn--option'}}"></div></div>
                     </div>
                 </a>
