@@ -26,12 +26,15 @@ class PlanningController extends Controller
             $date = now()->toDateString();
         }
         $familyId = Auth::user()->family->id;
-        $plannings = FamilyPlanning::where('family_id',$familyId)->where('date',$date)->get();
+        $plannings = FamilyPlanning::where('family_id',$familyId)->where('date',$date)->get()->sortByDesc('family_quest_id');
         $quests = FamilyQuest::where('family_id',$familyId)->where('date',$date)->where('status','created')->get();
         $readableDate = Carbon::parse($date)->format('jS F, Y');
-
+        $noQuest = false;
+        if( (FamilyPlanning::where('family_id',$familyId)->where('date',$date)->has('quest')->get()->count() <= 0 ) && $quests->count()  <= 0){
+            $noQuest = true;
+        }
         $lists = GroceryList::where('family_id',$familyId)->get();
-        return view(self::PATH.'index',compact('date','readableDate','plannings','quests','lists'));
+        return view(self::PATH.'index',compact('date','readableDate','plannings','quests','lists','noQuest'));
     }
 
     /**

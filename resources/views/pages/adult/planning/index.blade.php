@@ -1,7 +1,7 @@
 @extends('layouts.parent')
 
 @section('header')
-    @include('partials.adult.smallheader',['back'=>null, 'title'=> $readableDate,'rightUrl'=>'','icon' => '','search'=>false])
+    @include('partials.adult.smallheader',['back'=>null, 'title'=> $readableDate,'rightUrl'=>route('planning_create',$date),'icon' => 'img/icons/basic-plus-icon.svg','search'=>false])
 @endsection
 
 @section('site-content')
@@ -28,67 +28,13 @@
 
     <div class="section">
 
+            @if($noQuest)
 
-            @if($plannings || $quests)
-                @foreach($plannings as $planning)
-
-                <div class="spacer spacer--sml">
-                    <a href="{{route('recipes_show',$planning->recipe)}}">
-                        <div class="panel panel--shadow">
-
-                            <div class="panel__header mb-0">
-
-
-                                    <div class="rounded--img" style="background-image: url('{{asset($planning->recipe->img)}}')"></div>
-                                <div class="ml-xsm">
-                                    <h3 class="panel__title">{{$planning->recipe->title}}</h3>
-                                    <small class="text--message">{{$planning->family_quest_id ? 'Quest' : $planning->recipe->recipeCategory ? $planning->recipe->recipeCategory->name : null}}</small>
-                                </div>
-
-                                <div class="panel__actions">
-                                    @if($planning->shopping_added)
-                                        <div class=""><img src="{{asset('img/icons/shopping-grey-icon.svg')}}" alt="already added to shopping list"></div>
-                                    @else
-                                        <div class="js-toggle-planning-list" data-planning="{{$planning->id}}"><img src="{{asset('img/icons/shopping-icon.svg')}}" alt="add to shopping list"></div>
-                                    @endif
-
-                                </div>
-                            </div>
-
-                            <div class="panel__main">
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                @endforeach
-
-                    @foreach($quests as $quest)
-
-                        <div class="spacer spacer--sml">
-                            <div class="panel panel--shadow">
-
-                                <div class="panel__header mb-0">
-                                    <div>
-                                        <h3 class="panel__title text--capitalize">{{$quest->ingredient->name}} quest</h3>
-                                        <small class="text--message">Your kids are choosing a recipe for this quest.</small>
-                                    </div>
-                                </div>
-
-                                <div class="panel__main">
-
-                                </div>
-                            </div>
-                        </div>
-
-                    @endforeach
-            @endif
-
+                <h2>Quest</h2>
                 <div class="spacer spacer--sml panel panel--shadow">
                     <div class="panel__header mb-0">
                         <div>
-                            <h3 class="panel__title text--message">Add something to your planning</h3>
+                            <h3 class="panel__title text--message">There is no quest for today yet. Add one here!</h3>
                         </div>
                         <div class="panel__actions">
                             <a href="{{route('planning_create',$date)}}"><img src="{{asset('img/icons/plus-icon.svg')}}" alt=""></a>
@@ -98,6 +44,66 @@
 
                     </div>
                 </div>
+                <hr>
+            @endif
+            @if($plannings || $quests)
+                    @foreach($quests as $quest)
+                        <h2>Quest</h2>
+                        <div class="spacer spacer--sml">
+                            <div class="panel panel--shadow">
+
+                                <div class="panel__header mb-0">
+                                    <div>
+                                        <h3 class="panel__title">{{ucfirst($quest->ingredient->name)}} quest</h3>
+                                        <small class="text--message">Your kids are choosing a recipe for this quest.</small>
+                                    </div>
+                                </div>
+
+                                <div class="panel__main">
+
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    @endforeach
+
+                @foreach($plannings as $planning)
+                            {!! $planning->family_quest_id ?'<h2>Quest</h2>' : '' !!}
+                    <div class="spacer spacer--sml">
+                        <a href="{{route('recipes_show',$planning->recipe)}}">
+                            <div class="panel panel--shadow">
+
+                                <div class="panel__header mb-0">
+
+
+                                        <div class="rounded--img" style="background-image: url('{{asset($planning->recipe->img)}}')"></div>
+                                    <div class="ml-xsm">
+                                        <h3 class="panel__title">{{$planning->recipe->title}}</h3>
+                                        <small class="text--message">{!!($planning->recipe->recipeCategory ? $planning->recipe->recipeCategory->name : null)!!}</small>
+                                    </div>
+
+                                    <div class="panel__actions">
+                                        @if($planning->shopping_added)
+                                            <div class=""><img src="{{asset('img/icons/shopping-grey-icon.svg')}}" alt="already added to shopping list"></div>
+                                        @else
+                                            <div class="js-toggle-planning-list" data-planning="{{$planning->id}}"><img src="{{asset('img/icons/shopping-icon.svg')}}" alt="add to shopping list"></div>
+                                        @endif
+
+                                    </div>
+                                </div>
+
+                                <div class="panel__main">
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {!! $planning->family_quest_id ?'<hr>' : '' !!}
+
+                @endforeach
+
+            @endif
+
         <div class="section">
 
         </div>
