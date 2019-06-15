@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adult;
 use App\FamilyMemberDifficultIngredient;
 use App\FamilyPlanning;
 use App\FamilyQuest;
+use App\Http\Requests\DeleteRequest;
 use App\Http\Requests\StoreQuest;
 use App\Http\Requests\StoreRating;
 use App\Ingredient;
@@ -123,5 +124,14 @@ class QuestController extends Controller
         QuestRecipe::insert($relations);
 
         return redirect()->route('quests_index')->with('success','Quest has been created');
+    }
+
+    public function delete(DeleteRequest $request){
+        $quest=FamilyQuest::find($request->id);
+        if($quest->family != Auth::user()->family || !Auth::user()->currentMember()->hasRole('Parent') ){
+            abort(403, 'Access denied');
+        }
+        $quest->delete();
+        return redirect()->route('quests_index')->with('success','The quest has been deleted');
     }
 }

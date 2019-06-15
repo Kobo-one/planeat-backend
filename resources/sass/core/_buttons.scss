@@ -16,6 +16,14 @@
         border-radius: $border-radius-max;
     }
 
+    &--warning{
+        height: 40px;
+        width: 25%;
+        color: $white;
+        background-color: $color-red;
+        border-radius: $border-radius-max;
+    }
+
     &--selectable{
         height: 100%;
         width: 100%;

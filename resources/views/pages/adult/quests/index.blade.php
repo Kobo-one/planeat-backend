@@ -25,8 +25,7 @@
                         </div>
                         <div class="panel__actions">
                             @if(($item['quests']))
-                                <a href="{{route('quest_delete',$item['quests']->id)}}"><img
-                                        src="{{asset('img/icons/cross-icon.svg')}}" alt="remove quest"></a>
+                                <label data-toggle="modal" data-target="#deleteModal" data-name="{{$item['quests']->ingredient->name}}" data-id="{{$item['quests']->id}}"><img src="{{asset('img/icons/cross-icon.svg')}}" alt="remove quest"></label>
                             @else
                                 <a href="{{route('quest_create',$item['date'])}}"><img
                                         src="{{asset('img/icons/plus-icon.svg')}}"
@@ -56,3 +55,58 @@
     </div>
 
 @endsection
+
+
+@push('script')
+    <script>
+        $(document).ready(function () {
+            $('#deleteModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget); // Button that triggered the modal
+                var model = button.data('id'); // Extract info from data-* attributes
+                var name = button.data('name'); // Extract info from data-* attributes
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this);
+                modal.find('.modal-title').text("Delete '" + name+"' quest");
+                modal.find('.modal-body input[name="id"]').val(model);
+            })
+        })
+
+    </script>
+
+@endpush
+
+
+@section('modals')
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sml" role="document">
+            <div class="modal-content">
+                <form action="{{ route('quest_delete') }}" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Remove quest</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this quest? </p>
+                        <span class="text--message">This action can not be undone, the progress will be lost.</span><br>
+                        <input type="hidden" name="id">
+                        {!! method_field('delete') !!}
+                        {!! csrf_field() !!}
+                    </div>
+                    <div class="modal-footer">
+
+
+
+                        <a class="" data-dismiss="modal">Close</a>
+                        <button type="submit" class="btn btn--warning center">Delete</button>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection
+

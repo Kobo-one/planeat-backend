@@ -56,10 +56,10 @@
         <form action="{{route('groceries_list_store')}}" method="post">
             @csrf
             <label for="name">Title</label><br>
-            <input id="name" class="field field--text mb-lrg" type="text" name="name" placeholder="List name" required>
-            <input class="btn btn--primary mb-xsm" type="submit">
+            <input id="name" class="field field--text mb-lrg" type="text" name="name" placeholder="List name" required  >
+            <input class="btn btn--primary mb-xsm" type="submit" value="Save">
 
-            <input class="btn btn--secondary js-toggle-popup" type="reset">
+            <input class="btn btn--secondary js-toggle-popup" type="reset" value="Cancel">
         </form>
     </div>
 @endsection

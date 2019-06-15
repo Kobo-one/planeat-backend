@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Adult;
 
 use App\FamilyMember;
 use App\FamilyMemberDifficultIngredient;
+use App\Http\Requests\DeleteRequest;
+use App\Ingredient;
 use App\MemberQuest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -38,16 +40,30 @@ class FamilyMemberController extends Controller
     public function difficulties(FamilyMember $child)
     {
         $difficultIngredients =$child->difficultIngredients;
-        return view(self::PATH.'difficulties', compact('child','difficultIngredients'));
+        $ingredients = Ingredient::whereNotIn('id',$difficultIngredients->pluck('ingredient_id'))->get();
+        return view(self::PATH.'difficulties', compact('child','difficultIngredients','ingredients'));
     }
 
-    public function difficultyRemove(FamilyMember $child, FamilyMemberDifficultIngredient $difficultIngredient)
+    public function difficultyRemove(FamilyMember $child, DeleteRequest $request)
     {
+        $difficultIngredient=FamilyMemberDifficultIngredient::find($request->id);
         if($difficultIngredient->familyMember != $child){
             abort(403, 'Access denied');
         }
+
         $difficultIngredient->delete();
-        return redirect()->route('familyMember_difficultIngredients',$child);
+        return redirect()->route('familyMember_difficultIngredients',$child)->with('success','Ingredient deleted');
+    }
+
+    public function difficultyStore(FamilyMember $child, Request $request)
+    {
+        $difficultIngredient = FamilyMemberDifficultIngredient::create([
+            'ingredient_id' => $request->ingredient,
+            'family_member_id' => $child->id,
+            'times_tried' => 0
+        ]);
+
+        return redirect()->route('familyMember_difficultIngredients',$child)->with('success','Ingredient added');
     }
 
     /**

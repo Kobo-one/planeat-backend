@@ -4,7 +4,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import "circular-std";
 require('bootstrap');
 window.$ = require("jquery");
 require('jquery.scrollto');

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: CircularStd;
+  src: url("/fonts/vendor/circular-std/CircularStd-book.ttf");
+}
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font Family in all browsers (opinionated).
@@ -859,6 +863,13 @@ svg {
   width: 80%;
   color: #fff;
   background-color: #F29123;
+  border-radius: 20px;
+}
+.btn--warning {
+  height: 40px;
+  width: 25%;
+  color: #fff;
+  background-color: #FF3535;
   border-radius: 20px;
 }
 .btn--selectable, .quest .header__button .btn--select {
@@ -1808,6 +1819,10 @@ input[type=range]::-ms-fill-upper {
   justify-content: center;
 }
 
+.modal-sml {
+  max-width: 420px;
+}
+
 .dashboard {
   margin-top: -1px;
   padding: 10px;
@@ -1894,7 +1909,7 @@ input[type=range]::-ms-fill-upper {
   font-size: 12px;
   border-top: 1px solid #eaeaea;
   background-color: #FFFFFF;
-  z-index: 2000;
+  z-index: 1020;
   position: fixed;
   bottom: 0;
   width: 100vw;
