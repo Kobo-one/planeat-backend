@@ -36,7 +36,7 @@
                     </div>
                     <div class="panel__main">
                         @if(($item['quests']))
-                            <a class="list" href="{{route('quest_detail',$item['quests']->id)}}">
+                            <a class="list" href="{{route('planning_index_date',$item['quests']->date)}}">
 
                                 <div class="list__item list__item--inside">
                                     <div class="list__icon rounded--img" style="background-image: url('{{asset($item['quests']->ingredient->img)}}')"></div>
