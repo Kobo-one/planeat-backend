@@ -85,3 +85,26 @@
         margin-top: 10vh;
     }
 }
+
+.pincode--underlay{
+    height: 100vh;
+    width: 100vw;
+    max-width: $mobile-limit;
+    display: none;
+    position: absolute;
+    top: 0;
+
+}
+.pincode{
+    display: none;
+    margin: auto;
+    width: 80%;
+    max-width: $mobile-limit - 2*$grid-gutter-width;
+    background-color: $white;
+    position: absolute;
+    top: 20vh;
+    .pincodeField{
+        text-align: center;
+        font-size: $font-size-lrg;
+    }
+}
