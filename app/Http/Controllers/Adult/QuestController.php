@@ -89,7 +89,7 @@ class QuestController extends Controller
                 $ingredient = Ingredient::find($ingredientId);
                 $recipes = Recipe::whereHas('recipeIngredients', function($q) use ($ingredientId){
                     $q->where('recipe_ingredients.ingredient_id', $ingredientId);
-                })->get();;
+                })->get()->shuffle();
                 return view(self::PATH.'quests/createStep2',compact('recipes','date', 'ingredient'));
             }
             $ingredients = Ingredient::has('recipes')->get();
