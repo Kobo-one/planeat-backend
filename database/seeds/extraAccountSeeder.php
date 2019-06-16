@@ -53,7 +53,7 @@ class extraAccountSeeder extends Seeder
                 'birthday' => now()->toDate(),
                 'family_id' => $family->id,
                 'level' => '1',
-                'xp' => '0',
+                'xp' => '200',
                 'avatar_id' => $avatar->id,
                 'weapon_id' => null,
                 'shield_id' => null,
