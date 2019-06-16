@@ -28,8 +28,8 @@
     <meta property="og:title" content="{{ config('app.name', 'Plan Eat') }}" />
     <meta property="og:type" content="website" />
     <meta property="og:locale " content="{{ str_replace('_', '-', app()->getLocale()) }}" />
-    <meta property="og:url" content="{{url()}}" />
-    <meta property="og:image:secure_url" content="{{url()}}" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:image:secure_url" content="{{Request::url()}}" />
     <meta property="og:image" content="{{asset('img/og-image.png')}}"/>
     <meta property=" og:image:alt" content="The logo of Plan Eat"/>
     <meta property="og:image:url" content="{{asset('img/og-image.png')}}"/>
