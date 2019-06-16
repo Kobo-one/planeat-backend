@@ -30,8 +30,8 @@ Route::group(['prefix'=>'family','namespace'=>'Family','middleware'=>'auth'], fu
     Route::group([
         'prefix'=>'tutorial'
     ],function (){
-        Route::get('/finished', 'tutorialController@finish')->name('tutorial_finish');
-        Route::get('/{id}', 'tutorialController@index')->name('tutorial_index');
+        Route::get('/finished', 'TutorialController@finish')->name('tutorial_finish');
+        Route::get('/{id}', 'TutorialController@index')->name('tutorial_index');
 
     });
 });
