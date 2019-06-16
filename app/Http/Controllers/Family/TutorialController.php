@@ -11,7 +11,7 @@ class TutorialController extends Controller
     const PATH = 'pages/family/tutorial/';
 
     public function index($id){
-        return view(self::PATH.$id, compact('recipes'));
+        return view(self::PATH.$id);
     }
 
     public function finish(){
