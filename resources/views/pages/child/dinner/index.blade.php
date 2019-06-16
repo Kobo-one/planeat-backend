@@ -26,7 +26,7 @@
 
                 <div class="page__title">
                     <div class="panel panel--shadow title--image p-3">
-                        <img src="{{asset($planning->quest->ingredient->img)}}" alt="ingredient icon">
+                        <img src="{{asset($planning->quest->ingredient->icon)}}" alt="ingredient icon">
                     </div>
                     <div class="title--text">
                         <h2 class="">Earn up to 15xp!</h2>

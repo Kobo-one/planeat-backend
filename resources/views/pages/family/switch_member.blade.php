@@ -6,9 +6,11 @@
 
         <div class="pincode--underlay"></div>
         <div class="panel panel--shadow pincode text--center">
-            <p>Enter your pin</p>
-            <input type="password" pattern="[0-9]*" inputmode="numeric" class="field pincodeField mb-med">
-            <button class="btn btn--primary mb-xsm">Submit</button>
+            <form class="pincodeLocal">
+                <p>Enter your pin</p>
+                <input type="password" pattern="[0-9]*" inputmode="numeric" class="field pincodeField mb-med" required>
+                <button type="submit" class="btn btn--primary mb-xsm">Submit</button>
+            </form>
         </div>
 
         <div class="container user-switch">
@@ -61,12 +63,16 @@
                 $pincode.hide();
             });
 
-            $pincode.find('button').click(function (e) {
+            $('.pincodeLocal').on('submit',function (e) {
+                e.preventDefault();
                 $pincode = $('.pincodeField').val();
                 if ($pincode) {
                     $('input[name="pincode"]').val($pincode);
                     $btn.trigger('click');
+                }else{
+                    $('input[name="pincode"]').css('border-bottom-color', "D0021B");
                 }
+
             })
         })
     </script>

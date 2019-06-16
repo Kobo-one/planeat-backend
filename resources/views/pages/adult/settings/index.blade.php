@@ -39,7 +39,7 @@
             <a href="{{route('settings_profile')}}">
                 <div class="list__item">
                     <div class="list__icon text-center">
-                        <img class="settings--icon" src="{{asset('img/icons/girl-icon.svg')}}" alt="profile icon">
+                        <img class="settings--icon" src="{{asset('img/icon-logo.svg')}}" alt="profile icon">
                     </div>
                     <div class="list__text">
                         <h3 class="mb-0">Profile</h3>
@@ -67,7 +67,7 @@
             </div>
         </a>
 
-        <a href="{{route('settings_terms')}}">
+        <a href="https://info.planeat.app/cookiepolicy/">
             <div class="list__item">
                 <div class="list__icon text-center">
                 </div>
@@ -80,7 +80,7 @@
             </div>
         </a>
 
-        <a href="{{route('settings_privacy')}}">
+        <a href="https://info.planeat.app/cookiepolicy/">
             <div class="list__item">
                 <div class="list__icon text-center">
                 </div>

@@ -12,4 +12,20 @@ class SettingsController extends Controller
     public function index(){
         return view(self::PATH.'index');
     }
+
+    public function notification(){
+        $title = 'Notifications';
+        return view(self::PATH.'empty',compact('title'));
+    }
+
+    public function family(){
+        $title = 'Manage Family';
+        return view(self::PATH.'empty',compact('title'));
+    }
+
+    public function profile(){
+        $title = 'Profile';
+        return view(self::PATH.'empty',compact('title'));
+    }
+
 }

@@ -118,18 +118,19 @@
         @if($lists->count()>=1)
         <form action="{{route('groceries_planning_store')}}" method="post">
             @csrf
-            @foreach($lists as $list)
+            @foreach($lists as $key => $list)
                 <label for="list{{$list->id}}" class="panel panel--shadow ">
                     <input type="hidden" name="planning" value="">
                     <div class="grocery__planning mb-0">
                             <div class="grocery__icon--sml"><img src="{{asset('img/icons/grocery-icon.svg')}}" alt="grocery-icon"></div>
-                            <input type="radio" class="hidden" id="list{{$list->id}}" name="list" value="{{$list->id}}" class="listRadio" required>
+                            <input type="radio" class="hidden" id="list{{$list->id}}" name="list" value="{{$list->id}}" class="listRadio" required {{$key ==0 ?"checked":""}}>
                             <div class=""><h2 class="text--left">{{$list->name}}</h2></div>
                             <div class="btn--radio"></div>
                     </div>
                 </label>
             @endforeach
             <input class="btn btn--secondary mt-sml" type="submit" value="Add ingredients to this list">
+            <div class="mt-xsm"><a class="js-toggle-planning-list">Cancel</a></div>
         </form>
         @else
             <div class="container">

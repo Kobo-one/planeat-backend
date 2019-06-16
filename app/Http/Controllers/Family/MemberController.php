@@ -24,7 +24,7 @@ class MemberController extends Controller
             if(Hash::check($request->pincode,$member->pincode)){
                 session(['member'=> $request->memberId]);
             }else{
-                return redirect()->route('member_index')->with('warning','Wrong pincode entered');
+                return redirect()->route('member_index')->withErrors('Wrong pincode entered');
             }
         }else{
             session(['member'=> $request->memberId]);

@@ -22,9 +22,11 @@
         @endforeach
     </div>
 
+    <a href="{{route('child_hero_index')}}">
     <div class="childList list--players">
 
         @foreach($children as $child )
+
             <div class="list__item panel--left {{ $child->id == $user->id? 'selected' : ''}}">
                 <div class="list__icon"><img src="{{asset($child->avatar->img)}}" alt="{{$child->name}}'s avatar"></div>
                 <div class="list__text">
@@ -35,9 +37,11 @@
                     </div>
                 </div>
             </div>
+
         @endforeach
 
     </div>
+    </a>
 
     <nav class="childNavigation childNavigation--bottom">
 
