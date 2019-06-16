@@ -25,6 +25,7 @@
         height: 70vh;
         overflow-y: auto;
         overflow-x: hidden;
+        scrollbar-width: none;
     }
     .users::-webkit-scrollbar {
         visibility: hidden;

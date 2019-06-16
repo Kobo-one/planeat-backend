@@ -2270,6 +2270,7 @@ input[type=range]::-ms-fill-upper {
 .childList {
   position: relative;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
 .childList::-webkit-scrollbar {
   width: 0 !important;
@@ -2535,6 +2536,7 @@ text--danger {
   width: 100%;
   min-height: 85px;
   direction: rtl;
+  scrollbar-width: none;
   white-space: nowrap;
 }
 .slider .slide__item {
@@ -2595,6 +2597,7 @@ text--danger {
   height: 70vh;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: none;
 }
 .general .users::-webkit-scrollbar {
   visibility: hidden;

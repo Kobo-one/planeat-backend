@@ -5,6 +5,7 @@
     width: 100%;
     min-height: 85px;
     direction: rtl;
+    scrollbar-width: none;
     .slide__item{
         flex: 0 0 calc(100%/7);
         justify-content: center;
