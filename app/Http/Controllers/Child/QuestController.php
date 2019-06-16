@@ -14,9 +14,22 @@ class QuestController extends Controller
 
     public function index(){
         $child = Auth::user()->currentMember();
-        $memberquests = $child->quests->sortByDesc('updated_at');
 
-        return view(self::PATH.'index',compact('memberquests'));
+        $newQuests = $child->quests()->whereHas('quest', function($q){
+            $q->where('status', 'created');
+        })->get();
+
+        $acceptedQuests =$child->quests()->whereHas('quest', function($q){
+            $q->where('status', 'selected');
+        })->get();
+
+        $completedQuests = $child->quests()->whereHas('quest', function($q){
+            $q->where('status', 'rated');
+        })->get();
+
+
+
+        return view(self::PATH.'index',compact('newQuests','acceptedQuests','completedQuests'));
     }
 
 
