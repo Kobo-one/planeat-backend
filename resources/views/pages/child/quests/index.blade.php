@@ -26,7 +26,7 @@
                     </a>
                 @endforeach
             @else
-                <div class="ml-xsm">
+                <div class="container">
                     <small >No new quests yet, come back later!</small>
                 </div>
             @endif
@@ -45,7 +45,7 @@
                     </a>
                 @endforeach
             @else
-                <div class="ml-xsm">
+                <div class="container">
                     <small>No selected quests yet! Start selecting quests for them to appear here!</small>
                 </div>
             @endif
@@ -65,7 +65,7 @@
                     </a>
                 @endforeach
             @else
-                <div class="ml-xsm">
+                <div class="container">
                     <small>No finished quests yet! This will get filled in no time, good luck!</small>
                 </div>
             @endif
