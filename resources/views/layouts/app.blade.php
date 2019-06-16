@@ -23,8 +23,18 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- SEO -->
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Plan Eat') }}</title>
     <meta name="description" content="With the new app ‘Planeat’ we put an end to all these problems. We ensure that an evening meal is a moment of rest where everyone in the family is satisfied. A happy occasion for both young and old.">
+    <meta property="og:title" content="{{ config('app.name', 'Plan Eat') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale " content="{{ str_replace('_', '-', app()->getLocale()) }}" />
+    <meta property="og:url" content="{{url()}}" />
+    <meta property="og:image:secure_url" content="{{url()}}" />
+    <meta property="og:image" content="{{asset('img/og-image.png')}}"/>
+    <meta property=" og:image:alt" content="The logo of Plan Eat"/>
+    <meta property="og:image:url" content="{{asset('img/og-image.png')}}"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="1200"/>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
