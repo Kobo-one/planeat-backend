@@ -54,6 +54,19 @@
 
     <div class="section no-container list settings">
 
+        <a href="{{route('tutorial_index',1)}}">
+            <div class="list__item">
+                <div class="list__icon text-center">
+                </div>
+                <div class="list__text">
+                    <h3 class="mb-0">Tutorial</h3>
+                </div>
+                <div class="list__next">
+                    <img src="{{asset('img/icons/next-icon.svg')}}" alt="next icon">
+                </div>
+            </div>
+        </a>
+
         <a href="{{route('settings_terms')}}">
             <div class="list__item">
                 <div class="list__icon text-center">

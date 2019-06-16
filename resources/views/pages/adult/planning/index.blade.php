@@ -70,7 +70,7 @@
                 @foreach($plannings as $planning)
                             {!! $planning->family_quest_id ?'<h2>Quest</h2>' : '' !!}
                     <div class="spacer spacer--sml">
-                        <a href="{{route('recipes_show',$planning->recipe)}}">
+                        <a href="{{route('recipes_view',$planning->recipe)}}">
                             <div class="panel panel--shadow">
 
                                 <div class="panel__header mb-0">

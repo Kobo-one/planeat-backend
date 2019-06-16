@@ -43,7 +43,7 @@
         <h2 class="">Today's Meal{{$todaysplannings->count() > 1 ? 's' : ''}}</h2>
         @if($todaysplannings->count()>=1)
             @foreach($todaysplannings as $planning)
-                <a href="{{route('recipes_show',[$planning->recipe])}}">
+                <a href="{{route('recipes_view',[$planning->recipe])}}">
                     <div class="panel panel--shadow panel--image mt-xsm" style="background-image: url('{{asset($planning->recipe->img)}}')">
                         <div class="panel__main">
                             <div class="panel__overlay">

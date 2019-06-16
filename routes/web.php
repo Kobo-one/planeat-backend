@@ -26,18 +26,27 @@ Route::group(['prefix'=>'family','namespace'=>'Family','middleware'=>'auth'], fu
         Route::post('/login','MemberController@login')->name('member_login');
         Route::get('/logout', 'MemberController@logout')->name('member_logout');
     });
+
+    Route::group([
+        'prefix'=>'tutorial'
+    ],function (){
+        Route::get('/finished', 'tutorialController@finish')->name('tutorial_finish');
+        Route::get('/{id}', 'tutorialController@index')->name('tutorial_index');
+
+    });
 });
 
 
 Route::group([
     'prefix' => 'adult',
     'namespace' => 'Adult',
-    'middleware' => ['auth','CheckMember:Adult']
+    'middleware' => ['auth','CheckMember:Adult','CheckTutorial']
 ], function() {
     Route::get('/', 'DashboardController@index')->name('adult_index');
 
     Route::get('/recipes', 'RecipesController@index')->name('recipes_index');
     Route::get('/recipes/{recipe}', 'RecipesController@show')->name('recipes_show');
+    Route::get('/recipes/{recipe}/view', 'RecipesController@show')->name('recipes_view');
 
     Route::group([
         'prefix'=>'quests'

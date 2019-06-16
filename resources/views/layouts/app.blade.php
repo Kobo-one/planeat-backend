@@ -31,7 +31,7 @@
     <meta property="og:url" content="{{Request::url()}}" />
     <meta property="og:image:secure_url" content="{{Request::url()}}" />
     <meta property="og:image" content="{{asset('img/og-image.png')}}"/>
-    <meta property=" og:image:alt" content="The logo of Plan Eat"/>
+    <meta property="og:image:alt" content="The logo of Plan Eat"/>
     <meta property="og:image:url" content="{{asset('img/og-image.png')}}"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="1200"/>

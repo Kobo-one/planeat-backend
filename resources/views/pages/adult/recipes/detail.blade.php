@@ -8,9 +8,11 @@
 
 @section('header__button')
 
-    <a class="js-toggle-popup">
-        <div class="btn--add" ></div>
-    </a>
+    @if(!Request::is('*view*'))
+        <a class="js-toggle-popup">
+            <div class="btn--add"></div>
+        </a>
+    @endif
 
 @endsection
 

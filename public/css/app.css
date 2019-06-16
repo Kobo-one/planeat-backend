@@ -2616,6 +2616,39 @@ text--danger {
   margin-bottom: -5vh;
 }
 
+.tutorial {
+  text-align: center;
+  padding-top: 10vh;
+}
+.tutorial .tutorial__image {
+  height: 30vh;
+  margin-bottom: 2vh;
+}
+.tutorial .tutorial__text {
+  height: 30vh;
+  padding: 0 4vw;
+}
+.tutorial .tutorial__steps {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: auto;
+}
+.tutorial .tutorial__steps .step__ball {
+  height: 15px;
+  width: 15px;
+  background-color: #b7b7b7;
+  border-radius: 20px;
+}
+.tutorial .tutorial__steps .selected {
+  background-color: #AFD656;
+}
+.tutorial .tutorial__next {
+    margin: auto;
+  margin-top: 10vh;
+}
+
 .icon--time {
   padding-left: 19px;
   background: url("/../img/icons/clock-icon.svg") no-repeat;
