@@ -5,7 +5,7 @@
  */
 
 require('bootstrap');
-window.$ = require("jquery");
+global.$ = global.jQuery = require('jquery');
 require('jquery.scrollto');
 require('./components/slider');
 
