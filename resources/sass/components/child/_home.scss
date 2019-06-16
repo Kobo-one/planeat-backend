@@ -10,34 +10,42 @@ $rows: (6, 5, 4, 3, 2, 1) !default;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    padding-bottom: 20vh;
-
-    .game__grid{
-        margin: auto;
-        width: 29vh;
-        display: grid;
-        grid-template-rows:repeat(6, 13.5vh);
-        grid-template-columns: 1fr;
-
-        .hero--equipment{
-            height: 13vh;
-            width: 13vh;
-            margin: 0;
-            margin-left: -6.5vh;
-        }
-        .grid-start {
-            @each $row in $rows {
-                &--#{$row} {
-                    grid-row-start:  nth($rows, $row);
+    .map{
+        height: 100%;
+        width: 100%;
+        .center--map{
+            margin-top: -13vh;
+            height: 143vw;
+            width: 50vw;
+            max-height: 588px;
+            max-width: $mobile-limit /2;
+            .game__grid{
+                height: 100%;
+                display: grid;
+                grid-template-rows:repeat(6, 1fr);
+                grid-template-columns: 1fr;
+                .hero--equipment{
+                    height: 12vh;
+                    width: 12vh;
+                    margin: 0;
+                    margin-left: -6vh;
                 }
+                .grid-start {
+                    @each $row in $rows {
+                        &--#{$row} {
+                            grid-row-start:  nth($rows, $row);
+                        }
+                    }
+                }
+
+
+
+            }
+            .front{
+                z-index: 2000;
             }
         }
-
-
-
     }
-    .front{
-        z-index: 2000;
-    }
+
 }
 

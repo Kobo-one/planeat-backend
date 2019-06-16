@@ -2137,40 +2137,49 @@ input[type=range]::-ms-fill-upper {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  padding-bottom: 20vh;
 }
-.home .game__grid {
-  margin: auto;
-  width: 29vh;
+.home .map {
+  height: 100%;
+  width: 100%;
+}
+.home .map .center--map {
+  margin-top: -13vh;
+  height: 143vw;
+  width: 50vw;
+  max-height: 588px;
+  max-width: 210px;
+}
+.home .map .center--map .game__grid {
+  height: 100%;
   display: grid;
-  grid-template-rows: repeat(6, 13.5vh);
+  grid-template-rows: repeat(6, 1fr);
   grid-template-columns: 1fr;
 }
-.home .game__grid .hero--equipment {
-  height: 13vh;
-  width: 13vh;
+.home .map .center--map .game__grid .hero--equipment {
+  height: 12vh;
+  width: 12vh;
   margin: 0;
-  margin-left: -6.5vh;
+  margin-left: -6vh;
 }
-.home .game__grid .grid-start--6 {
+.home .map .center--map .game__grid .grid-start--6 {
   grid-row-start: 1;
 }
-.home .game__grid .grid-start--5 {
+.home .map .center--map .game__grid .grid-start--5 {
   grid-row-start: 2;
 }
-.home .game__grid .grid-start--4 {
+.home .map .center--map .game__grid .grid-start--4 {
   grid-row-start: 3;
 }
-.home .game__grid .grid-start--3 {
+.home .map .center--map .game__grid .grid-start--3 {
   grid-row-start: 4;
 }
-.home .game__grid .grid-start--2 {
+.home .map .center--map .game__grid .grid-start--2 {
   grid-row-start: 5;
 }
-.home .game__grid .grid-start--1 {
+.home .map .center--map .game__grid .grid-start--1 {
   grid-row-start: 6;
 }
-.home .front {
+.home .map .center--map .front {
   z-index: 2000;
 }
 
