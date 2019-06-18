@@ -67,7 +67,7 @@
             </div>
         </a>
 
-        <a href="https://info.planeat.app/cookiepolicy/">
+        <a href="https://info.planeat.app/cookiepolicy/" target="_blank">
             <div class="list__item">
                 <div class="list__icon text-center">
                 </div>
@@ -80,7 +80,7 @@
             </div>
         </a>
 
-        <a href="https://info.planeat.app/cookiepolicy/">
+        <a href="https://info.planeat.app/cookiepolicy/" target="_blank">
             <div class="list__item">
                 <div class="list__icon text-center">
                 </div>
