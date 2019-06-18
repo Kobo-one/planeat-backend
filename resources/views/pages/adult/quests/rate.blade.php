@@ -35,7 +35,7 @@
 
                 <div class="panel panel--shadow">
                     @if($quest)
-                    <div class="panel__header">
+                    <div class="panel__header mb-0">
                         <div>
                             @if($quest->selectedRecipe())
                                 <h2 class="panel__title">{{$quest->selectedRecipe()->recipe->title}}</h2>
@@ -53,36 +53,39 @@
                         <div class="panel__actions">
                         </div>
                     </div>
-                    <div class="panel__main">
+
                         @if($quest->status == 'selected')
-                            <form action="{{route('quest_rating_store',$date)}}" method="POST">
-                                {{csrf_field()}}
-                            @foreach($children as $child)
-                                <p class="mb-0">{{$child->name}}</p>
-                                <div class="width-100 text--center mb-xsm">
-                                    <input class="rangeSelector" type="range" min="0" max="10" value="5" name="ratings[{{$child->id}}]">
-                                    <div class="rating-faces">
-                                        <img src="{{asset('img/icons/sad-icon.svg')}}" alt="sad face">
-                                        <img src="{{asset('img/icons/neutral-icon.svg')}}" alt="neutral face">
-                                        <img src="{{asset('img/icons/happy-icon.svg')}}" alt="happy face">
+                            <div class="panel__main mt-xsm">
+                                <form action="{{route('quest_rating_store',$date)}}" method="POST">
+                                    {{csrf_field()}}
+                                @foreach($children as $child)
+                                    <p class="mb-0">{{$child->name}}</p>
+                                    <div class="width-100 text--center mb-xsm">
+                                        <input class="rangeSelector" type="range" min="0" max="10" value="5" name="ratings[{{$child->id}}]">
+                                        <div class="rating-faces">
+                                            <img src="{{asset('img/icons/sad-icon.svg')}}" alt="sad face">
+                                            <img src="{{asset('img/icons/neutral-icon.svg')}}" alt="neutral face">
+                                            <img src="{{asset('img/icons/happy-icon.svg')}}" alt="happy face">
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
-                                <br>
-                                <div class="width-100 text--center mb-sml">
-                                    <input class="btn btn--primary" type="submit" value="Submit">
-                                </div>
-                            </form>
+
+                                @endforeach
+                                    <br>
+                                    <div class="width-100 text--center mb-sml">
+                                        <input class="btn btn--primary" type="submit" value="Submit">
+                                    </div>
+                                </form>
+                            </div>
                         @elseif($quest->status == 'created')
 
                         @elseif($quest->status == 'rated')
                             @foreach($quest->questMembers->sortByDesc('xp_gained') as $questMember)
-                                <div>
-                                    <p class="text--success">{{$questMember->child->name}} gained {{$questMember->xp_gained}} EXP.</p>
+                                <div class="panel__main mt-xsm">
+                                    <div>
+                                        <p class="text--success">{{$questMember->child->name}} gained {{$questMember->xp_gained}} EXP.</p>
+                                    </div>
                                 </div>
-
                             @endforeach
-
                         @endif
                     </div>
                     @else

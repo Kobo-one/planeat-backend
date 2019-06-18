@@ -59,7 +59,7 @@
                             <div class="list__icon"><img src="{{asset($completedQuest->quest->ingredient->icon)}}" alt="{{$completedQuest->quest->ingredient->name}}"></div>
                             <div class="list__text">
                                 <p>{{$completedQuest->quest->ingredient->name}}</p>
-                                <small class="text--message">Take a look at the xp you gained!</small>
+                                <small class="text--message">Take a look at the EXP you gained!</small>
                             </div>
                         </div>
                     </a>

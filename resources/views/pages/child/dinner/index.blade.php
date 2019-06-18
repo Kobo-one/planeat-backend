@@ -29,7 +29,7 @@
                         <img src="{{asset($planning->quest->ingredient->icon)}}" alt="ingredient icon">
                     </div>
                     <div class="title--text">
-                        <h2 class="">Earn up to 15xp!</h2>
+                        <h2 class="">Earn up to 15EXP!</h2>
                     </div>
                 </div>
 
