@@ -20,9 +20,10 @@ class DemoAccountsSeeder extends Seeder
         $avatar = Equipment::where('type','avatar')->first();
 
         $user = User::updateOrCreate([
-            'name' => "Demo account"],
+            'name' => "Demo account",
+            'email' => "demo@planeat.app",
+            ],
             [
-                'email' => "demo@planeat.app",
                 'password' => bcrypt('demo'),
             ]);
 
@@ -33,11 +34,12 @@ class DemoAccountsSeeder extends Seeder
             ]);
 
         $parent = FamilyMember::updateOrCreate([
-            'name' => 'David',],
+            'name' => 'David',
+            'family_id' => $family->id,],
             [
                 'pincode' => bcrypt('1234'),
                 'birthday' => now()->toDate(),
-                'family_id' => $family->id,
+
                 'level' => '1',
                 'xp' => '0',
                 'avatar_id' => $logo->id,
@@ -47,11 +49,12 @@ class DemoAccountsSeeder extends Seeder
         $parent->assignRole('Parent');
 
         $child1 = FamilyMember::updateOrCreate([
-            'name' => 'Pham',],
+            'name' => 'Pham',
+            'family_id' => $family->id,],
             [
                 'pincode' => '',
                 'birthday' => now()->toDate(),
-                'family_id' => $family->id,
+
                 'level' => '1',
                 'xp' => '250',
                 'avatar_id' => $avatar->id,
@@ -61,11 +64,12 @@ class DemoAccountsSeeder extends Seeder
         $child1->assignRole('Child');
 
         $child2 = FamilyMember::updateOrCreate([
-            'name' => 'Thomas',],
+            'name' => 'Thomas',
+            'family_id' => $family->id,],
             [
                 'pincode' => '',
                 'birthday' => now()->toDate(),
-                'family_id' => $family->id,
+
                 'level' => '1',
                 'xp' => '50',
                 'avatar_id' => $avatar->id,
@@ -76,11 +80,12 @@ class DemoAccountsSeeder extends Seeder
         $child2->assignRole('Child');
 
         $child3 = FamilyMember::updateOrCreate([
-            'name' => 'Kobe',],
+            'name' => 'Kobe',
+            'family_id' => $family->id,],
             [
                 'pincode' => '',
                 'birthday' => now()->toDate(),
-                'family_id' => $family->id,
+
                 'level' => '1',
                 'xp' => '120',
                 'avatar_id' => $avatar->id,
