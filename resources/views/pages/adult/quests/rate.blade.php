@@ -38,9 +38,9 @@
                     <div class="panel__header mb-0">
                         <div>
                             @if($quest->selectedRecipe())
-                                <h2 class="panel__title">{{$quest->selectedRecipe()->recipe->title}}</h2>
+                                <h2 class="panel__title">{{ucfirst($quest->selectedRecipe()->recipe->title)}}</h2>
                             @else
-                                <h2 class="panel__title">{{$quest->ingredient->name}}</h2>
+                                <h2 class="panel__title">{{ucfirst($quest->ingredient->name)}}</h2>
                             @endif
                             @if($quest->status == 'selected')
                                     <p class="text--message">Rate how well they tried this meal.</p>
